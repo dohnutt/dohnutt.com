@@ -92,7 +92,7 @@ Text Domain: dohnutt
  * Homepage & theme basics.
  */
 html {
-  font-size: 14px;
+  font-size: $font-size-root;
 
   @include media-breakpoint-up(sm) {
     font-size: 16px;
@@ -131,9 +131,45 @@ html {
   animation-name: tada;
 }
 
+main {
+  a {
+    transition: color 0.1s ease, border-color 0.1s ease;
+    border-bottom: 0.1em solid currentColor;
+
+    &:hover,
+    &:focus,
+    &:hover:focus {
+      color: $link-hover-color;
+    }
+  }
+}
+
+
+h1, h2 {
+  color: $gray-darker;
+
+  strong {
+    color: $body-color;
+    font-weight: inherit;
+  }
+
+  a {
+    color: inherit;
+
+    &:hover,
+    &:focus,
+    &:hover:focus {
+      color: $link-color;
+    }
+  }
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: 0.85em;
+}
 
 header.wrap {
-  padding: 0 0 4em;
+  padding: 0 0 2em;
+  font-size: 0.9em;
 
   .navbar-header {
     @include media-breakpoint-down(sm) {
@@ -148,6 +184,7 @@ header.wrap {
 
   .navbar-brand {
     position: relative;
+    font-size: 1.25em;
 
     &:after {
       content: '';
@@ -155,12 +192,11 @@ header.wrap {
       width: 100%;
       height: 100%;
       background-image: url('/wp-content/themes/eric/img/apple-donut.png');
-      background-size: 7.5rem;
+      background-size: 6em;
       background-repeat: no-repeat;
       left: 0;
       top: 0;
       opacity: 0;
-      transition: opacity 0.1s ease;
       pointer-events: none;
     }
     &:hover,
@@ -169,7 +205,7 @@ header.wrap {
       &:after {
         content: '';
         -webkit-animation-name: tada;
-        -webkit-animation-duration: 2.5s;
+        -webkit-animation-duration: 1s;
         -webkit-animation-iteration-count: 1;
         -webkit-animation-timing-function: linear;
         opacity: 1;
@@ -181,11 +217,10 @@ header.wrap {
   }
 
   .logo {
-    width: 7.5rem;
-    height: 7.5rem;
+    width: 6em;
+    height: 6em;
     position: relative;
     opacity: 1;
-    transition: opacity 0.15s ease;
 
     &:hover,
     &:focus,
@@ -197,7 +232,7 @@ header.wrap {
   .navbar-toggler {
     padding-top: 0.725em;
     padding-bottom: 0.725em;
-    color: $gray-light;
+    color: $gray-lighter;
     font-size: 3rem;
     float: right;
   }
@@ -205,14 +240,43 @@ header.wrap {
   .navbar-nav {
     .nav-link {
       @include media-breakpoint-up(md) {
-        padding-top:    calc(50px - 0.5rem);
-        padding-bottom: calc(50px - 0.5rem);
+        margin: 2em 0.5em;
+        padding: 0;
       }
+    }
+  }
+  .nav-link {
+    font-family: $headings-font-family;
+    color: $gray-darker;
+    font-size: 1.4em;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    border-bottom: 0.1em solid transparent;
+
+    &:hover,
+    &:focus,
+    &:hover:focus {
+      color: $link-color;
+      border-color: currentColor;
     }
   }
 }
 .hero {
   padding: 2em 0;
+
+  .entry-title {
+    font-size: 4em;
+    margin:0;
+    text-align: center;
+  }
+}
+.entry-image {
+  margin-bottom: 3em;
+}
+.entry-content {
+  p {
+    line-height: 1.8;
+    max-width: 34em;
+  }
 }
 footer.wrap {
   padding: 5em 0 1em;
@@ -366,97 +430,6 @@ footer.wrap {
       border-top-left-radius: 0;
       border-top-right-radius: 0;
     }
-  }
-}
-
-// Contact page
-.google-map {
-	width: 100%;
-	height: 300px;
-
-  img { // fixes potential theme css conflict
-    max-width: inherit !important;
-  }
-
-  .gm-style-iw {
-    font-weight: 400;
-    font-size: 14px;
-    max-width: 200px;
-
-    .fa-stack {
-      display: none;
-    }
-
-    .name {
-      font-size: 1.2em;
-      margin: 0.4em 0 0.1em;
-    }
-
-    p {
-      margin-bottom: 0;
-    }
-  }
-
-  @include media-breakpoint-up(md) {
-    height: 500px;
-  }
-}
-
-.locations-title {
-  margin-top: 1em;
-  text-align: center;
-  color: $brand-primary;
-  font-style: italic;
-}
-.entry-office {
-  text-align: center;
-  padding-top: 1.5em;
-  color: $gray;
-
-  .fa-stack {
-    color: $brand-primary;
-
-    .fa-stack-1x {
-      font-family: inherit;
-      font-weight: 600;
-      line-height: 34px;
-      width: 35px;
-      color: #fff;
-    }
-  }
-  .name {
-    margin-bottom: 0.3em;
-  }
-
-  p {
-    @extend .lead;
-    margin-bottom: 0.3em;
-  }
-
-  .hours {
-    font-style: italic;
-  }
-}
-
-.entry-contact {
-  padding-top: 5em;
-  padding-bottom: 3em;
-
-  .contact-info {
-    h2 {
-      font-style: italic;
-      font-weight: 400;
-    }
-    h3 {
-      margin-bottom: 0;
-    }
-    p {
-      @extend .lead;
-      color: $gray;
-    }
-  }
-  .contact-form {
-    padding-top: 3em;
   }
 }
 

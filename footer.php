@@ -15,7 +15,7 @@
 
     <div class="row">
       <div class="col-xs-12">
-        &copy; <?php echo date('Y'); ?> CaveraKit.
+        &copy; <?php echo date('Y'); ?> Eric Moss.
       </div>
     </div>
 

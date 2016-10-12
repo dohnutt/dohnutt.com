@@ -20,9 +20,9 @@
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
-            <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#primaryNav" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">&#9776;</button>
-            <a class="navbar-brand" href="<?php echo site_url(); ?>">
-              <img src="http://ericmoss.ca/wp-content/themes/ericmoss/img/logo.svg" alt="EM Monogram logo" title="Eric Moss" class="logo">
+            <button class="navbar-toggler hidden-md-up collapsed" type="button" data-toggle="collapse" data-target="#primaryNav" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">&#9776;</button>
+            <a class="navbar-brand" href="<?php echo site_url(); ?>/">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="EM Monogram logo" title="Eric Moss" class="logo">
             </a>
           </div>
           <div class="collapse navbar-toggleable-sm pull-md-right" id="primaryNav">

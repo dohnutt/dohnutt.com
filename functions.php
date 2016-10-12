@@ -244,8 +244,8 @@ if(!function_exists('dohnutt_theme_support')) {
     add_theme_support( 'automatic-feed-links' );
     //add_theme_support('post-formats');
 
-    //add_image_size( 'hero', 1920, 550, true );
-    //add_image_size( 'feature', 800, 600, true );
+    add_image_size( 'hero', 1920, 550, true );
+    add_image_size( 'featured', 1200, 800, true );
     //add_image_size( 'gallery', 480, 480, true );
     //add_image_size( 'tiny', 100, 100, true );
 
