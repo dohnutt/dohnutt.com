@@ -15,7 +15,7 @@
 
   <body <?php body_class(); ?>>
     <header class="wrap">
-      <a href="#content" class="sr-only sr-only-focusable">Skip to content</a>
+      <a href="#content" class="skip">Skip to content</a>
 
       <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -50,14 +50,18 @@
                 yoast_breadcrumb('<p class="breadcrumbs">','</p>');
               }
 
-              if ( is_front_page() ) :
-                echo '<h1 class="entry-title" tabindex="0">Hello. I\'m Eric.</h1>';
-              elseif ( is_archive() || is_home() ) :
+              $title = get_the_title();
+              $title_alt = get_field('title_alt');
+
+              if ( $title_alt )
+                $title = $title_alt;
+
+              if ( is_archive() || is_home() ) :
                 the_archive_title('<h1 class="entry-title" tabindex="0">','</h1>');
               elseif ( is_search() ) :
                 echo '<h1 class="entry-title" tabindex="0"><em>Search:</em> ' . get_search_query() . '</h1>';
               else :
-                the_title('<h1 class="entry-title" tabindex="0">','</h1>');
+                echo '<h1 class="entry-title" tabindex="0">' . $title . '</h1>';
               endif;
               ?>
             </div>

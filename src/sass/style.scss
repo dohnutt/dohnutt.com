@@ -84,6 +84,7 @@ Text Domain: dohnutt
     overflow: visible;
     padding: 1em;
     background-color: #fff;
+    z-index: 9999;
   }
 }
 
@@ -108,24 +109,13 @@ html {
   }
 }
 
-/*! Used from Daniel Eden's Animate.css: https://daneden.github.io/animate.css/ */
+/* Used from Daniel Eden's Animate.css: https://daneden.github.io/animate.css/ */
 @keyframes tada {
-
-  from {
-    transform: scale3d(1, 1, 1);
-  }
-  10%, 20% {
-    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
-  }
-  30%, 50%, 70%, 90% {
-    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
-  }
-  40%, 60%, 80% {
-    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
-  }
-  to {
-    transform: scale3d(1, 1, 1);
-  }
+  from { transform: scale3d(1, 1, 1); }
+  10%, 20% { transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg); }
+  30%, 50%, 70%, 90% { transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg); }
+  40%, 60%, 80% { transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg); }
+  to { transform: scale3d(1, 1, 1);}
 }
 .tada {
   animation-name: tada;
@@ -171,51 +161,6 @@ header.wrap {
   padding: 0 0 2em;
   font-size: 0.9em;
 
-  .navbar-header {
-    @include media-breakpoint-down(sm) {
-      &:before,
-      &:after {
-        content: '';
-        display: table;
-        clear: both;
-      }
-    }
-  }
-
-  .navbar-brand {
-    position: relative;
-    font-size: 1.25em;
-
-    &:after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-image: url('/wp-content/themes/eric/img/apple-donut.png');
-      background-size: 6em;
-      background-repeat: no-repeat;
-      left: 0;
-      top: 0;
-      opacity: 0;
-      pointer-events: none;
-    }
-    &:hover,
-    &:focus,
-    &:hover:focus {
-      &:after {
-        content: '';
-        -webkit-animation-name: tada;
-        -webkit-animation-duration: 1s;
-        -webkit-animation-iteration-count: 1;
-        -webkit-animation-timing-function: linear;
-        opacity: 1;
-      }
-      .logo {
-        opacity: 0;
-      }
-    }
-  }
-
   .logo {
     width: 6em;
     height: 6em;
@@ -228,38 +173,82 @@ header.wrap {
 
     }
   }
+}
 
-  .navbar-toggler {
-    padding-top: 0.725em;
-    padding-bottom: 0.725em;
-    color: $gray-lighter;
-    font-size: 3rem;
-    float: right;
-  }
-
-  .navbar-nav {
-    .nav-link {
-      @include media-breakpoint-up(md) {
-        margin: 2em 0.5em;
-        padding: 0;
-      }
-    }
-  }
-  .nav-link {
-    font-family: $headings-font-family;
-    color: $gray-darker;
-    font-size: 1.4em;
-    transition: color 0.2s ease, border-color 0.2s ease;
-    border-bottom: 0.1em solid transparent;
-
-    &:hover,
-    &:focus,
-    &:hover:focus {
-      color: $link-color;
-      border-color: currentColor;
+.navbar-header {
+  @include media-breakpoint-down(sm) {
+    &:before,
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
     }
   }
 }
+.navbar-toggler {
+  padding-top: 0.725em;
+  padding-bottom: 0.725em;
+  color: $gray-lighter;
+  font-size: 3rem;
+  float: right;
+}
+.navbar-nav {
+  .nav-link {
+    @include media-breakpoint-up(md) {
+      margin: 2em 0.5em;
+      padding: 0;
+    }
+  }
+}
+.nav-link {
+  font-family: $headings-font-family;
+  color: $gray-darker;
+  font-size: 1.4em;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  border-bottom: 0.1em solid transparent;
+
+  &:hover,
+  &:focus,
+  &:hover:focus {
+    color: $link-color;
+    border-color: currentColor;
+  }
+}
+
+.navbar-brand {
+  position: relative;
+  font-size: 1.25em;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('/wp-content/themes/eric/img/apple-donut.png');
+    background-size: 6em;
+    background-repeat: no-repeat;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+  &:hover,
+  &:focus,
+  &:hover:focus {
+    &:after {
+      content: '';
+      -webkit-animation-name: tada;
+      -webkit-animation-duration: 1s;
+      -webkit-animation-iteration-count: 1;
+      -webkit-animation-timing-function: linear;
+      opacity: 1;
+    }
+    .logo {
+      opacity: 0;
+    }
+  }
+}
+
 .hero {
   padding: 2em 0;
 
@@ -269,6 +258,9 @@ header.wrap {
     text-align: center;
   }
 }
+
+@import "front-page";
+
 .entry-image {
   margin-bottom: 3em;
 }

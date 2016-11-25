@@ -105,7 +105,7 @@ require_once('dohnutt_nav_walker.php');
 
 // Unregister unnecessary widgets.
 function dohnutt_unregister_widgets() {
-  //unregister_widget('WP_Widget_Pages');
+  unregister_widget('WP_Widget_Pages');
   unregister_widget('WP_Widget_Calendar');
   //unregister_widget('WP_Widget_Archives');
   //unregister_widget('WP_Widget_Links');
@@ -116,7 +116,7 @@ function dohnutt_unregister_widgets() {
   //unregister_widget('WP_Widget_Recent_Posts');
   unregister_widget('WP_Widget_Recent_Comments');
   unregister_widget('WP_Widget_RSS');
-  //unregister_widget('WP_Widget_Tag_Cloud');
+  unregister_widget('WP_Widget_Tag_Cloud');
   //unregister_widget('WP_Nav_Menu_Widget');
 }
 

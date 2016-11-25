@@ -1,5 +1,5 @@
 <footer class="wrap">
-  <div class="container">
+  <div class="container-fluid">
 
     <div class="row">
       <div class="col-xs-12">
