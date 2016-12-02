@@ -108,13 +108,19 @@ html {
     font-size: 24px;
   }
 }
+body {
+  padding: 0 1em;
+}
 
 /* Used from Daniel Eden's Animate.css: https://daneden.github.io/animate.css/ */
 @keyframes tada {
   from { transform: scale3d(1, 1, 1); }
-  10%, 20% { transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg); }
+  0%, 24%, 50%, 74% { transform: rotate3d(0,0,1,7deg); }
+  25%, 49%, 75%, 99% { transform: rotate3d(0,0,1,-7deg); }
+
+  /*10%, 20% { transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg); }
   30%, 50%, 70%, 90% { transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg); }
-  40%, 60%, 80% { transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg); }
+  40%, 60%, 80% { transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg); }*/
   to { transform: scale3d(1, 1, 1);}
 }
 .tada {
@@ -155,6 +161,7 @@ h1, h2 {
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.85em;
+  max-width: 19em;
 }
 
 header.wrap {
@@ -166,15 +173,13 @@ header.wrap {
     height: 6em;
     position: relative;
     opacity: 1;
-
-    &:hover,
-    &:focus,
-    &:hover:focus {
-
-    }
+    transition: opacity .1s ease-out;
   }
 }
 
+.navbar {
+  padding: 0.5em 0;
+}
 .navbar-header {
   @include media-breakpoint-down(sm) {
     &:before,
@@ -231,6 +236,7 @@ header.wrap {
     top: 0;
     opacity: 0;
     pointer-events: none;
+    transition: opacity .1s ease-out;
   }
   &:hover,
   &:focus,
@@ -238,8 +244,8 @@ header.wrap {
     &:after {
       content: '';
       -webkit-animation-name: tada;
-      -webkit-animation-duration: 1s;
-      -webkit-animation-iteration-count: 1;
+      -webkit-animation-duration: 1.5s;
+      -webkit-animation-iteration-count: infinite;
       -webkit-animation-timing-function: linear;
       opacity: 1;
     }
@@ -254,8 +260,13 @@ header.wrap {
 
   .entry-title {
     font-size: 4em;
+    line-height: 1.1;
     margin:0;
-    text-align: center;
+    display: inline-block;
+
+    @include media-breakpoint-up(md) {
+      font-size: 6em;
+    }
   }
 }
 
@@ -271,519 +282,32 @@ header.wrap {
   }
 }
 footer.wrap {
-  padding: 5em 0 1em;
+  padding: 10em 0 1em;
+  font-weight: bold;
+  color: $gray-darker;
+
+  a {
+    color: $gray-darker;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &:focus,
+    &:hover:focus {
+      color: $link-color;
+    }
+  }
 }
 
 /*
  * Content/inner pages.
  */
+.entry {
 
-.entry-content {
-  .gform_footer .gform_button {
-    @extend .btn-lg;
-  }
-}
-
-.sidebar {
-  .widget {
-    margin-bottom: 4em;
-    font-size: 0.8em;
-
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-  }
-
-  .widget_share {
-    .list-share {
-      text-align: center;
-      > li {
-        padding: 0 0.3em;
-        a {
-          color: $gray;
-          .fa {
-            font-size: 2.571em;
-          }
-        }
-
-        &.share-facebook a:hover {
-          color: blue;
-        }
-        &.share-twitter a:hover {
-          color: lightblue;
-        }
-        &.share-email a:hover {
-          color: #ccc;
-        }
-      }
-    }
-  }
-
-  .widget_search {
-
-    .form-control {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
-      border-bottom-width: 0;
-    }
-    .btn {
-      display: block;
-      width: 100%;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-    }
-  }
-
-  .widget_nav_menu ul,
-  .widget_meta ul {
-    @extend .nav;
-
-    > li {
-
-      > a {
-        padding: 5px;
-        text-decoration: none;
-      }
-
-      ul {
-        display: none;
-      }
-    }
-  }
-
-  .gform_widget {
-    .gform_title {
-      margin: 0.2em 0;
-      font-size: 1em;
-    }
-    .ginput_complex > span,
-    .gf_half, .gf_third,
-    .gf_left_half, .gf_right_half,
-    .gf_left_third, .gf_right_third {
-      width: 100% !important;
-    }
-  }
-
-  .widget_calendar {
-    table {
-      width: 100%;
-
-      thead > tr > th {
-        color: $gray-light;
-        font-size: 0.8em;
-      }
-    }
-  }
-
-  .widget_cta {
-  }
-}
-
-// Input collapse for search forms.
-.input-collapse {
-  margin-bottom: 0;
-
-  .form-control {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-width: 0;
-  }
-  + .btn {
-    display: block;
-    width: 100%;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
-}
-
-// Input collapse for gravity forms.
-.gform-collapse {
-  .gform_body {
-    margin-bottom: 0;
-    > ul {
-      margin-bottom: 0;
-      > li {
-        margin-bottom: 0;
-
-        input {
-          border-bottom-left-radius: 0;
-          border-bottom-right-radius: 0;
-        }
-      }
-    }
-  }
-  .gform_footer {
-    margin-bottom: 0;
-
-    .btn {
-      display: block;
-      width: 100%;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-    }
-  }
 }
 
 
-/*
- * Gravity forms styling
- */
-.gform_heading,
-.gform_body,
-.gform_footer {
-  margin-bottom: 2em;
-  @extend .clearfix;
-}
-.gform_body {
-  > ul {
-    list-style-type: none;
-    padding-left: 0;
 
-    > li {
-      margin-bottom: 1em;
-      clear:both;
-      @extend .clearfix;
 
-      label {
-        color: $gray;
-      }
-    }
-  }
-}
-
-.gfield_required {
- padding-left: 2px;
- color: $state-danger-text;
-}
-
-.gfield_checkbox,
-.gfield_radio {
- list-style-type: none;
- padding-left: 0;
-
- > li {
-   &:first-of-type {
-     margin-top: 0;
-   }
- }
-}
-
-.ginput_complex {
-  padding-top: 0.25em;
-
-  label {
-    font-size: 0.778em;
-    font-style: italic;
-  }
-
-  &.has_first_name.has_middle_name.no_last_name,
-  &.has_first_name.no_middle_name.has_last_name,
-  &.no_first_name.has_middle_name.has_last_name {
-    > span {
-      width: 100%;
-
-      @media (min-width: 360px ) {
-        width: 49%;
-      }
-    }
-  }
-
-  &.has_first_name.has_middle_name.has_last_name {
-    > span {
-      width: 100%;
-
-      @media (min-width: 360px ) {
-        width: 32%;
-      }
-    }
-  }
-
-  &.has_suffix.has_last_name {
-    > .name_last {
-      margin-right: 0;
-    }
-  }
-
- &.has_prefix > .name_prefix,
- &.has_suffix > .name_suffix {
-    width: 100% !important;
-    clear: right;
-    overflow: hidden;
-    display: block;
-
-    > select,
-    > input {
-      width: auto;
-    }
-  }
-
-  > .ginput_full {
-    width: 100%;
-  }
-  @include media-breakpoint-up(xs) {
-    > .ginput_left,
-    > .ginput_right {
-      width: 49%;
-    }
-    > .ginput_right {
-      margin-right: 0;
-    }
-  }
-
-  > span {
-    float: left;
-    vertical-align: top;
-    margin-right:2%;
-    width: 100%;
-    vertical-align: top;
-    min-width: 100px;
-    padding-bottom: 0.5em;
-    //display: block;
-
-    &:last-of-type {
-      margin-right: 0;
-    }
-  }
-}
-
-@media (min-width: 360px) {
-  .gf_left_half,
-  .gf_right_half,
-  .gf_half {
-    clear:none !important;
-    width: 49%;
-    float: left;
-    vertical-align: top;
-  }
-  .gf_left_half,
-  .gf_half {
-    margin-right: 2%;
-  }
-  .gf_right_half,
-  .gf_half:nth-of-type(2n+1) {
-    margin-right: 0;
-  }
-}
-
-@media (min-width: 420px) {
-  .gf_left_third,
-  .gf_middle_third,
-  .gf_right_third,
-  .gf_third {
-    clear:none !important;
-    width: 32%;
-    margin-right: 2%;
-    float: left;
-    vertical-align: top;
-  }
-  .gf_right_third,
-  .gf_third:nth-of-type(3n+1) {
-    margin-right: 0;
-  }
-}
-
-.ginput_product_price {
-  color: $state-danger-text;
-}
-.ginput_total {
-  color: $state-success-text;
-  font-weight: bold;
-}
-
-.gfield_list {
- width: 100%;
- tbody {
-   tr {
-     td {
-       padding-top: 0.2em;
-       padding-bottom: 0.2em;
-     }
-   }
- }
-}
-
-.gform_card_icon {
-  margin-right: 4px;
-  text-indent: -9000px;
-  background-image: url('../../plugins/gravityforms/images/gf-creditcard-icons.png');
-  background-repeat: no-repeat;
-  width: 36px;
-  height: 32px;
-  float: left;
-
-  &.gform_card_icon_amex {
-    background-position: -72px 0;
-  }
-  &.gform_card_icon_discover {
-    background-position: -108px 0;
-  }
-  &.gform_card_icon_mastercard {
-    background-position: -36px 0;
-  }
-  &.gform_card_icon_visa {
-    background-position: 0px 0;
-  }
-}
-
-.ginput_cardinfo_left {
-  float: left;
-  width: 65%;
-  margin-right: 2%;
-
-  .ginput_card_expiration_container {
-    select {
-      width: 49%;
-      float: left;
-
-      &:first-child {
-        margin-right: 2%;
-      }
-    }
-  }
-}
-.ginput_cardinfo_right {
-  float: left;
-  width: 60%;
-  min-width: 110px;
-
-  .ginput_card_security_code {
-    max-width: 50%;
-    float: left;
-    margin-right: 2%;
-  }
-
-  .ginput_card_security_code_icon {
-    width: 32px;
-    height: 23px;
-    background-image: url('../../plugins/gravityforms/images/gf-creditcard-icons.png');
-    background-repeat: no-repeat;
-    background-position: 0 -128px;
-    position: relative;
-    display: -moz-inline-stack;
-    display: block;
-    float: left;
-  }
-
-  label {
-    clear: both;
-    float:left;
-  }
-
-  @media (min-width: 400px) {
-    width: 32%;
-  }
-}
-
-.ginput_quantity_label {
-  margin-left: 2%;
-}
-.ginput_quantity {
-  width: 4.5em;
-  display: inline-block;
-}
-
-.gfield_error {
-  .gfield_label {
-    color: $state-danger-text;
-  }
-  .form-control,input,select,textarea,
-  input[type="text"] {
-    border-color: $state-danger-border;
-    @include form-control-focus();
-  }
-}
-.gform_validation_container {
-  height: 0;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow: hidden;
-}
-.validation_error {
-  @extend .alert;
-  @extend .alert-danger;
-}
-.validation_message {
-  font-size: $font-size-sm;
-  @extend .text-muted;
-}
-#gforms_confirmation_message {
-  @extend .alert;
-}
-.gfield_creditcard_warning_message {
-  @extend .alert;
-  @extend .alert-danger;
-  margin-top: 2em;
-  margin-bottom: 1em;
-}
-
-.entries {
-  margin-top: 3em;
-  margin-bottom: 5em;
-
-  .entry {
-    padding-top: 1.5em;
-    padding-bottom: 2em;
-
-    a {
-
-      &:hover,
-      &:focus,
-      &:active,
-      &:hover:focus {
-        text-decoration: none;
-
-        .entry-title,
-        .entry-excerpt {
-          color: $body-color;
-        }
-        .more-link {
-          color: $brand-primary;
-        }
-      }
-    }
-
-    .entry-image > a {
-      display: block;
-    }
-
-    .img-placeholder {
-      width: 100%;
-      height: 170px;
-      background-color: $gray-lighter;
-    }
-
-    .entry-title {
-      font-size: 1.556em;
-      margin-top: 0.6em;
-      transition: color 0.2s ease;
-    }
-
-    .entry-meta {
-      @extend .list-inline;
-
-      > li {
-        @extend .list-inline-item;
-      }
-    }
-
-    .entry-excerpt {
-      color: $body-color;
-      font-size: 1.333em;
-      transition: color 0.2s ease;
-    }
-  }
-}
-
-.more-link {
-  font-size: 0.778em;
-  font-style: italic;
-  white-space: nowrap;
-
-  .fa {
-    padding-left: 0.2em;
-  }
-}
 
 .nav-inline {
   @extend .list-inline;
@@ -849,34 +373,6 @@ footer.wrap {
         border: 0px;
         border-radius: 0;
       }
-    }
-  }
-}
-.featherlight {
-  .featherlight-content .caption {
-    margin-top: 0.5em;
-    font-size: $font-size-sm;
-    font-weight: normal;
-    font-family: inherit;
-    text-overflow: initial;
-    white-space: normal;
-    overflow: visible;
-    letter-spacing: normal;
-  }
-
-  &:last-of-type {
-    background: rgba(0,0,0,.6) !important;
-  }
-}
-
-.bs-component {
-  .modal {
-    display: block;
-    overflow:inherit;
-    position: relative;
-
-    .modal-dialog {
-      width: 90%;
     }
   }
 }

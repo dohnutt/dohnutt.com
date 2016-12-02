@@ -22,7 +22,7 @@
           <div class="navbar-header">
             <button class="navbar-toggler hidden-md-up collapsed" type="button" data-toggle="collapse" data-target="#primaryNav" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">&#9776;</button>
             <a class="navbar-brand" href="<?php echo site_url(); ?>/">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="EM Monogram logo" title="Eric Moss" class="logo">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="EM Monogram" title="Eric Moss (@dohnutt)" class="logo">
             </a>
           </div>
           <div class="collapse navbar-toggleable-sm pull-md-right" id="primaryNav">
@@ -56,7 +56,9 @@
               if ( $title_alt )
                 $title = $title_alt;
 
-              if ( is_archive() || is_home() ) :
+              if ( is_post_type_archive('portfolio_item') ) :
+                echo '<h1 class="entry-title" tabindex="0">Portfolio</h1>';
+              elseif ( is_archive() || is_home() ) :
                 the_archive_title('<h1 class="entry-title" tabindex="0">','</h1>');
               elseif ( is_search() ) :
                 echo '<h1 class="entry-title" tabindex="0"><em>Search:</em> ' . get_search_query() . '</h1>';

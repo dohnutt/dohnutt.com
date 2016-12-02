@@ -2,7 +2,7 @@
   <div class="container-fluid">
 
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-sm-7">
         <?php
         wp_nav_menu( array(
           'menu' => 2,
@@ -11,10 +11,7 @@
         ) );
         ?>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-12">
+      <div class="col-sm-5 text-sm-right">
         &copy; <?php echo date('Y'); ?> Eric Moss.
       </div>
     </div>

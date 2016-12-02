@@ -103,6 +103,12 @@ require_once('dohnutt_nav_walker.php');
  add_filter('login_headertitle', 'dohnutt_login_title_on_logo');
 
 
+function remove_bootstrap_shortcodes() {
+  print_r($shortcodes);
+  echo 'hey';
+}
+add_action('add_shortcodes', 'remove_bootstrap_shortcodes');
+
 // Unregister unnecessary widgets.
 function dohnutt_unregister_widgets() {
   unregister_widget('WP_Widget_Pages');
@@ -217,8 +223,8 @@ if(!function_exists('dohnutt_theme_assets')) {
     //wp_register_script('modernizr',     get_template_directory_uri() . '/js/modernizr.js');
 
     wp_register_style('theme-css',        get_stylesheet_uri());
-    wp_register_style('font-awesome',     '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
-    wp_register_style('fonts',            '//fonts.googleapis.com/css?family=Oswald:300,400,700|Space+Mono');
+    wp_register_style('font-awesome',     '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+    wp_register_style('fonts',            '//fonts.googleapis.com/css?family=Oswald:300,400,700|Space+Mono|');
   }
 }
 
@@ -226,7 +232,7 @@ if(!function_exists('dohnutt_theme_assets')) {
 if(!function_exists('dohnutt_theme_enqueue')) {
   function dohnutt_theme_enqueue() {
     wp_enqueue_style('theme-css');
-    //wp_enqueue_style('font-awesome');
+    wp_enqueue_style('font-awesome');
     wp_enqueue_style('fonts');
 
     wp_enqueue_script('jquery-js');
@@ -242,12 +248,14 @@ if(!function_exists('dohnutt_theme_support')) {
     add_theme_support('post-thumbnails');
     add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
     add_theme_support( 'automatic-feed-links' );
-    //add_theme_support('post-formats');
+    add_theme_support( 'post-formats', array( 'gallery', 'link', 'image', 'quote', 'status', 'video' ) );
 
-    add_image_size( 'hero', 1920, 550, true );
-    add_image_size( 'featured', 1200, 800, true );
+    add_image_size( 'tiny', 100, 100, true );
     //add_image_size( 'gallery', 480, 480, true );
-    //add_image_size( 'tiny', 100, 100, true );
+    add_image_size( 'opengraph', 1200, 630, true );
+    add_image_size( 'hero', 1920, 1440, true );
+
+
 
     register_nav_menus( array(
       'primary' => 'Primary Menu',
@@ -257,6 +265,12 @@ if(!function_exists('dohnutt_theme_support')) {
   	add_filter( 'use_default_gallery_style', '__return_false' );
   }
 }
+
+
+function dohnutt_wpseo_image_size( $string ) {
+  return 'opengraph';
+}
+add_filter( 'wpseo_opengraph_image_size', 'dohnutt_wpseo_image_size', 10, 1 );
 
 // Add some custom CSS to ACF metaboxes.
 function dohnutt_acf_admin_head() {

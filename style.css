@@ -604,16 +604,16 @@ mark,
   list-style: none;
 }
 
-.list-inline, .entries .entry .entry-meta, .nav-inline {
+.list-inline, .nav-inline {
   padding-left: 0;
   list-style: none;
 }
 
-.list-inline-item, .list-inline > li, .entries .entry .entry-meta > li, .nav-inline > li {
+.list-inline-item, .list-inline > li, .nav-inline > li {
   display: inline-block;
 }
 
-.list-inline-item:not(:last-child), .list-inline > li:not(:last-child), .entries .entry .entry-meta > li:not(:last-child), .nav-inline > li:not(:last-child) {
+.list-inline-item:not(:last-child), .list-inline > li:not(:last-child), .nav-inline > li:not(:last-child) {
   margin-right: 5px;
 }
 
@@ -2969,7 +2969,7 @@ fieldset[disabled] a.btn {
   text-decoration: none;
 }
 
-.btn-lg, .btn-group-lg > .btn, .entry-content .gform_footer .gform_button {
+.btn-lg, .btn-group-lg > .btn {
   padding: 0.75rem 1.5rem;
   font-size: 1.25rem;
   border-radius: 0.3rem;
@@ -3272,7 +3272,7 @@ input[type="button"].btn-block {
   padding-left: 0.375rem;
 }
 
-.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split, .entry-content .gform_footer .gform_button + .dropdown-toggle-split {
+.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split {
   padding-right: 1.125rem;
   padding-left: 1.125rem;
 }
@@ -3281,12 +3281,12 @@ input[type="button"].btn-block {
   margin-left: 0;
 }
 
-.btn-lg .caret, .btn-group-lg > .btn .caret, .entry-content .gform_footer .gform_button .caret {
+.btn-lg .caret, .btn-group-lg > .btn .caret {
   border-width: 0.3em 0.3em 0;
   border-bottom-width: 0;
 }
 
-.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .entry-content .gform_footer .gform_button .caret, .entry-content .gform_footer .dropup .gform_button .caret {
+.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret {
   border-width: 0 0.3em 0.3em;
 }
 
@@ -3816,8 +3816,7 @@ input[type="button"].btn-block {
   content: "Browse";
 }
 
-.nav, .sidebar .widget_nav_menu ul,
-.sidebar .widget_meta ul {
+.nav {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
@@ -4196,7 +4195,7 @@ input[type="button"].btn-block {
   }
 }
 
-.alert, .validation_error, #gforms_confirmation_message, .gfield_creditcard_warning_message {
+.alert {
   padding: 1rem;
   margin-bottom: 1rem;
   border: 3px solid transparent;
@@ -4264,17 +4263,17 @@ input[type="button"].btn-block {
   color: #66512c;
 }
 
-.alert-danger, .validation_error, .gfield_creditcard_warning_message {
+.alert-danger {
   background-color: #f2dede;
   border-color: #ebcccc;
   color: #a94442;
 }
 
-.alert-danger hr, .validation_error hr, .gfield_creditcard_warning_message hr {
+.alert-danger hr {
   border-top-color: #e4b9b9;
 }
 
-.alert-danger .alert-link, .validation_error .alert-link, .gfield_creditcard_warning_message .alert-link {
+.alert-danger .alert-link {
   color: #843534;
 }
 
@@ -4574,9 +4573,7 @@ a.bg-inverse:focus, a.bg-inverse:hover {
   background-color: #090909 !important;
 }
 
-.clearfix::after, .gform_heading::after,
-.gform_body::after,
-.gform_footer::after, .gform_body > ul > li::after {
+.clearfix::after {
   content: "";
   display: table;
   clear: both;
@@ -5030,11 +5027,11 @@ a.bg-inverse:focus, a.bg-inverse:hover {
   font-style: italic;
 }
 
-.text-muted, .validation_message {
+.text-muted {
   color: #818a91 !important;
 }
 
-a.text-muted:focus, a.validation_message:focus, a.text-muted:hover, a.validation_message:hover {
+a.text-muted:focus, a.text-muted:hover {
   color: #687077 !important;
 }
 
@@ -5280,20 +5277,24 @@ html {
   }
 }
 
+body {
+  padding: 0 1em;
+}
+
 /* Used from Daniel Eden's Animate.css: https://daneden.github.io/animate.css/ */
 @keyframes tada {
   from {
     transform: scale3d(1, 1, 1);
   }
-  10%, 20% {
-    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  0%, 24%, 50%, 74% {
+    transform: rotate3d(0, 0, 1, 7deg);
   }
-  30%, 50%, 70%, 90% {
-    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  25%, 49%, 75%, 99% {
+    transform: rotate3d(0, 0, 1, -7deg);
   }
-  40%, 60%, 80% {
-    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
-  }
+  /*10%, 20% { transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg); }
+  30%, 50%, 70%, 90% { transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg); }
+  40%, 60%, 80% { transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg); }*/
   to {
     transform: scale3d(1, 1, 1);
   }
@@ -5331,6 +5332,7 @@ h1 a:hover, h1 a:focus, h1 a:hover:focus, h2 a:hover, h2 a:focus, h2 a:hover:foc
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.85em;
+  max-width: 19em;
 }
 
 header.wrap {
@@ -5343,6 +5345,11 @@ header.wrap .logo {
   height: 6em;
   position: relative;
   opacity: 1;
+  transition: opacity .1s ease-out;
+}
+
+.navbar {
+  padding: 0.5em 0;
 }
 
 @media (max-width: 767px) {
@@ -5398,13 +5405,14 @@ header.wrap .logo {
   top: 0;
   opacity: 0;
   pointer-events: none;
+  transition: opacity .1s ease-out;
 }
 
 .navbar-brand:hover:after, .navbar-brand:focus:after, .navbar-brand:hover:focus:after {
   content: '';
   -webkit-animation-name: tada;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-iteration-count: 1;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
   opacity: 1;
 }
@@ -5419,8 +5427,15 @@ header.wrap .logo {
 
 .hero .entry-title {
   font-size: 4em;
+  line-height: 1.1;
   margin: 0;
-  text-align: center;
+  display: inline-block;
+}
+
+@media (min-width: 768px) {
+  .hero .entry-title {
+    font-size: 6em;
+  }
 }
 
 .areas.wrap .area {
@@ -5443,528 +5458,23 @@ header.wrap .logo {
 }
 
 footer.wrap {
-  padding: 5em 0 1em;
+  padding: 10em 0 1em;
+  font-weight: bold;
+  color: #191919;
+}
+
+footer.wrap a {
+  color: #191919;
+  transition: color 0.2s ease;
+}
+
+footer.wrap a:hover, footer.wrap a:focus, footer.wrap a:hover:focus {
+  color: #00b39d;
 }
 
 /*
  * Content/inner pages.
  */
-.sidebar .widget {
-  margin-bottom: 4em;
-  font-size: 0.8em;
-}
-
-.sidebar .widget ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.sidebar .widget_share .list-share {
-  text-align: center;
-}
-
-.sidebar .widget_share .list-share > li {
-  padding: 0 0.3em;
-}
-
-.sidebar .widget_share .list-share > li a {
-  color: #55595c;
-}
-
-.sidebar .widget_share .list-share > li a .fa {
-  font-size: 2.571em;
-}
-
-.sidebar .widget_share .list-share > li.share-facebook a:hover {
-  color: blue;
-}
-
-.sidebar .widget_share .list-share > li.share-twitter a:hover {
-  color: lightblue;
-}
-
-.sidebar .widget_share .list-share > li.share-email a:hover {
-  color: #ccc;
-}
-
-.sidebar .widget_search .form-control, .sidebar .widget_search .widget_archive select, .widget_archive .sidebar .widget_search select, .sidebar .widget_search
-.gfield input[type="text"],
-.gfield .sidebar .widget_search input[type="text"], .sidebar .widget_search
-.gfield .has_country select,
-.gfield .has_country .sidebar .widget_search select, .sidebar .widget_search
-.gfield .name_prefix select,
-.gfield .name_prefix .sidebar .widget_search select, .sidebar .widget_search
-.ginput_cardextras select,
-.ginput_cardextras .sidebar .widget_search select, .sidebar .widget_search
-.ginput_quantity, .sidebar .widget_search .gfield textarea, .gfield .sidebar .widget_search textarea, .sidebar .widget_search
-.gfield select[multiple],
-.gfield .sidebar .widget_search select[multiple] {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  border-bottom-width: 0;
-}
-
-.sidebar .widget_search .btn {
-  display: block;
-  width: 100%;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-.sidebar .widget_nav_menu ul > li > a,
-.sidebar .widget_meta ul > li > a {
-  padding: 5px;
-  text-decoration: none;
-}
-
-.sidebar .widget_nav_menu ul > li ul,
-.sidebar .widget_meta ul > li ul {
-  display: none;
-}
-
-.sidebar .gform_widget .gform_title {
-  margin: 0.2em 0;
-  font-size: 1em;
-}
-
-.sidebar .gform_widget .ginput_complex > span,
-.sidebar .gform_widget .gf_half, .sidebar .gform_widget .gf_third,
-.sidebar .gform_widget .gf_left_half, .sidebar .gform_widget .gf_right_half,
-.sidebar .gform_widget .gf_left_third, .sidebar .gform_widget .gf_right_third {
-  width: 100% !important;
-}
-
-.sidebar .widget_calendar table {
-  width: 100%;
-}
-
-.sidebar .widget_calendar table thead > tr > th {
-  color: #818a91;
-  font-size: 0.8em;
-}
-
-.input-collapse {
-  margin-bottom: 0;
-}
-
-.input-collapse .form-control, .input-collapse .widget_archive select, .widget_archive .input-collapse select, .input-collapse
-.gfield input[type="text"],
-.gfield .input-collapse input[type="text"], .input-collapse
-.gfield .has_country select,
-.gfield .has_country .input-collapse select, .input-collapse
-.gfield .name_prefix select,
-.gfield .name_prefix .input-collapse select, .input-collapse
-.ginput_cardextras select,
-.ginput_cardextras .input-collapse select, .input-collapse
-.ginput_quantity, .input-collapse .gfield textarea, .gfield .input-collapse textarea, .input-collapse
-.gfield select[multiple],
-.gfield .input-collapse select[multiple] {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  border-bottom-width: 0;
-}
-
-.input-collapse + .btn {
-  display: block;
-  width: 100%;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-.gform-collapse .gform_body {
-  margin-bottom: 0;
-}
-
-.gform-collapse .gform_body > ul {
-  margin-bottom: 0;
-}
-
-.gform-collapse .gform_body > ul > li {
-  margin-bottom: 0;
-}
-
-.gform-collapse .gform_body > ul > li input {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.gform-collapse .gform_footer {
-  margin-bottom: 0;
-}
-
-.gform-collapse .gform_footer .btn {
-  display: block;
-  width: 100%;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-/*
- * Gravity forms styling
- */
-.gform_heading,
-.gform_body,
-.gform_footer {
-  margin-bottom: 2em;
-}
-
-.gform_body > ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.gform_body > ul > li {
-  margin-bottom: 1em;
-  clear: both;
-}
-
-.gform_body > ul > li label {
-  color: #55595c;
-}
-
-.gfield_required {
-  padding-left: 2px;
-  color: #a94442;
-}
-
-.gfield_checkbox,
-.gfield_radio {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.gfield_checkbox > li:first-of-type,
-.gfield_radio > li:first-of-type {
-  margin-top: 0;
-}
-
-.ginput_complex {
-  padding-top: 0.25em;
-}
-
-.ginput_complex label {
-  font-size: 0.778em;
-  font-style: italic;
-}
-
-.ginput_complex.has_first_name.has_middle_name.no_last_name > span, .ginput_complex.has_first_name.no_middle_name.has_last_name > span, .ginput_complex.no_first_name.has_middle_name.has_last_name > span {
-  width: 100%;
-}
-
-@media (min-width: 360px) {
-  .ginput_complex.has_first_name.has_middle_name.no_last_name > span, .ginput_complex.has_first_name.no_middle_name.has_last_name > span, .ginput_complex.no_first_name.has_middle_name.has_last_name > span {
-    width: 49%;
-  }
-}
-
-.ginput_complex.has_first_name.has_middle_name.has_last_name > span {
-  width: 100%;
-}
-
-@media (min-width: 360px) {
-  .ginput_complex.has_first_name.has_middle_name.has_last_name > span {
-    width: 32%;
-  }
-}
-
-.ginput_complex.has_suffix.has_last_name > .name_last {
-  margin-right: 0;
-}
-
-.ginput_complex.has_prefix > .name_prefix,
-.ginput_complex.has_suffix > .name_suffix {
-  width: 100% !important;
-  clear: right;
-  overflow: hidden;
-  display: block;
-}
-
-.ginput_complex.has_prefix > .name_prefix > select,
-.ginput_complex.has_prefix > .name_prefix > input,
-.ginput_complex.has_suffix > .name_suffix > select,
-.ginput_complex.has_suffix > .name_suffix > input {
-  width: auto;
-}
-
-.ginput_complex > .ginput_full {
-  width: 100%;
-}
-
-.ginput_complex > .ginput_left,
-.ginput_complex > .ginput_right {
-  width: 49%;
-}
-
-.ginput_complex > .ginput_right {
-  margin-right: 0;
-}
-
-.ginput_complex > span {
-  float: left;
-  vertical-align: top;
-  margin-right: 2%;
-  width: 100%;
-  vertical-align: top;
-  min-width: 100px;
-  padding-bottom: 0.5em;
-}
-
-.ginput_complex > span:last-of-type {
-  margin-right: 0;
-}
-
-@media (min-width: 360px) {
-  .gf_left_half,
-  .gf_right_half,
-  .gf_half {
-    clear: none !important;
-    width: 49%;
-    float: left;
-    vertical-align: top;
-  }
-  .gf_left_half,
-  .gf_half {
-    margin-right: 2%;
-  }
-  .gf_right_half,
-  .gf_half:nth-of-type(2n+1) {
-    margin-right: 0;
-  }
-}
-
-@media (min-width: 420px) {
-  .gf_left_third,
-  .gf_middle_third,
-  .gf_right_third,
-  .gf_third {
-    clear: none !important;
-    width: 32%;
-    margin-right: 2%;
-    float: left;
-    vertical-align: top;
-  }
-  .gf_right_third,
-  .gf_third:nth-of-type(3n+1) {
-    margin-right: 0;
-  }
-}
-
-.ginput_product_price {
-  color: #a94442;
-}
-
-.ginput_total {
-  color: #3c763d;
-  font-weight: bold;
-}
-
-.gfield_list {
-  width: 100%;
-}
-
-.gfield_list tbody tr td {
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
-}
-
-.gform_card_icon {
-  margin-right: 4px;
-  text-indent: -9000px;
-  background-image: url("../../plugins/gravityforms/images/gf-creditcard-icons.png");
-  background-repeat: no-repeat;
-  width: 36px;
-  height: 32px;
-  float: left;
-}
-
-.gform_card_icon.gform_card_icon_amex {
-  background-position: -72px 0;
-}
-
-.gform_card_icon.gform_card_icon_discover {
-  background-position: -108px 0;
-}
-
-.gform_card_icon.gform_card_icon_mastercard {
-  background-position: -36px 0;
-}
-
-.gform_card_icon.gform_card_icon_visa {
-  background-position: 0px 0;
-}
-
-.ginput_cardinfo_left {
-  float: left;
-  width: 65%;
-  margin-right: 2%;
-}
-
-.ginput_cardinfo_left .ginput_card_expiration_container select {
-  width: 49%;
-  float: left;
-}
-
-.ginput_cardinfo_left .ginput_card_expiration_container select:first-child {
-  margin-right: 2%;
-}
-
-.ginput_cardinfo_right {
-  float: left;
-  width: 60%;
-  min-width: 110px;
-}
-
-.ginput_cardinfo_right .ginput_card_security_code {
-  max-width: 50%;
-  float: left;
-  margin-right: 2%;
-}
-
-.ginput_cardinfo_right .ginput_card_security_code_icon {
-  width: 32px;
-  height: 23px;
-  background-image: url("../../plugins/gravityforms/images/gf-creditcard-icons.png");
-  background-repeat: no-repeat;
-  background-position: 0 -128px;
-  position: relative;
-  display: -moz-inline-stack;
-  display: block;
-  float: left;
-}
-
-.ginput_cardinfo_right label {
-  clear: both;
-  float: left;
-}
-
-@media (min-width: 400px) {
-  .ginput_cardinfo_right {
-    width: 32%;
-  }
-}
-
-.ginput_quantity_label {
-  margin-left: 2%;
-}
-
-.ginput_quantity {
-  width: 4.5em;
-  display: inline-block;
-}
-
-.gfield_error .gfield_label {
-  color: #a94442;
-}
-
-.gfield_error .form-control, .gfield_error .widget_archive select, .widget_archive .gfield_error select, .gfield_error
-.gfield input[type="text"],
-.gfield .gfield_error input[type="text"], .gfield_error
-.gfield .has_country select,
-.gfield .has_country .gfield_error select, .gfield_error
-.gfield .name_prefix select,
-.gfield .name_prefix .gfield_error select, .gfield_error
-.ginput_cardextras select,
-.ginput_cardextras .gfield_error select, .gfield_error
-.ginput_quantity, .gfield_error .gfield textarea, .gfield .gfield_error textarea, .gfield_error
-.gfield select[multiple],
-.gfield .gfield_error select[multiple], .gfield_error input, .gfield_error select, .gfield_error textarea,
-.gfield_error input[type="text"] {
-  border-color: #ebcccc;
-}
-
-.gfield_error .form-control:focus, .gfield_error .widget_archive select:focus, .widget_archive .gfield_error select:focus, .gfield_error
-.gfield input[type="text"]:focus,
-.gfield .gfield_error input[type="text"]:focus, .gfield_error
-.gfield .has_country select:focus,
-.gfield .has_country .gfield_error select:focus, .gfield_error
-.gfield .name_prefix select:focus,
-.gfield .name_prefix .gfield_error select:focus, .gfield_error
-.ginput_cardextras select:focus,
-.ginput_cardextras .gfield_error select:focus, .gfield_error
-.ginput_quantity:focus, .gfield_error .gfield textarea:focus, .gfield .gfield_error textarea:focus, .gfield_error
-.gfield select[multiple]:focus,
-.gfield .gfield_error select[multiple]:focus, .gfield_error input:focus, .gfield_error select:focus, .gfield_error textarea:focus,
-.gfield_error input[type="text"]:focus {
-  color: #55595c;
-  background-color: #fff;
-  border-color: #66afe9;
-  outline: none;
-}
-
-.gform_validation_container {
-  height: 0;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow: hidden;
-}
-
-.validation_message {
-  font-size: 0.875rem;
-}
-
-.gfield_creditcard_warning_message {
-  margin-top: 2em;
-  margin-bottom: 1em;
-}
-
-.entries {
-  margin-top: 3em;
-  margin-bottom: 5em;
-}
-
-.entries .entry {
-  padding-top: 1.5em;
-  padding-bottom: 2em;
-}
-
-.entries .entry a:hover, .entries .entry a:focus, .entries .entry a:active, .entries .entry a:hover:focus {
-  text-decoration: none;
-}
-
-.entries .entry a:hover .entry-title,
-.entries .entry a:hover .entry-excerpt, .entries .entry a:focus .entry-title,
-.entries .entry a:focus .entry-excerpt, .entries .entry a:active .entry-title,
-.entries .entry a:active .entry-excerpt, .entries .entry a:hover:focus .entry-title,
-.entries .entry a:hover:focus .entry-excerpt {
-  color: #bbbbbb;
-}
-
-.entries .entry a:hover .more-link, .entries .entry a:focus .more-link, .entries .entry a:active .more-link, .entries .entry a:hover:focus .more-link {
-  color: #00b39d;
-}
-
-.entries .entry .entry-image > a {
-  display: block;
-}
-
-.entries .entry .img-placeholder {
-  width: 100%;
-  height: 170px;
-  background-color: #bbbbbb;
-}
-
-.entries .entry .entry-title {
-  font-size: 1.556em;
-  margin-top: 0.6em;
-  transition: color 0.2s ease;
-}
-
-.entries .entry .entry-excerpt {
-  color: #bbbbbb;
-  font-size: 1.333em;
-  transition: color 0.2s ease;
-}
-
-.more-link {
-  font-size: 0.778em;
-  font-style: italic;
-  white-space: nowrap;
-}
-
-.more-link .fa {
-  padding-left: 0.2em;
-}
-
 .gallery > br {
   display: none;
   clear: none;
@@ -6043,29 +5553,4 @@ footer.wrap {
 .gallery.gallery-no-padding .gallery-item .gallery-icon img {
   border: 0px;
   border-radius: 0;
-}
-
-.featherlight .featherlight-content .caption {
-  margin-top: 0.5em;
-  font-size: 0.875rem;
-  font-weight: normal;
-  font-family: inherit;
-  text-overflow: initial;
-  white-space: normal;
-  overflow: visible;
-  letter-spacing: normal;
-}
-
-.featherlight:last-of-type {
-  background: rgba(0, 0, 0, 0.6) !important;
-}
-
-.bs-component .modal {
-  display: block;
-  overflow: inherit;
-  position: relative;
-}
-
-.bs-component .modal .modal-dialog {
-  width: 90%;
 }

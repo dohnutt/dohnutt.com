@@ -2,22 +2,22 @@
 get_header(); ?>
 
     <main class="wrap" id="content">
-      <div class="container">
+      <div class="container-fluid">
 
         <div class="row">
-          <div class="col-sm-9">
+          <div class="col-xs-12">
             <div class="entries">
               <?php
               if ( have_posts() ) :
                 while ( have_posts() ) :
               		the_post(); ?>
                   <div <?php post_class('row entry'); ?>>
-                    <div class="col-md-4 entry-image">
+                    <div class="col-md-8 entry-image">
                       <?php
                       if ( has_post_thumbnail() ) :
                         echo '<a href="'.get_the_permalink().'">';
-                        the_post_thumbnail('medium', array(
-                          'class' => 'img-responsive',
+                        the_post_thumbnail('large', array(
+                          'class' => 'img-fluid',
                         ));
                         echo '</a>';
                       else: ?>
@@ -25,7 +25,7 @@ get_header(); ?>
                       <?php
                       endif; ?>
                     </div>
-                    <div class="col-md-8 entry-details">
+                    <div class="col-md-4 entry-details">
                       <a href="<?php the_permalink(); ?>">
                         <h3 class="entry-title"><?php the_title(); ?></h3>
                       </a>

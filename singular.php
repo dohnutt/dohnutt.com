@@ -2,7 +2,7 @@
 get_header(); ?>
 
     <main class="wrap" id="content">
-      <div class="container">
+      <div class="container-fluid">
 
         <div class="row">
           <?php
@@ -14,7 +14,7 @@ get_header(); ?>
                 <div class="entry-image">
                   <?php
                   if ( has_post_thumbnail() ) :
-                    the_post_thumbnail( 'featured', array('class'=>'img-responsive'));
+                    the_post_thumbnail( 'featured', array('class'=>'img-fluid'));
                   endif; ?>
                 </div>
                 <div class="entry-content">
