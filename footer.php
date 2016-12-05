@@ -5,7 +5,7 @@
       <div class="col-sm-7">
         <?php
         wp_nav_menu( array(
-          'menu' => 2,
+          'theme_location' => 'footer',
           'depth' => 1,
           'menu_class' => 'nav nav-inline',
         ) );

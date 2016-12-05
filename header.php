@@ -25,13 +25,12 @@
               <img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="EM Monogram" title="Eric Moss (@dohnutt)" class="logo">
             </a>
           </div>
-          <div class="collapse navbar-toggleable-sm pull-md-right" id="primaryNav">
+          <div class="collapse navbar-toggleable-sm" id="primaryNav">
 
             <?php
             wp_nav_menu( array(
-              'menu'                => 2,
               'theme_location'      => 'primary',
-              'depth'               => 2,
+              'depth'               => 1,
               'menu_class'          => 'nav navbar-nav',
               'container'           => '',
               'fallback_cb'         => 'Dohnutt_Walker_Nav_Menu::fallback',
