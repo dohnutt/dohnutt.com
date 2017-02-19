@@ -9,23 +9,31 @@ get_header(); ?>
             <div class="entries">
               <?php
               if ( have_posts() ) :
+                $i = 0;
                 while ( have_posts() ) :
-              		the_post(); ?>
-                  <div <?php post_class('row entry'); ?>>
-                    <div class="col-md-8 entry-image">
+              		the_post();
+
+                  $col_image_classes = '';
+                  $col_content_classes = '';
+                  if ( ($i % 2) !== 0 ) :
+                    $col_image_classes = 'push-md-5';
+                    $col_content_classes = 'pull-md-7';
+                  endif; ?>
+                  <article <?php post_class('row entry'); ?>>
+                    <div class="col-md-7 <?php echo $col_image_classes; ?> entry-image">
                       <?php
                       if ( has_post_thumbnail() ) :
-                        echo '<a href="'.get_the_permalink().'">';
-                        the_post_thumbnail('large', array(
+                        echo '<a href="' . get_the_permalink() . '">';
+                        the_post_thumbnail('loop', array(
                           'class' => 'img-fluid',
                         ));
                         echo '</a>';
                       else: ?>
-                      <a href="<?php the_permalink(); ?>" class="img-placeholder"></a>
+                        <a href="<?php the_permalink(); ?>" class="entry-image-placeholder"></a>
                       <?php
                       endif; ?>
                     </div>
-                    <div class="col-md-4 entry-details">
+                    <div class="col-md-5 <?php echo $col_content_classes; ?> entry-details">
                       <a href="<?php the_permalink(); ?>">
                         <h3 class="entry-title"><?php the_title(); ?></h3>
                       </a>
@@ -56,18 +64,13 @@ get_header(); ?>
                         <a href="<?php the_permalink(); ?>" class="more-link">Keep reading <i class="fa fa-angle-right"></i></a>
                       </p>
                     </div>
-                  </div>
+                  </article>
                 <?php
-              	endwhile;
-                ?>
+                $i++;
+              	endwhile; ?>
                 <div class="pagination-container">
                   <?php
-                  echo paginate_links( array(
-                    'prev_text' => 'Prev',
-                    'next_text' => 'Next',
-                    'type' => 'list',
-                    'show_all' => true,
-                  ) ); ?>
+                  the_posts_pagination(); ?>
                 </div>
                 <?php
               else :
@@ -76,10 +79,6 @@ get_header(); ?>
               wp_reset_postdata(); ?>
             </div>
           </div>
-
-          <aside class="sidebar col-sm-3 col-md-2 col-md-offset-1">
-            <?php get_sidebar(); ?>
-          </aside>
         </div>
 
       </div>

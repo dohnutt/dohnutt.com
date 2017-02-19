@@ -323,11 +323,11 @@ html {
 }
 
 body {
-  font-family: "Helvetica", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Space Mono", "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 1rem;
   line-height: 1.6;
-  color: #bbbbbb;
-  background-color: #333;
+  color: #222;
+  background-color: #fff;
 }
 
 [tabindex="-1"]:focus {
@@ -347,7 +347,7 @@ p {
 abbr[title],
 abbr[data-original-title] {
   cursor: help;
-  border-bottom: 1px dotted #818a91;
+  border-bottom: 1px dotted #999999;
 }
 
 address {
@@ -450,7 +450,7 @@ table {
 caption {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  color: #818a91;
+  color: #999999;
   text-align: left;
   caption-side: bottom;
 }
@@ -525,8 +525,8 @@ output {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
-  font-family: "Oswald";
-  font-weight: 500;
+  font-family: "Space Mono", "Oswald";
+  font-weight: 400;
   line-height: 1.4;
   color: inherit;
 }
@@ -632,7 +632,7 @@ mark,
 .blockquote-footer {
   display: block;
   font-size: 80%;
-  color: #818a91;
+  color: #999999;
 }
 
 .blockquote-footer::before {
@@ -671,7 +671,7 @@ dl.row > dd + dt {
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #333;
+  background-color: #fff;
   border: 3px solid #ddd;
   border-radius: 0.25rem;
   transition: all .2s ease-in-out;
@@ -695,14 +695,14 @@ dl.row > dd + dt {
 
 .figure-caption {
   font-size: 90%;
-  color: #818a91;
+  color: #999999;
 }
 
 code,
 kbd,
 pre,
 samp {
-  font-family: "Space Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: "Space Mono", "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 code {
@@ -1707,7 +1707,7 @@ pre code {
 }
 
 .table .table {
-  background-color: #333;
+  background-color: #fff;
 }
 
 .table-sm th,
@@ -1883,13 +1883,7 @@ pre code {
   border: 3px solid #bbbbbb;
 }
 
-.form-control, .widget_archive select,
-.gfield input[type="text"],
-.gfield .has_country select,
-.gfield .name_prefix select,
-.ginput_cardextras select,
-.ginput_quantity, .gfield textarea,
-.gfield select[multiple] {
+.form-control, .widget_archive select {
   display: block;
   width: 100%;
   padding: 0.5rem 0.75rem;
@@ -1903,83 +1897,37 @@ pre code {
   border-radius: 0.25rem;
 }
 
-.form-control::-ms-expand, .widget_archive select::-ms-expand,
-.gfield input[type="text"]::-ms-expand,
-.gfield .has_country select::-ms-expand,
-.gfield .name_prefix select::-ms-expand,
-.ginput_cardextras select::-ms-expand,
-.ginput_quantity::-ms-expand, .gfield textarea::-ms-expand,
-.gfield select[multiple]::-ms-expand {
+.form-control::-ms-expand, .widget_archive select::-ms-expand {
   background-color: transparent;
   border: 0;
 }
 
-.form-control:focus, .widget_archive select:focus,
-.gfield input[type="text"]:focus,
-.gfield .has_country select:focus,
-.gfield .name_prefix select:focus,
-.ginput_cardextras select:focus,
-.ginput_quantity:focus, .gfield textarea:focus,
-.gfield select[multiple]:focus {
+.form-control:focus, .widget_archive select:focus {
   color: #55595c;
   background-color: #fff;
-  border-color: #66afe9;
+  border-color: #00b39d;
   outline: none;
 }
 
-.form-control::placeholder, .widget_archive select::placeholder,
-.gfield input[type="text"]::placeholder,
-.gfield .has_country select::placeholder,
-.gfield .name_prefix select::placeholder,
-.ginput_cardextras select::placeholder,
-.ginput_quantity::placeholder, .gfield textarea::placeholder,
-.gfield select[multiple]::placeholder {
+.form-control::placeholder, .widget_archive select::placeholder {
   color: #999;
   opacity: 1;
 }
 
-.form-control:disabled, .widget_archive select:disabled,
-.gfield input[type="text"]:disabled,
-.gfield .has_country select:disabled,
-.gfield .name_prefix select:disabled,
-.ginput_cardextras select:disabled,
-.ginput_quantity:disabled, .gfield textarea:disabled,
-.gfield select[multiple]:disabled, .form-control[readonly], .widget_archive select[readonly],
-.gfield input[readonly][type="text"],
-.gfield .has_country select[readonly],
-.gfield .name_prefix select[readonly],
-.ginput_cardextras select[readonly],
-[readonly].ginput_quantity, .gfield textarea[readonly],
-.gfield select[readonly][multiple] {
+.form-control:disabled, .widget_archive select:disabled, .form-control[readonly], .widget_archive select[readonly] {
   background-color: #bbbbbb;
   opacity: 1;
 }
 
-.form-control:disabled, .widget_archive select:disabled,
-.gfield input[type="text"]:disabled,
-.gfield .has_country select:disabled,
-.gfield .name_prefix select:disabled,
-.ginput_cardextras select:disabled,
-.ginput_quantity:disabled, .gfield textarea:disabled,
-.gfield select[multiple]:disabled {
+.form-control:disabled, .widget_archive select:disabled {
   cursor: not-allowed;
 }
 
-select.form-control:not([size]):not([multiple]), .widget_archive select:not([size]):not([multiple]),
-.gfield .has_country select:not([size]):not([multiple]),
-.gfield .name_prefix select:not([size]):not([multiple]),
-.ginput_cardextras select:not([size]):not([multiple]),
-select.ginput_quantity:not([size]):not([multiple]),
-.gfield select[multiple]:not([size]):not([multiple]) {
+select.form-control:not([size]):not([multiple]), .widget_archive select:not([size]):not([multiple]) {
   height: 2.6rem;
 }
 
-select.form-control:focus::-ms-value, .widget_archive select:focus::-ms-value,
-.gfield .has_country select:focus::-ms-value,
-.gfield .name_prefix select:focus::-ms-value,
-.ginput_cardextras select:focus::-ms-value,
-select.ginput_quantity:focus::-ms-value,
-.gfield select[multiple]:focus::-ms-value {
+select.form-control:focus::-ms-value, .widget_archive select:focus::-ms-value {
   color: #55595c;
   background-color: #fff;
 }
@@ -2022,20 +1970,8 @@ select.ginput_quantity:focus::-ms-value,
 }
 
 .form-control-static.form-control-sm, .input-group-sm > .form-control-static.form-control, .widget_archive .input-group-sm > select.form-control-static,
-.gfield .input-group-sm > input.form-control-static[type="text"],
-.gfield .has_country .input-group-sm > select.form-control-static,
-.gfield .name_prefix .input-group-sm > select.form-control-static,
-.ginput_cardextras .input-group-sm > select.form-control-static, .input-group-sm >
-.form-control-static.ginput_quantity, .gfield .input-group-sm > textarea.form-control-static,
-.gfield .input-group-sm > select.form-control-static[multiple],
 .input-group-sm > .form-control-static.input-group-addon,
 .input-group-sm > .input-group-btn > .form-control-static.btn, .form-control-static.form-control-lg, .input-group-lg > .form-control-static.form-control, .widget_archive .input-group-lg > select.form-control-static,
-.gfield .input-group-lg > input.form-control-static[type="text"],
-.gfield .has_country .input-group-lg > select.form-control-static,
-.gfield .name_prefix .input-group-lg > select.form-control-static,
-.ginput_cardextras .input-group-lg > select.form-control-static, .input-group-lg >
-.form-control-static.ginput_quantity, .gfield .input-group-lg > textarea.form-control-static,
-.gfield .input-group-lg > select.form-control-static[multiple],
 .input-group-lg > .form-control-static.input-group-addon,
 .input-group-lg > .input-group-btn > .form-control-static.btn {
   padding-right: 0;
@@ -2043,12 +1979,6 @@ select.ginput_quantity:focus::-ms-value,
 }
 
 .form-control-sm, .input-group-sm > .form-control, .widget_archive .input-group-sm > select,
-.gfield .input-group-sm > input[type="text"],
-.gfield .has_country .input-group-sm > select,
-.gfield .name_prefix .input-group-sm > select,
-.ginput_cardextras .input-group-sm > select, .input-group-sm >
-.ginput_quantity, .gfield .input-group-sm > textarea,
-.gfield .input-group-sm > select[multiple],
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .btn {
   padding: 0.25rem 0.5rem;
@@ -2057,23 +1987,12 @@ select.ginput_quantity:focus::-ms-value,
 }
 
 select.form-control-sm:not([size]):not([multiple]), .input-group-sm > select.form-control:not([size]):not([multiple]), .widget_archive .input-group-sm > select:not([size]):not([multiple]),
-.gfield .has_country .input-group-sm > select:not([size]):not([multiple]),
-.gfield .name_prefix .input-group-sm > select:not([size]):not([multiple]),
-.ginput_cardextras .input-group-sm > select:not([size]):not([multiple]), .input-group-sm >
-select.ginput_quantity:not([size]):not([multiple]),
-.gfield .input-group-sm > select[multiple]:not([size]):not([multiple]),
 .input-group-sm > select.input-group-addon:not([size]):not([multiple]),
 .input-group-sm > .input-group-btn > select.btn:not([size]):not([multiple]) {
   height: 1.8125rem;
 }
 
 .form-control-lg, .input-group-lg > .form-control, .widget_archive .input-group-lg > select,
-.gfield .input-group-lg > input[type="text"],
-.gfield .has_country .input-group-lg > select,
-.gfield .name_prefix .input-group-lg > select,
-.ginput_cardextras .input-group-lg > select, .input-group-lg >
-.ginput_quantity, .gfield .input-group-lg > textarea,
-.gfield .input-group-lg > select[multiple],
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn {
   padding: 0.75rem 1.5rem;
@@ -2082,11 +2001,6 @@ select.ginput_quantity:not([size]):not([multiple]),
 }
 
 select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.form-control:not([size]):not([multiple]), .widget_archive .input-group-lg > select:not([size]):not([multiple]),
-.gfield .has_country .input-group-lg > select:not([size]):not([multiple]),
-.gfield .name_prefix .input-group-lg > select:not([size]):not([multiple]),
-.ginput_cardextras .input-group-lg > select:not([size]):not([multiple]), .input-group-lg >
-select.ginput_quantity:not([size]):not([multiple]),
-.gfield .input-group-lg > select[multiple]:not([size]):not([multiple]),
 .input-group-lg > select.input-group-addon:not([size]):not([multiple]),
 .input-group-lg > .input-group-btn > select.btn:not([size]):not([multiple]) {
   height: 3.16667rem;
@@ -2112,7 +2026,7 @@ select.ginput_quantity:not([size]):not([multiple]),
 }
 
 .form-check.disabled .form-check-label {
-  color: #818a91;
+  color: #999999;
   cursor: not-allowed;
 }
 
@@ -2170,18 +2084,7 @@ select.ginput_quantity:not([size]):not([multiple]),
   color: #5cb85c;
 }
 
-.has-success .form-control, .has-success .widget_archive select, .widget_archive .has-success select, .has-success
-.gfield input[type="text"],
-.gfield .has-success input[type="text"], .has-success
-.gfield .has_country select,
-.gfield .has_country .has-success select, .has-success
-.gfield .name_prefix select,
-.gfield .name_prefix .has-success select, .has-success
-.ginput_cardextras select,
-.ginput_cardextras .has-success select, .has-success
-.ginput_quantity, .has-success .gfield textarea, .gfield .has-success textarea, .has-success
-.gfield select[multiple],
-.gfield .has-success select[multiple] {
+.has-success .form-control, .has-success .widget_archive select, .widget_archive .has-success select {
   border-color: #5cb85c;
 }
 
@@ -2207,18 +2110,7 @@ select.ginput_quantity:not([size]):not([multiple]),
   color: #f0ad4e;
 }
 
-.has-warning .form-control, .has-warning .widget_archive select, .widget_archive .has-warning select, .has-warning
-.gfield input[type="text"],
-.gfield .has-warning input[type="text"], .has-warning
-.gfield .has_country select,
-.gfield .has_country .has-warning select, .has-warning
-.gfield .name_prefix select,
-.gfield .name_prefix .has-warning select, .has-warning
-.ginput_cardextras select,
-.ginput_cardextras .has-warning select, .has-warning
-.ginput_quantity, .has-warning .gfield textarea, .gfield .has-warning textarea, .has-warning
-.gfield select[multiple],
-.gfield .has-warning select[multiple] {
+.has-warning .form-control, .has-warning .widget_archive select, .widget_archive .has-warning select {
   border-color: #f0ad4e;
 }
 
@@ -2244,18 +2136,7 @@ select.ginput_quantity:not([size]):not([multiple]),
   color: #d9534f;
 }
 
-.has-danger .form-control, .has-danger .widget_archive select, .widget_archive .has-danger select, .has-danger
-.gfield input[type="text"],
-.gfield .has-danger input[type="text"], .has-danger
-.gfield .has_country select,
-.gfield .has_country .has-danger select, .has-danger
-.gfield .name_prefix select,
-.gfield .name_prefix .has-danger select, .has-danger
-.ginput_cardextras select,
-.ginput_cardextras .has-danger select, .has-danger
-.ginput_quantity, .has-danger .gfield textarea, .gfield .has-danger textarea, .has-danger
-.gfield select[multiple],
-.gfield .has-danger select[multiple] {
+.has-danger .form-control, .has-danger .widget_archive select, .widget_archive .has-danger select {
   border-color: #d9534f;
 }
 
@@ -2279,18 +2160,7 @@ select.ginput_quantity:not([size]):not([multiple]),
     margin-bottom: 0;
     vertical-align: middle;
   }
-  .form-inline .form-control, .form-inline .widget_archive select, .widget_archive .form-inline select, .form-inline
-  .gfield input[type="text"],
-  .gfield .form-inline input[type="text"], .form-inline
-  .gfield .has_country select,
-  .gfield .has_country .form-inline select, .form-inline
-  .gfield .name_prefix select,
-  .gfield .name_prefix .form-inline select, .form-inline
-  .ginput_cardextras select,
-  .ginput_cardextras .form-inline select, .form-inline
-  .ginput_quantity, .form-inline .gfield textarea, .gfield .form-inline textarea, .form-inline
-  .gfield select[multiple],
-  .gfield .form-inline select[multiple] {
+  .form-inline .form-control, .form-inline .widget_archive select, .widget_archive .form-inline select {
     display: inline-block;
     width: auto;
     vertical-align: middle;
@@ -2306,45 +2176,10 @@ select.ginput_quantity:not([size]):not([multiple]),
   .form-inline .input-group .input-group-btn,
   .form-inline .input-group .form-control,
   .form-inline .input-group .widget_archive select, .widget_archive
-  .form-inline .input-group select,
-  .form-inline .input-group
-  .gfield input[type="text"],
-  .gfield
-  .form-inline .input-group input[type="text"],
-  .form-inline .input-group
-  .gfield .has_country select,
-  .gfield .has_country
-  .form-inline .input-group select,
-  .form-inline .input-group
-  .gfield .name_prefix select,
-  .gfield .name_prefix
-  .form-inline .input-group select,
-  .form-inline .input-group
-  .ginput_cardextras select,
-  .ginput_cardextras
-  .form-inline .input-group select,
-  .form-inline .input-group
-  .ginput_quantity,
-  .form-inline .input-group .gfield textarea, .gfield
-  .form-inline .input-group textarea,
-  .form-inline .input-group
-  .gfield select[multiple],
-  .gfield
-  .form-inline .input-group select[multiple] {
+  .form-inline .input-group select {
     width: auto;
   }
-  .form-inline .input-group > .form-control, .form-inline .widget_archive .input-group > select, .widget_archive .form-inline .input-group > select, .form-inline
-  .gfield .input-group > input[type="text"],
-  .gfield .form-inline .input-group > input[type="text"], .form-inline
-  .gfield .has_country .input-group > select,
-  .gfield .has_country .form-inline .input-group > select, .form-inline
-  .gfield .name_prefix .input-group > select,
-  .gfield .name_prefix .form-inline .input-group > select, .form-inline
-  .ginput_cardextras .input-group > select,
-  .ginput_cardextras .form-inline .input-group > select, .form-inline .input-group >
-  .ginput_quantity, .form-inline .gfield .input-group > textarea, .gfield .form-inline .input-group > textarea, .form-inline
-  .gfield .input-group > select[multiple],
-  .gfield .form-inline .input-group > select[multiple] {
+  .form-inline .input-group > .form-control, .form-inline .widget_archive .input-group > select, .widget_archive .form-inline .input-group > select {
     width: 100%;
   }
   .form-inline .form-control-label {
@@ -2965,7 +2800,7 @@ fieldset[disabled] a.btn {
 }
 
 .btn-link:disabled:focus, .btn-link:disabled:hover {
-  color: #818a91;
+  color: #999999;
   text-decoration: none;
 }
 
@@ -3059,7 +2894,7 @@ input[type="button"].btn-block {
   padding: 5px 0;
   margin: 2px 0 0;
   font-size: 1rem;
-  color: #bbbbbb;
+  color: #222;
   text-align: left;
   list-style: none;
   background-color: #fff;
@@ -3102,7 +2937,7 @@ input[type="button"].btn-block {
 }
 
 .dropdown-item.disabled, .dropdown-item.disabled:focus, .dropdown-item.disabled:hover {
-  color: #818a91;
+  color: #999999;
 }
 
 .dropdown-item.disabled:focus, .dropdown-item.disabled:hover {
@@ -3135,7 +2970,7 @@ input[type="button"].btn-block {
   display: block;
   padding: 5px 20px;
   font-size: 0.875rem;
-  color: #818a91;
+  color: #999999;
   white-space: nowrap;
 }
 
@@ -3362,18 +3197,7 @@ input[type="button"].btn-block {
   border-collapse: separate;
 }
 
-.input-group .form-control, .input-group .widget_archive select, .widget_archive .input-group select, .input-group
-.gfield input[type="text"],
-.gfield .input-group input[type="text"], .input-group
-.gfield .has_country select,
-.gfield .has_country .input-group select, .input-group
-.gfield .name_prefix select,
-.gfield .name_prefix .input-group select, .input-group
-.ginput_cardextras select,
-.ginput_cardextras .input-group select, .input-group
-.ginput_quantity, .input-group .gfield textarea, .gfield .input-group textarea, .input-group
-.gfield select[multiple],
-.gfield .input-group select[multiple] {
+.input-group .form-control, .input-group .widget_archive select, .widget_archive .input-group select {
   position: relative;
   z-index: 2;
   float: left;
@@ -3381,40 +3205,7 @@ input[type="button"].btn-block {
   margin-bottom: 0;
 }
 
-.input-group .form-control:focus, .input-group .widget_archive select:focus, .widget_archive .input-group select:focus, .input-group
-.gfield input[type="text"]:focus,
-.gfield .input-group input[type="text"]:focus, .input-group
-.gfield .has_country select:focus,
-.gfield .has_country .input-group select:focus, .input-group
-.gfield .name_prefix select:focus,
-.gfield .name_prefix .input-group select:focus, .input-group
-.ginput_cardextras select:focus,
-.ginput_cardextras .input-group select:focus, .input-group
-.ginput_quantity:focus, .input-group .gfield textarea:focus, .gfield .input-group textarea:focus, .input-group
-.gfield select[multiple]:focus,
-.gfield .input-group select[multiple]:focus, .input-group .form-control:active, .input-group .widget_archive select:active, .widget_archive .input-group select:active, .input-group
-.gfield input[type="text"]:active,
-.gfield .input-group input[type="text"]:active, .input-group
-.gfield .has_country select:active,
-.gfield .has_country .input-group select:active, .input-group
-.gfield .name_prefix select:active,
-.gfield .name_prefix .input-group select:active, .input-group
-.ginput_cardextras select:active,
-.ginput_cardextras .input-group select:active, .input-group
-.ginput_quantity:active, .input-group .gfield textarea:active, .gfield .input-group textarea:active, .input-group
-.gfield select[multiple]:active,
-.gfield .input-group select[multiple]:active, .input-group .form-control:hover, .input-group .widget_archive select:hover, .widget_archive .input-group select:hover, .input-group
-.gfield input[type="text"]:hover,
-.gfield .input-group input[type="text"]:hover, .input-group
-.gfield .has_country select:hover,
-.gfield .has_country .input-group select:hover, .input-group
-.gfield .name_prefix select:hover,
-.gfield .name_prefix .input-group select:hover, .input-group
-.ginput_cardextras select:hover,
-.ginput_cardextras .input-group select:hover, .input-group
-.ginput_quantity:hover, .input-group .gfield textarea:hover, .gfield .input-group textarea:hover, .input-group
-.gfield select[multiple]:hover,
-.gfield .input-group select[multiple]:hover {
+.input-group .form-control:focus, .input-group .widget_archive select:focus, .widget_archive .input-group select:focus, .input-group .form-control:active, .input-group .widget_archive select:active, .widget_archive .input-group select:active, .input-group .form-control:hover, .input-group .widget_archive select:hover, .widget_archive .input-group select:hover {
   z-index: 3;
 }
 
@@ -3422,31 +3213,7 @@ input[type="button"].btn-block {
 .input-group-btn,
 .input-group .form-control,
 .input-group .widget_archive select, .widget_archive
-.input-group select,
-.input-group
-.gfield input[type="text"],
-.gfield
-.input-group input[type="text"],
-.input-group
-.gfield .has_country select,
-.gfield .has_country
-.input-group select,
-.input-group
-.gfield .name_prefix select,
-.gfield .name_prefix
-.input-group select,
-.input-group
-.ginput_cardextras select,
-.ginput_cardextras
-.input-group select,
-.input-group
-.ginput_quantity,
-.input-group .gfield textarea, .gfield
-.input-group textarea,
-.input-group
-.gfield select[multiple],
-.gfield
-.input-group select[multiple] {
+.input-group select {
   display: table-cell;
 }
 
@@ -3454,31 +3221,7 @@ input[type="button"].btn-block {
 .input-group-btn:not(:first-child):not(:last-child),
 .input-group .form-control:not(:first-child):not(:last-child),
 .input-group .widget_archive select:not(:first-child):not(:last-child), .widget_archive
-.input-group select:not(:first-child):not(:last-child),
-.input-group
-.gfield input[type="text"]:not(:first-child):not(:last-child),
-.gfield
-.input-group input[type="text"]:not(:first-child):not(:last-child),
-.input-group
-.gfield .has_country select:not(:first-child):not(:last-child),
-.gfield .has_country
-.input-group select:not(:first-child):not(:last-child),
-.input-group
-.gfield .name_prefix select:not(:first-child):not(:last-child),
-.gfield .name_prefix
-.input-group select:not(:first-child):not(:last-child),
-.input-group
-.ginput_cardextras select:not(:first-child):not(:last-child),
-.ginput_cardextras
-.input-group select:not(:first-child):not(:last-child),
-.input-group
-.ginput_quantity:not(:first-child):not(:last-child),
-.input-group .gfield textarea:not(:first-child):not(:last-child), .gfield
-.input-group textarea:not(:first-child):not(:last-child),
-.input-group
-.gfield select[multiple]:not(:first-child):not(:last-child),
-.gfield
-.input-group select[multiple]:not(:first-child):not(:last-child) {
+.input-group select:not(:first-child):not(:last-child) {
   border-radius: 0;
 }
 
@@ -3503,11 +3246,6 @@ input[type="button"].btn-block {
 }
 
 .input-group-addon.form-control-sm, .widget_archive .input-group-sm > select.input-group-addon,
-.gfield .input-group-sm > input.input-group-addon[type="text"],
-.gfield .has_country .input-group-sm > select.input-group-addon,
-.gfield .name_prefix .input-group-sm > select.input-group-addon,
-.ginput_cardextras .input-group-sm > select.input-group-addon, .gfield .input-group-sm > textarea.input-group-addon,
-.gfield .input-group-sm > select.input-group-addon[multiple],
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .input-group-addon.btn {
   padding: 0.25rem 0.5rem;
@@ -3516,11 +3254,6 @@ input[type="button"].btn-block {
 }
 
 .input-group-addon.form-control-lg, .widget_archive .input-group-lg > select.input-group-addon,
-.gfield .input-group-lg > input.input-group-addon[type="text"],
-.gfield .has_country .input-group-lg > select.input-group-addon,
-.gfield .name_prefix .input-group-lg > select.input-group-addon,
-.ginput_cardextras .input-group-lg > select.input-group-addon, .gfield .input-group-lg > textarea.input-group-addon,
-.gfield .input-group-lg > select.input-group-addon[multiple],
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .input-group-addon.btn {
   padding: 0.75rem 1.5rem;
@@ -3533,18 +3266,7 @@ input[type="button"].btn-block {
   margin-top: 0;
 }
 
-.input-group .form-control:not(:last-child), .input-group .widget_archive select:not(:last-child), .widget_archive .input-group select:not(:last-child), .input-group
-.gfield input[type="text"]:not(:last-child),
-.gfield .input-group input[type="text"]:not(:last-child), .input-group
-.gfield .has_country select:not(:last-child),
-.gfield .has_country .input-group select:not(:last-child), .input-group
-.gfield .name_prefix select:not(:last-child),
-.gfield .name_prefix .input-group select:not(:last-child), .input-group
-.ginput_cardextras select:not(:last-child),
-.ginput_cardextras .input-group select:not(:last-child), .input-group
-.ginput_quantity:not(:last-child), .input-group .gfield textarea:not(:last-child), .gfield .input-group textarea:not(:last-child), .input-group
-.gfield select[multiple]:not(:last-child),
-.gfield .input-group select[multiple]:not(:last-child),
+.input-group .form-control:not(:last-child), .input-group .widget_archive select:not(:last-child), .widget_archive .input-group select:not(:last-child),
 .input-group-addon:not(:last-child),
 .input-group-btn:not(:last-child) > .btn,
 .input-group-btn:not(:last-child) > .btn-group > .btn,
@@ -3559,18 +3281,7 @@ input[type="button"].btn-block {
   border-right: 0;
 }
 
-.input-group .form-control:not(:first-child), .input-group .widget_archive select:not(:first-child), .widget_archive .input-group select:not(:first-child), .input-group
-.gfield input[type="text"]:not(:first-child),
-.gfield .input-group input[type="text"]:not(:first-child), .input-group
-.gfield .has_country select:not(:first-child),
-.gfield .has_country .input-group select:not(:first-child), .input-group
-.gfield .name_prefix select:not(:first-child),
-.gfield .name_prefix .input-group select:not(:first-child), .input-group
-.ginput_cardextras select:not(:first-child),
-.ginput_cardextras .input-group select:not(:first-child), .input-group
-.ginput_quantity:not(:first-child), .input-group .gfield textarea:not(:first-child), .gfield .input-group textarea:not(:first-child), .input-group
-.gfield select[multiple]:not(:first-child),
-.gfield .input-group select[multiple]:not(:first-child),
+.input-group .form-control:not(:first-child), .input-group .widget_archive select:not(:first-child), .widget_archive .input-group select:not(:first-child),
 .input-group-addon:not(:first-child),
 .input-group-btn:not(:first-child) > .btn,
 .input-group-btn:not(:first-child) > .btn-group > .btn,
@@ -3581,13 +3292,7 @@ input[type="button"].btn-block {
   border-top-left-radius: 0;
 }
 
-.form-control + .input-group-addon:not(:first-child), .widget_archive select + .input-group-addon:not(:first-child),
-.gfield input[type="text"] + .input-group-addon:not(:first-child),
-.gfield .has_country select + .input-group-addon:not(:first-child),
-.gfield .name_prefix select + .input-group-addon:not(:first-child),
-.ginput_cardextras select + .input-group-addon:not(:first-child),
-.ginput_quantity + .input-group-addon:not(:first-child), .gfield textarea + .input-group-addon:not(:first-child),
-.gfield select[multiple] + .input-group-addon:not(:first-child) {
+.form-control + .input-group-addon:not(:first-child), .widget_archive select + .input-group-addon:not(:first-child) {
   border-left: 0;
 }
 
@@ -3650,12 +3355,12 @@ input[type="button"].btn-block {
 }
 
 .custom-control-input:focus ~ .custom-control-indicator {
-  box-shadow: 0 0 0 0.075rem #fff, 0 0 0 0.2rem #0074d9;
+  box-shadow: 0 0 0 0.075em #fff, 0 0 0 0.2rem #00b39d;
 }
 
 .custom-control-input:active ~ .custom-control-indicator {
   color: #fff;
-  background-color: #84c6ff;
+  background-color: #00b39d;
 }
 
 .custom-control-input:disabled ~ .custom-control-indicator {
@@ -3745,7 +3450,7 @@ input[type="button"].btn-block {
 }
 
 .custom-select:disabled {
-  color: #818a91;
+  color: #999999;
   cursor: not-allowed;
   background-color: #bbbbbb;
 }
@@ -3831,11 +3536,11 @@ input[type="button"].btn-block {
 }
 
 .nav-link.disabled {
-  color: #818a91;
+  color: #999999;
 }
 
 .nav-link.disabled, .nav-link.disabled:focus, .nav-link.disabled:hover {
-  color: #818a91;
+  color: #999999;
   cursor: not-allowed;
   background-color: transparent;
 }
@@ -3846,7 +3551,7 @@ input[type="button"].btn-block {
 
 .nav-inline .nav-item + .nav-item,
 .nav-inline .nav-link + .nav-link {
-  margin-left: 1rem;
+  margin-left: 0.75rem;
 }
 
 .nav-tabs {
@@ -3881,7 +3586,7 @@ input[type="button"].btn-block {
 }
 
 .nav-tabs .nav-link.disabled, .nav-tabs .nav-link.disabled:focus, .nav-tabs .nav-link.disabled:hover {
-  color: #818a91;
+  color: #999999;
   background-color: transparent;
   border-color: transparent;
 }
@@ -3891,7 +3596,7 @@ input[type="button"].btn-block {
 .nav-tabs .nav-item.open .nav-link:focus,
 .nav-tabs .nav-item.open .nav-link:hover {
   color: #55595c;
-  background-color: #333;
+  background-color: #fff;
   border-color: #ddd #ddd transparent;
 }
 
@@ -5028,11 +4733,11 @@ a.bg-inverse:focus, a.bg-inverse:hover {
 }
 
 .text-muted {
-  color: #818a91 !important;
+  color: #999999 !important;
 }
 
 a.text-muted:focus, a.text-muted:hover {
-  color: #687077 !important;
+  color: gray !important;
 }
 
 .text-primary {
@@ -5182,47 +4887,11 @@ a.text-danger:focus, a.text-danger:hover {
 /*
  * General styling & overrides
  */
-.widget_archive select:focus:focus,
-.gfield input[type="text"]:focus:focus,
-.gfield .has_country select:focus:focus,
-.gfield .name_prefix select:focus:focus,
-.ginput_cardextras select:focus:focus,
-.ginput_quantity:focus:focus {
+.widget_archive select:focus:focus {
   color: #55595c;
   background-color: #fff;
-  border-color: #66afe9;
+  border-color: #00b39d;
   outline: none;
-}
-
-.gfield textarea,
-.gfield select[multiple] {
-  height: auto;
-}
-
-.gfield textarea:focus:focus,
-.gfield select[multiple]:focus:focus {
-  color: #55595c;
-  background-color: #fff;
-  border-color: #66afe9;
-  outline: none;
-}
-
-.gfield select[multiple] {
-  padding: 0;
-}
-
-.gfield select[multiple] option {
-  padding: 4px 6px;
-}
-
-.gfield input[type="file"] {
-  height: auto;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  box-shadow: none;
-  line-height: 1;
-  font-style: italic;
 }
 
 .skip {
@@ -5277,8 +4946,16 @@ html {
   }
 }
 
-body {
-  padding: 0 1em;
+@media (min-width: 1600px) {
+  html {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 480px) {
+  body {
+    padding: 0 1em;
+  }
 }
 
 /* Used from Daniel Eden's Animate.css: https://daneden.github.io/animate.css/ */
@@ -5313,13 +4990,26 @@ main a:hover, main a:focus, main a:hover:focus {
   color: #00665a;
 }
 
-h1, h2 {
+:focus,
+a:focus,
+.btn:focus,
+button:focus {
+  outline: 0.1rem auto #999999;
+  outline-offset: 0.2rem;
+}
+
+::selection {
+  text-shadow: 0.07em 0.07em 0 #fff;
+  background-color: #00b39d;
   color: #191919;
 }
 
+h1, h2 {
+  color: #55595c;
+}
+
 h1 strong, h2 strong {
-  color: #bbbbbb;
-  font-weight: inherit;
+  font-weight: 700;
 }
 
 h1 a, h2 a {
@@ -5333,6 +5023,7 @@ h1 a:hover, h1 a:focus, h1 a:hover:focus, h2 a:hover, h2 a:focus, h2 a:hover:foc
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.85em;
   max-width: 19em;
+  font-style: italic;
 }
 
 header.wrap {
@@ -5341,11 +5032,10 @@ header.wrap {
 }
 
 header.wrap .logo {
-  width: 6em;
-  height: 6em;
+  width: 100%;
+  height: 100%;
   position: relative;
   opacity: 1;
-  transition: opacity .1s ease-out;
 }
 
 .navbar {
@@ -5363,9 +5053,39 @@ header.wrap .logo {
 .navbar-toggler {
   padding-top: 0.725em;
   padding-bottom: 0.725em;
-  color: #bbbbbb;
+  color: #55595c;
   font-size: 3rem;
   float: right;
+}
+
+.navbar-toggler:focus {
+  color: #222;
+}
+
+@media (max-width: 767px) {
+  .navbar-toggleable-sm {
+    padding: 0.6em 1em;
+    border: 0.1em solid #222;
+    position: relative;
+  }
+  .navbar-toggleable-sm:before, .navbar-toggleable-sm:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0.6em 0.6em 0.6em;
+  }
+  .navbar-toggleable-sm:before {
+    border-color: transparent transparent #222 transparent;
+    top: -0.6em;
+    right: 1.95em;
+  }
+  .navbar-toggleable-sm:after {
+    border-color: transparent transparent #fff transparent;
+    top: -0.51em;
+    right: 1.95em;
+  }
 }
 
 @media (min-width: 768px) {
@@ -5375,11 +5095,25 @@ header.wrap .logo {
   }
 }
 
+@media (min-width: 768px) and (max-width: 1000px) {
+  .navbar-nav .nav-item + .nav-item {
+    margin-left: 0.6em;
+  }
+}
+
+@media (max-width: 767px) {
+  .nav-item-social {
+    display: inline-block;
+    margin-right: 1.25em;
+  }
+}
+
 .nav-link {
-  font-family: "Oswald";
+  font-family: "Space Mono", "Oswald";
   color: #191919;
   font-size: 1.4em;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  font-style: italic;
+  transition: color 0.1s ease, border-color 0.1s ease;
   border-bottom: 0.1em solid transparent;
 }
 
@@ -5391,6 +5125,11 @@ header.wrap .logo {
 .navbar-brand {
   position: relative;
   font-size: 1.25em;
+  margin-right: 1em;
+  border: 0.1em solid transparent;
+  height: 6.1em;
+  width: 6.1em;
+  padding: 0;
 }
 
 .navbar-brand:after {
@@ -5399,7 +5138,7 @@ header.wrap .logo {
   width: 100%;
   height: 100%;
   background-image: url("img/apple-donut.png");
-  background-size: 6em;
+  background-size: 100%;
   background-repeat: no-repeat;
   left: 0;
   top: 0;
@@ -5408,7 +5147,7 @@ header.wrap .logo {
   transition: opacity .1s ease-out;
 }
 
-.navbar-brand:hover:after, .navbar-brand:focus:after, .navbar-brand:hover:focus:after {
+.navbar-brand:hover:after {
   content: '';
   -webkit-animation-name: tada;
   -webkit-animation-duration: 1.5s;
@@ -5417,8 +5156,15 @@ header.wrap .logo {
   opacity: 1;
 }
 
-.navbar-brand:hover .logo, .navbar-brand:focus .logo, .navbar-brand:hover:focus .logo {
+.navbar-brand:hover .logo {
   opacity: 0;
+}
+
+.navbar-brand:focus, .navbar-brand:hover:focus {
+  box-shadow: none;
+  outline: 0px;
+  border-color: #00b39d;
+  border-radius: 100%;
 }
 
 .hero {
@@ -5427,19 +5173,23 @@ header.wrap .logo {
 
 .hero .entry-title {
   font-size: 4em;
-  line-height: 1.1;
+  font-size: 9vw;
+  line-height: 1.2;
   margin: 0;
   display: inline-block;
+  margin-left: -0.025em;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 767px) {
   .hero .entry-title {
-    font-size: 6em;
+    font-size: 13.25vw;
+  }
+  .hero .entry-title br {
+    display: none;
   }
 }
 
 .areas.wrap .area {
-  background-color: #222;
   padding: 2em;
   text-align: center;
 }
@@ -5455,26 +5205,201 @@ header.wrap .logo {
 .entry-content p {
   line-height: 1.8;
   max-width: 34em;
+  margin-bottom: 2em;
 }
 
 footer.wrap {
   padding: 10em 0 1em;
-  font-weight: bold;
+  font-size: 1em;
+  font-style: italic;
   color: #191919;
 }
 
 footer.wrap a {
   color: #191919;
-  transition: color 0.2s ease;
+  border-bottom: 0.1em solid transparent;
+  transition: color 0.1s ease, border-color 0.1s ease;
 }
 
 footer.wrap a:hover, footer.wrap a:focus, footer.wrap a:hover:focus {
   color: #00b39d;
+  border-bottom: 0.1em solid currentColor;
 }
 
-/*
- * Content/inner pages.
- */
+.oembed {
+  margin-bottom: 2em;
+}
+
+.card {
+  border: 0.1em solid #bbbbbb;
+}
+
+.card-body {
+  padding: 1em;
+}
+
+.entries {
+  overflow: hidden;
+  margin-left: calc( -15px - 1em);
+  margin-right: calc( -15px - 1em);
+}
+
+.entry {
+  padding: 2.5em;
+}
+
+.entry .entry-title {
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.entry .entry-image {
+  margin-bottom: 1em;
+  position: relative;
+}
+
+.entry .entry-image:before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+@media (max-width: 767px) {
+  .entry .entry-image:before {
+    border-style: solid;
+    border-width: 0.4em 0.4em 0 0.4em;
+    border-color: #222 transparent transparent transparent;
+    bottom: -0.375em;
+    left: 1.5em;
+  }
+}
+
+@media (min-width: 768px) {
+  .entry .entry-image {
+    padding-right: 0.75em;
+  }
+  .entry .entry-image:before {
+    border-style: solid;
+    border-width: 0.4em 0 0.4em 0.4em;
+    border-color: transparent transparent transparent #222;
+    top: 1em;
+    right: 0.4em;
+  }
+}
+
+.entry .entry-image img {
+  width: 100%;
+  height: auto;
+  border: 0.1em solid #222;
+}
+
+.entry:nth-child(even) {
+  background-color: #f7f7f9;
+}
+
+@media (min-width: 768px) {
+  .entry:nth-child(even) .entry-image {
+    padding-right: 15px;
+    padding-left: 0.75em;
+  }
+  .entry:nth-child(even) .entry-image:before {
+    right: auto;
+    border-width: 0.4em 0.4em 0.4em 0;
+    border-color: transparent #222 transparent transparent;
+    top: 1em;
+    left: 0.4em;
+  }
+}
+
+.entry-image-placeholder {
+  display: block;
+  width: 100%;
+  height: 20vw;
+  border: 0.1em solid #222;
+}
+
+.pagination-container {
+  text-align: center;
+  margin: 3em 0;
+}
+
+.pagination-container .page-numbers {
+  margin: 0 0.3em;
+}
+
+blockquote {
+  font-size: 1.25rem;
+  font-family: "Space Mono", "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-style: italic;
+  max-width: 34em;
+  margin-bottom: 2em;
+  quotes: '\201c' '\201d';
+  position: relative;
+}
+
+blockquote + cite,
+blockquote + p cite {
+  font-style: normal;
+  display: block;
+  margin-top: -2em;
+  color: #999999;
+  margin-bottom: 2em;
+}
+
+blockquote:before {
+  content: open-quote;
+  font-size: 25vw;
+  line-height: 1;
+  position: absolute;
+  left: -0.25em;
+  top: -0.2em;
+  z-index: -10;
+  color: #ddd;
+}
+
+.wp-caption {
+  margin-bottom: 3em;
+}
+
+.wp-caption,
+.wp-caption img,
+.alignnone,
+.alignleft,
+.alignright {
+  max-width: 100%;
+  height: auto;
+}
+
+.alignleft {
+  float: left;
+  margin: 0.3em 1.4em 3em 0;
+}
+
+.alignright {
+  float: right;
+  margin: 0.3em 0 3em 1.4em;
+}
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin: 0 auto 3em;
+  text-align: center;
+}
+
+.wp-caption-text,
+.wp-caption-dd {
+  color: #999999;
+  font-size: 80%;
+}
+
+.embed-responsive {
+  margin-bottom: 1em;
+}
+
 .gallery > br {
   display: none;
   clear: none;

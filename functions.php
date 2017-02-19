@@ -102,12 +102,17 @@ require_once('dohnutt_nav_walker.php');
  }
  add_filter('login_headertitle', 'dohnutt_login_title_on_logo');
 
-
 function remove_bootstrap_shortcodes() {
   print_r($shortcodes);
   echo 'hey';
 }
 add_action('add_shortcodes', 'remove_bootstrap_shortcodes');
+
+// Remove unnecessary menu items from the admin bar.
+function cavera_admin_bar_render() {
+  global $wp_admin_bar;
+  $wp_admin_bar->remove_menu('comments');
+}
 
 // Unregister unnecessary widgets.
 function dohnutt_unregister_widgets() {
@@ -146,6 +151,11 @@ function dohnutt_default_template_title() {
 }
 add_filter('default_page_template_title', 'dohnutt_default_template_title');
 
+// Hide archived posts from 'All Posts' screen.
+add_filter( 'aps_status_arg_public', '__return_false' );
+add_filter( 'aps_status_arg_private', '__return_false' );
+add_filter( 'aps_status_arg_show_in_admin_all_list', '__return_false' );
+
 // Add editor style
 function dohnutt_editor_style() {
   add_editor_style ( get_template_directory_uri() . '/editor-style.css' );
@@ -155,6 +165,15 @@ function dohnutt_editor_style() {
 function dohnutt_add_page_excerpt() {
   add_post_type_support( 'page', 'excerpt' );
 }
+
+// Adds custom classes to the body class
+function dohnutt_body_classes( $classes ) {
+  if ( is_home() || is_search() ) :
+    $classes[] = 'archive';
+  endif;
+  return $classes;
+}
+add_filter( 'body_class', 'dohnutt_body_classes' );
 
 // Handy function to check if a page is a parent or a child.
 function is_tree($post_id) {
@@ -166,44 +185,31 @@ function is_tree($post_id) {
   endif;
 }
 
-// Filter Gravity forms so it has bootstrap styles.
-function bootstrap_gform_fields($content, $field, $value, $lead_id, $form_id) {
-  // Currently only applies to most common field types, but could be expanded.
-  if($field["type"] != 'hidden' && $field["type"] != 'list' && $field["type"] != 'multiselect' && $field["type"] != 'checkbox' && $field["type"] != 'fileupload' && $field["type"] != 'date' && $field["type"] != 'html' && $field["type"] != 'address') {
-    $content = str_replace('class=\'medium', 'class=\'form-control medium', $content);
-  }
-  if($field["type"] == 'select') {
-    $content = str_replace('class=\'medium', 'class=\'form-control medium', $content);
-  }
-  if($field["type"] == 'name' || $field["type"] == 'address') {
-    $content = str_replace('<input ', '<input class=\'form-control\' ', $content);
-  }
-  if($field["type"] == 'textarea') {
-    $content = str_replace('class=\'textarea', 'class=\'form-control textarea', $content);
-  }
-  if($field["type"] == 'checkbox') {
-    $content = str_replace('li class=\'', 'li class=\'checkbox ', $content);
-    $content = str_replace('<input ', '<input style=\'margin-left:1px;\' ', $content);
-  }
-  if($field["type"] == 'radio') {
-    $content = str_replace('li class=\'', 'li class=\'radio ', $content);
-    $content = str_replace('<input ', '<input style=\'margin-left:1px;\' ', $content);
-  }
-	return $content;
-}
-add_filter("gform_field_content", "bootstrap_gform_fields", 10, 5);
-
-function bootstrap_gform_button($button, $form){
-  // This includes your custom button text:
-  return "<button class='gform_button button btn btn-primary' id='gform_submit_button_{$form["id"]}'>{$form['button']['text']}</button>";
-}
-add_filter("gform_submit_button", "bootstrap_gform_button", 10, 2);
-
 // Filter oembeds so that they are responsive.
-function dohnutt_embed_filter( $output, $data, $url ) {
-	return '<div class="embed-responsive embed-responsive-16by9">' . $output . '</div>';
+function dohnutt_embed_oembed_html( $cache, $url, $attr, $post_ID ) {
+  $classes = array();
+  $classes_all = array('oembed');
+  if ( false !== strpos( $url, 'vimeo.com' ) || false !== strpos( $url, 'youtube.com' )  ) {
+    $classes[] = 'embed-responsive embed-responsive-16by9';
+  }
+  $classes = array_merge( $classes, $classes_all );
+  return '<div class="' . esc_attr( implode( $classes, ' ' ) ) . '">' . $cache . '</div>';
 }
-add_filter('oembed_dataparse', 'dohnutt_embed_filter', 0, 3 );
+add_filter( 'embed_oembed_html', 'dohnutt_embed_oembed_html', 99, 4 );
+
+
+// Filter out other prefixes
+function cavera_trim_archive_title($title, $id = null) {
+  $title = str_replace('Archives:', '', $title);
+  $title_words = explode(' ', $title);
+  if (count($title_words) > 1) :
+    $title_words[0] = '<span class="title-prefix">' . $title_words[0] . '</span>';
+    return implode(' ', $title_words);
+  else :
+    return $title;
+  endif;
+}
+add_filter( 'get_the_archive_title', 'cavera_trim_archive_title', 10, 2 );
 
 // Modify excerpt length and remove the ellpisis.
 function dohnutt_excerpt_length($length) {
@@ -224,7 +230,7 @@ if(!function_exists('dohnutt_theme_assets')) {
 
     wp_register_style('theme-css',        get_stylesheet_uri());
     wp_register_style('font-awesome',     '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-    wp_register_style('fonts',            '//fonts.googleapis.com/css?family=Oswald:300,400,700|Space+Mono|');
+    wp_register_style('fonts',            '//fonts.googleapis.com/css?family=Oswald:300,400,700|Space+Mono:400,400i,700,700i');
   }
 }
 
@@ -250,12 +256,9 @@ if(!function_exists('dohnutt_theme_support')) {
     add_theme_support( 'automatic-feed-links' );
     add_theme_support( 'post-formats', array( 'gallery', 'link', 'image', 'quote', 'status', 'video' ) );
 
-    add_image_size( 'tiny', 100, 100, true );
-    //add_image_size( 'gallery', 480, 480, true );
+    add_image_size( 'loop', 960, 400, true );
     add_image_size( 'opengraph', 1200, 630, true );
-    add_image_size( 'hero', 1920, 1440, true );
-
-
+    add_image_size( 'hero', 1920, 1440, false );
 
     register_nav_menus( array(
       'primary' => 'Primary Menu',
@@ -265,7 +268,6 @@ if(!function_exists('dohnutt_theme_support')) {
   	add_filter( 'use_default_gallery_style', '__return_false' );
   }
 }
-
 
 function dohnutt_wpseo_image_size( $string ) {
   return 'opengraph';

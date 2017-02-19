@@ -19,43 +19,13 @@ Text Domain: dohnutt
   }
 }
 
-// Override WordPress and Gravity Forms items with bootstrap's .form-control styling.
-.widget_archive select,
-.gfield input[type="text"],
-.gfield .has_country select,
-.gfield .name_prefix select,
-.ginput_cardextras select,
-.ginput_quantity {
+// Override WordPress items with bootstrap's .form-control styling.
+.widget_archive select {
   @extend .form-control;
 
   &:focus {
     @include form-control-focus();
   }
-}
-.gfield textarea,
-.gfield select[multiple] {
-  @extend .form-control;
-  height: auto;
-
-  &:focus {
-    @include form-control-focus();
-  }
-}
-.gfield select[multiple] {
-  padding: 0;
-
-  option {
-    padding: 4px 6px;
-  }
-}
-.gfield input[type="file"] {
-  height: auto;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  box-shadow: none;
-  line-height: 1;
-  font-style: italic;
 }
 
 // Override WP items with bootstrap's .sr-only styling.
@@ -107,9 +77,14 @@ html {
   @include media-breakpoint-up(xl) {
     font-size: 24px;
   }
+  @media (min-width: 1600px) {
+    font-size: 28px;
+  }
 }
 body {
-  padding: 0 1em;
+  @media (min-width: 480px) {
+    padding: 0 1em;
+  }
 }
 
 /* Used from Daniel Eden's Animate.css: https://daneden.github.io/animate.css/ */
@@ -140,13 +115,27 @@ main {
   }
 }
 
+:focus,
+a:focus,
+.btn:focus,
+button:focus {
+  //box-shadow: 0 0 0 0.1rem $gray-lighter;
+  outline: 0.1rem auto $gray-light;
+  outline-offset: 0.2rem;
+}
+
+::selection {
+  text-shadow: 0.07em 0.07em 0 #fff;
+  background-color: $brand-primary;
+  color: $gray-darker;
+}
+::-moz-selection {}
 
 h1, h2 {
-  color: $gray-darker;
+  color: $gray;
 
   strong {
-    color: $body-color;
-    font-weight: inherit;
+    font-weight: 700;
   }
 
   a {
@@ -162,6 +151,7 @@ h1, h2 {
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.85em;
   max-width: 19em;
+  font-style: italic;
 }
 
 header.wrap {
@@ -169,16 +159,17 @@ header.wrap {
   font-size: 0.9em;
 
   .logo {
-    width: 6em;
-    height: 6em;
+    width: 100%;
+    height: 100%;
     position: relative;
     opacity: 1;
-    transition: opacity .1s ease-out;
+    //transition: opacity .5s ease-out;
   }
 }
 
 .navbar {
   padding: 0.5em 0;
+  //background-color: #333;
 }
 .navbar-header {
   @include media-breakpoint-down(sm) {
@@ -193,9 +184,41 @@ header.wrap {
 .navbar-toggler {
   padding-top: 0.725em;
   padding-bottom: 0.725em;
-  color: $gray-lighter;
+  color: $gray;
   font-size: 3rem;
   float: right;
+
+  &:focus {
+    color: $body-color;
+  }
+}
+
+.navbar-toggleable-sm {
+  @media (max-width: 767px) {
+    padding: 0.6em 1em;
+    border: 0.1em solid $body-color;
+    position: relative;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0.6em 0.6em 0.6em;
+    }
+    &:before {
+      border-color: transparent transparent $body-color transparent;
+      top: -0.6em;
+      right: 1.95em;
+    }
+    &:after {
+      border-color: transparent transparent #fff transparent;
+      top: -0.51em;
+      right: 1.95em;
+    }
+  }
 }
 .navbar-nav {
   .nav-link {
@@ -204,12 +227,28 @@ header.wrap {
       padding: 0;
     }
   }
+  .nav-item {
+    + .nav-item {
+      @media (min-width: 768px) and (max-width: 1000px) {
+        margin-left: 0.6em;
+      }
+    }
+  }
 }
+
+.nav-item-social {
+  @include media-breakpoint-down(sm) {
+    display: inline-block;
+    margin-right: 1.25em;
+  }
+}
+
 .nav-link {
   font-family: $headings-font-family;
   color: $gray-darker;
   font-size: 1.4em;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  font-style: italic;
+  transition: color 0.1s ease, border-color 0.1s ease;
   border-bottom: 0.1em solid transparent;
 
   &:hover,
@@ -223,6 +262,11 @@ header.wrap {
 .navbar-brand {
   position: relative;
   font-size: 1.25em;
+  margin-right: 1em;
+  border: 0.1em solid transparent;
+  height: 6.1em;
+  width: 6.1em;
+  padding: 0;
 
   &:after {
     content: '';
@@ -230,7 +274,7 @@ header.wrap {
     width: 100%;
     height: 100%;
     background-image: url('img/apple-donut.png');
-    background-size: 6em;
+    background-size: 100%;
     background-repeat: no-repeat;
     left: 0;
     top: 0;
@@ -238,9 +282,7 @@ header.wrap {
     pointer-events: none;
     transition: opacity .1s ease-out;
   }
-  &:hover,
-  &:focus,
-  &:hover:focus {
+  &:hover {
     &:after {
       content: '';
       -webkit-animation-name: tada;
@@ -253,6 +295,13 @@ header.wrap {
       opacity: 0;
     }
   }
+  &:focus,
+  &:hover:focus {
+    box-shadow: none;
+    outline: 0px;
+    border-color: $brand-primary;
+    border-radius: 100%;
+  }
 }
 
 .hero {
@@ -260,12 +309,18 @@ header.wrap {
 
   .entry-title {
     font-size: 4em;
-    line-height: 1.1;
+    font-size: 9vw;
+    line-height: 1.2;
     margin:0;
     display: inline-block;
+    margin-left: -0.025em;
 
-    @include media-breakpoint-up(md) {
-      font-size: 6em;
+    @include media-breakpoint-down(sm) {
+      font-size: 13.25vw;
+
+      br {
+        display: none;
+      }
     }
   }
 }
@@ -279,35 +334,32 @@ header.wrap {
   p {
     line-height: 1.8;
     max-width: 34em;
+    margin-bottom: 2em;
   }
 }
 footer.wrap {
   padding: 10em 0 1em;
-  font-weight: bold;
+  font-size: 1em;
+  font-style: italic;
   color: $gray-darker;
 
   a {
     color: $gray-darker;
-    transition: color 0.2s ease;
+    border-bottom: 0.1em solid transparent;
+    transition: color 0.1s ease, border-color 0.1s ease;
 
     &:hover,
     &:focus,
     &:hover:focus {
       color: $link-color;
+      border-bottom: 0.1em solid currentColor;
     }
   }
 }
 
-/*
- * Content/inner pages.
- */
-.entry {
-
+.oembed {
+  margin-bottom: 2em;
 }
-
-
-
-
 
 .nav-inline {
   @extend .list-inline;
@@ -315,6 +367,172 @@ footer.wrap {
   > li {
     @extend .list-inline-item;
   }
+}
+
+.card {
+  border: 0.1em solid $gray-lighter;
+}
+.card-body {
+  padding: 1em;
+}
+
+.entries {
+  overflow: hidden;
+  margin-left: calc( -15px - 1em );
+  margin-right: calc( -15px - 1em );
+}
+
+.entry {
+  padding: 2.5em;
+
+  .entry-title {
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+  }
+  .entry-image {
+    margin-bottom: 1em;
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+
+    @include media-breakpoint-down(sm) {
+      &:before {
+        border-style: solid;
+        border-width: 0.4em 0.4em 0 0.4em;
+        border-color: $body-color transparent transparent transparent;
+        bottom: -0.375em;
+        left: 1.5em;
+      }
+    }
+    @include media-breakpoint-up(md) {
+      padding-right: 0.75em;
+
+      &:before {
+        border-style: solid;
+        border-width: 0.4em 0 0.4em 0.4em;
+        border-color: transparent transparent transparent $body-color;
+        top: 1em;
+        right: 0.4em;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      border: 0.1em solid $body-color;
+    }
+  }
+
+  &:nth-child(even) {
+    background-color: $gray-lightest;
+
+    .entry-image {
+      @include media-breakpoint-up(md) {
+        padding-right: 15px;
+        padding-left: 0.75em;
+
+        &:before {
+          right: auto;
+          border-width: 0.4em 0.4em 0.4em 0;
+          border-color: transparent $body-color transparent transparent;
+          top: 1em;
+          left: 0.4em;
+        }
+      }
+    }
+  }
+}
+
+.entry-image-placeholder {
+  display: block;
+  width: 100%;
+  height: 20vw;
+  border: 0.1em solid $body-color;
+}
+
+.pagination-container {
+  text-align: center;
+  margin: 3em 0;
+
+  .page-numbers {
+    margin: 0 0.3em;
+  }
+}
+
+blockquote {
+  font-size: $lead-font-size;
+  font-family: $font-family-monospace;
+  font-style: italic;
+  max-width: 34em;
+  margin-bottom: 2em;
+  quotes: '\201c' '\201d';
+  position: relative;
+
+  + cite,
+  + p cite {
+    font-style: normal;
+    display: block;
+    margin-top: -2em;
+    color: $text-muted;
+    margin-bottom: 2em;
+  }
+
+  &:before {
+    content: open-quote;
+    font-size: 25vw;
+    line-height: 1;
+    position: absolute;
+    left: -0.25em;
+    top: -0.2em;
+    z-index: -10;
+    color: #ddd;
+  }
+}
+
+// WordPress image styles.
+.wp-caption {
+  margin-bottom: 3em;
+}
+.wp-caption,
+.wp-caption img,
+.alignnone,
+.alignleft,
+.alignright {
+  max-width: 100%;
+  height: auto;
+}
+.alignleft {
+	float: left;
+	margin: 0.3em 1.4em 3em 0;
+}
+.alignright {
+	float: right;
+	margin: 0.3em 0 3em 1.4em;
+}
+.aligncenter {
+	clear: both;
+	display: block;
+	margin: 0 auto 3em;
+  text-align: center;
+}
+
+// WordPress image and caption style.
+.wp-caption-text,
+.wp-caption-dd {
+	color: $text-muted;
+	font-size: $small-font-size;
+	//padding-top: $padding-small-vertical;
+}
+
+.embed-responsive {
+  margin-bottom: 1em;
 }
 
 .gallery {

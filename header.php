@@ -14,6 +14,8 @@
   </head>
 
   <body <?php body_class(); ?>>
+    <?php include_once('img/font-awesome.svg'); ?>
+
     <header class="wrap">
       <a href="#content" class="skip">Skip to content</a>
 
@@ -26,7 +28,6 @@
             </a>
           </div>
           <div class="collapse navbar-toggleable-sm" id="primaryNav">
-
             <?php
             wp_nav_menu( array(
               'theme_location'      => 'primary',
@@ -45,9 +46,9 @@
           <div class="row">
             <div class="col-xs-12">
               <?php
-              if ( function_exists('yoast_breadcrumb') ) {
+              if ( function_exists('yoast_breadcrumb') ) :
                 yoast_breadcrumb('<p class="breadcrumbs">','</p>');
-              }
+              endif;
 
               $title = get_the_title();
               $title_alt = get_field('title_alt');
@@ -55,14 +56,16 @@
               if ( $title_alt )
                 $title = $title_alt;
 
-              if ( is_post_type_archive('portfolio_item') ) :
-                echo '<h1 class="entry-title" tabindex="0">Portfolio</h1>';
-              elseif ( is_archive() || is_home() ) :
-                the_archive_title('<h1 class="entry-title" tabindex="0">','</h1>');
+              if ( is_post_type_archive('portfolio') ) :
+                echo '<h1 class="entry-title">Portfolio</h1>';
+              elseif ( is_home() ) :
+                echo '<h1 class="entry-title">Thoughts</h1>';
+              elseif ( is_archive() ) :
+                the_archive_title('<h1 class="entry-title">','</h1>');
               elseif ( is_search() ) :
-                echo '<h1 class="entry-title" tabindex="0"><em>Search:</em> ' . get_search_query() . '</h1>';
+                echo '<h1 class="entry-title"><em>Search:</em> ' . get_search_query() . '</h1>';
               else :
-                echo '<h1 class="entry-title" tabindex="0">' . $title . '</h1>';
+                echo '<h1 class="entry-title">' . $title . '</h1>';
               endif;
               ?>
             </div>

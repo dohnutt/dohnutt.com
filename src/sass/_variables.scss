@@ -44,7 +44,7 @@
 $gray-darker:               #191919 !default;
 $gray-dark:                 #222 !default;
 $gray:                      #55595c !default;
-$gray-light:                #818a91 !default;
+$gray-light:                #999999 !default;
 $gray-lighter:              #bbbbbb !default;
 $gray-lightest:             #f7f7f9 !default;
 
@@ -104,8 +104,8 @@ $border-width: 3px !default;
 //
 // Settings for the `<body>` element.
 
-$body-bg:    #333 !default;
-$body-color: $gray-lighter !default;
+$body-bg:    #fff !default;
+$body-color: $gray-dark !default;
 
 
 // Links
@@ -160,8 +160,8 @@ $grid-gutter-width: 30px !default;
 
 $font-family-sans-serif: "Helvetica", "Helvetica Neue", Arial, sans-serif !default;
 $font-family-serif:      Georgia, "Times New Roman", Times, serif !default;
-$font-family-monospace:  'Space Mono', Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
-$font-family-base:       $font-family-sans-serif !default;
+$font-family-monospace:  'Space Mono','Roboto Mono',Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base:       $font-family-monospace !default;
 
 // Pixel value used to responsively scale all typography. Applied to the `<html>` element.
 $font-size-root: 14px !default;
@@ -191,8 +191,8 @@ $display3-weight: 300 !default;
 $display4-weight: 300 !default;
 
 $headings-margin-bottom: ($spacer / 2) !default;
-$headings-font-family:   'Oswald' !default;
-$headings-font-weight:   500 !default;
+$headings-font-family:   'Space Mono','Oswald' !default;
+$headings-font-weight:   400 !default;
 $headings-line-height:   1.4 !default;
 $headings-color:         inherit !default;
 
@@ -328,7 +328,7 @@ $input-border-radius-lg:         $border-radius-lg !default;
 $input-border-radius-sm:         $border-radius-sm !default;
 
 $input-bg-focus:                 $input-bg;
-$input-border-focus:             #66afe9 !default;
+$input-border-focus:             $brand-primary !default;
 $input-box-shadow-focus:         rgba(102,175,233,.6) !default;
 $input-color-focus:              $input-color;
 
@@ -368,10 +368,10 @@ $custom-control-checked-indicator-color:      #fff !default;
 $custom-control-checked-indicator-bg:         #0074d9 !default;
 $custom-control-checked-indicator-box-shadow: none !default;
 
-$custom-control-focus-indicator-box-shadow: 0 0 0 .075rem #fff, 0 0 0 .2rem #0074d9 !default;
+$custom-control-focus-indicator-box-shadow: 0 0 0 .075em #fff, 0 0 0 .2rem $brand-primary !default;
 
 $custom-control-active-indicator-color:      #fff !default;
-$custom-control-active-indicator-bg:         #84c6ff !default;
+$custom-control-active-indicator-bg:         $brand-primary !default;
 $custom-control-active-indicator-box-shadow: none !default;
 
 $custom-checkbox-radius: $border-radius !default;
@@ -497,7 +497,7 @@ $navbar-light-disabled-color:       rgba(0,0,0,.15) !default;
 // Navs
 
 $nav-item-margin:               .2rem !default;
-$nav-item-inline-spacer:        1rem !default;
+$nav-item-inline-spacer:        0.75rem !default;
 $nav-link-padding:              .5em 1em !default;
 $nav-link-hover-bg:             $gray-lighter !default;
 $nav-disabled-link-color:       $gray-light !default;

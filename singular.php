@@ -14,7 +14,7 @@ get_header(); ?>
                 <div class="entry-image">
                   <?php
                   if ( has_post_thumbnail() ) :
-                    the_post_thumbnail( 'featured', array('class'=>'img-fluid'));
+                    //the_post_thumbnail( 'featured', array('class'=>'img-fluid'));
                   endif; ?>
                 </div>
                 <div class="entry-content">
@@ -24,9 +24,6 @@ get_header(); ?>
             <?php
             endwhile;
           endif; ?>
-          <aside class="sidebar col-sm-3 col-md-2 col-md-offset-1">
-            <?php get_sidebar(); ?>
-          </aside>
         </div>
 
       </div>
