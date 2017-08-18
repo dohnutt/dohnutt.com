@@ -3,7 +3,7 @@ get_header(); ?>
 
     <main class="wrap" id="content">
 
-      <?php    
+      <?php
       $args = array(
         'post_type' => 'page',
         'name' => 'portfolio',
