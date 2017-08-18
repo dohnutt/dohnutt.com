@@ -41,12 +41,8 @@ get_header(); ?>
                       if ( 'post' == get_post_type() ) : ?>
                         <ul class="entry-meta">
                           <li class="entry-date"><?php echo get_the_date(); ?></li>
+                          <li class="entry-author">Author: <?php the_author_posts_link(); ?></li>
                           <?php
-                          if ( ! get_the_author_meta('user_login') == 'cavera' ) : ?>
-                            <li class="entry-author">Author: <?php the_author_posts_link(); ?></li>
-                          <?php
-                          endif;
-
                           $category_list = array();
                           if ( has_category() ) :
                             echo '<li class="entry-categories">Category: ';
