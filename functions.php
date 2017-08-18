@@ -4,9 +4,9 @@ require_once('dohnutt_nav_walker.php');
 /*
  * Add an Eric-branded login screen.
  */
- function dohnutt_login_styles() {
-   ?>
-   <style type="text/css">
+function dohnutt_login_styles() {
+  ?>
+  <style type="text/css">
      .login #login h1 a {
        background-image: url('http://ericmoss.ca/wp-content/themes/ericmoss/img/logo.svg');
  			background-size: 100% 100%;
@@ -88,25 +88,26 @@ require_once('dohnutt_nav_walker.php');
  			background: #009a87 !important;
  			color: #fff !important;
  		}
-   </style>
-   <?php
- }
+  </style>
+  <?php
+}
+add_action('login_enqueue_scripts', 'dohnutt_login_styles');
 
- function dohnutt_login_custom_link() {
- 	return 'http://ericmoss.ca';
- }
- add_filter('login_headerurl','dohnutt_login_custom_link');
+function dohnutt_login_custom_link() {
+  return 'http://ericmoss.ca';
+}
+add_filter('login_headerurl','dohnutt_login_custom_link');
 
- function dohnutt_login_title_on_logo() {
- 	return 'Website designed by Eric Moss';
- }
- add_filter('login_headertitle', 'dohnutt_login_title_on_logo');
+function dohnutt_login_title_on_logo() {
+  return 'Website designed by Eric Moss';
+}
+add_filter('login_headertitle', 'dohnutt_login_title_on_logo');
 
 function remove_bootstrap_shortcodes() {
   print_r($shortcodes);
   echo 'hey';
 }
-add_action('add_shortcodes', 'remove_bootstrap_shortcodes');
+//add_action('add_shortcodes', 'remove_bootstrap_shortcodes');
 
 // Remove unnecessary menu items from the admin bar.
 function cavera_admin_bar_render() {
@@ -130,6 +131,7 @@ function dohnutt_unregister_widgets() {
   unregister_widget('WP_Widget_Tag_Cloud');
   //unregister_widget('WP_Nav_Menu_Widget');
 }
+add_action('widgets_init', 'dohnutt_unregister_widgets', 11);
 
 // Remove unnecessary menu items from admin dashboard.
 function dohnutt_remove_menus() {
@@ -144,6 +146,7 @@ function dohnutt_remove_menus() {
   //remove_menu_page( 'tools.php' );
   //remove_menu_page( 'options-general.php' );
 }
+add_action('admin_menu', 'dohnutt_remove_menus');
 
 // Change default page template title to 'Left Sidebar'
 function dohnutt_default_template_title() {
@@ -160,11 +163,13 @@ add_filter( 'aps_status_arg_show_in_admin_all_list', '__return_false' );
 function dohnutt_editor_style() {
   add_editor_style ( get_template_directory_uri() . '/editor-style.css' );
 }
+add_action('admin_init', 'dohnutt_editor_style');
 
 // Add the_excerpt() functionality to Pages post type.
 function dohnutt_add_page_excerpt() {
   add_post_type_support( 'page', 'excerpt' );
 }
+add_action('init', 'dohnutt_add_page_excerpt');
 
 // Adds custom classes to the body class
 function dohnutt_body_classes( $classes ) {
@@ -189,11 +194,16 @@ function is_tree($post_id) {
 function dohnutt_embed_oembed_html( $cache, $url, $attr, $post_ID ) {
   $classes = array();
   $classes_all = array('oembed');
-  if ( false !== strpos( $url, 'vimeo.com' ) || false !== strpos( $url, 'youtube.com' )  ) {
+
+  if ( false !== strpos( $url, 'vimeo.com' ) || false !== strpos( $url, 'youtube.com' )  )
     $classes[] = 'embed-responsive embed-responsive-16by9';
-  }
+
+  if ( false !== strpos( $url, 'instagram.com' ) )
+    $classes[] = 'embed-instagram';
+
+
   $classes = array_merge( $classes, $classes_all );
-  return '<div class="' . esc_attr( implode( $classes, ' ' ) ) . '">' . $cache . '</div>';
+  return '<figure class="' . esc_attr( implode( $classes, ' ' ) ) . '">' . $cache . '</figure>';
 }
 add_filter( 'embed_oembed_html', 'dohnutt_embed_oembed_html', 99, 4 );
 
@@ -232,6 +242,7 @@ if(!function_exists('dohnutt_theme_assets')) {
     wp_register_style('font-awesome',     '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
     wp_register_style('fonts',            '//fonts.googleapis.com/css?family=Oswald:300,400,700|Space+Mono:400,400i,700,700i');
   }
+  add_action('init', 'dohnutt_theme_assets');
 }
 
 // Enqueue scripts and styles.
@@ -245,6 +256,7 @@ if(!function_exists('dohnutt_theme_enqueue')) {
     wp_enqueue_script('theme-js');
     //wp_enqueue_script('modernizr');
   }
+  add_action('wp_enqueue_scripts', 'dohnutt_theme_enqueue');
 }
 
 // Add theme supports and nav menus.
@@ -267,6 +279,7 @@ if(!function_exists('dohnutt_theme_support')) {
 
   	add_filter( 'use_default_gallery_style', '__return_false' );
   }
+  add_action('after_setup_theme', 'dohnutt_theme_support');
 }
 
 function dohnutt_wpseo_image_size( $string ) {
@@ -293,6 +306,7 @@ function dohnutt_acf_admin_head() {
 	</style>
 	<?php
 }
+//add_action('acf/input/admin_head', 'dohnutt_acf_admin_head');
 
 // Runs all ACF field values through wp_kses_post()
 function dohnutt_kses_post( $value ) {
@@ -302,6 +316,15 @@ function dohnutt_kses_post( $value ) {
 	return wp_kses_post( $value );
 }
 add_filter('acf/update_value', 'dohnutt_kses_post', 10, 1);
+
+
+add_filter( 'caldera_forms_phone_js_options', function($options) {
+	//Use ISO_3166-1_alpha-2 formatted country code
+	$options[ 'initialCountry' ] = 'CA';
+	return $options;
+});
+
+
 
 // Register sidebars.
 if(!function_exists('dohnutt_sidebars')) {
@@ -316,21 +339,5 @@ if(!function_exists('dohnutt_sidebars')) {
       'after_widget' => '</div>'
     ));
   }
+  add_action('widgets_init', 'dohnutt_sidebars');
 }
-
-// Initialize all functions.
-if(!function_exists('dohnutt_functions_init')) {
-  function dohnutt_functions_init() {
-    add_action('init', 'dohnutt_theme_assets');
-    add_action('init', 'dohnutt_add_page_excerpt');
-    add_action('after_setup_theme', 'dohnutt_theme_support');
-    add_action('wp_enqueue_scripts', 'dohnutt_theme_enqueue');
-    add_action('widgets_init', 'dohnutt_unregister_widgets', 11);
-    add_action('widgets_init', 'dohnutt_sidebars');
-    add_action('login_enqueue_scripts', 'dohnutt_login_styles');
-    add_action('admin_init', 'dohnutt_editor_style');
-    add_action('admin_menu', 'dohnutt_remove_menus');
-    //add_action('acf/input/admin_head', 'dohnutt_acf_admin_head');
-  }
-}
-dohnutt_functions_init();
