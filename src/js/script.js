@@ -7,19 +7,10 @@
 //@prepros-prepend ../bower_components/tether/dist/js/tether.min.js
 //@prepros-prepend ../bower_components/bootstrap/js/dist/tooltip.js
 //@prepros-prepend ../bower_components/bootstrap/js/dist/popover.js
-//@prepros-prepend ../bower_components/bootstrap/js/dist/scrollspy.js
 //@prepros-prepend ../bower_components/bootstrap/js/dist/tab.js
 //@prepros-prepend ../bower_components/bootstrap/js/dist/util.js
 
 (function($) {
-  /*
-   * Prevent Gravity Forms from being submitted twice
-   */
-  var gformSubmitted = false;
-  $(".gform_wrapper form").submit(function(event) {
-    $(".gform_button", this).text("Processing, please wait...");
-    $(".gform_button", this).attr('disabled', 'disabled');
-  });
 
   /*
    * Accessible skip to content link
