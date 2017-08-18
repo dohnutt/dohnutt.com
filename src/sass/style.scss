@@ -82,9 +82,7 @@ html {
   }
 }
 body {
-  @media (min-width: 480px) {
-    padding: 0 1em;
-  }
+  padding: 0 1em;
 }
 
 /* Used from Daniel Eden's Animate.css: https://daneden.github.io/animate.css/ */
@@ -325,8 +323,6 @@ header.wrap {
   }
 }
 
-@import "front-page";
-
 .entry-image {
   margin-bottom: 3em;
 }
@@ -337,9 +333,9 @@ header.wrap {
     margin-bottom: 2em;
   }
 }
-footer.wrap {
+footer {
   padding: 10em 0 1em;
-  font-size: 1em;
+  font-size: 0.7em;
   font-style: italic;
   color: $gray-darker;
 
@@ -361,6 +357,21 @@ footer.wrap {
   margin-bottom: 2em;
 }
 
+.embed-instagram {
+  @media (min-width: 50em) {
+    width: 49%;
+    display: inline-block;
+    vertical-align: top;
+
+    iframe {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+  }
+
+
+}
+
 .nav-inline {
   @extend .list-inline;
 
@@ -375,94 +386,10 @@ footer.wrap {
 .card-body {
   padding: 1em;
 }
-
-.entries {
-  overflow: hidden;
-  margin-left: calc( -15px - 1em );
-  margin-right: calc( -15px - 1em );
-}
-
-.entry {
-  padding: 2.5em;
-
-  .entry-title {
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 0.5em;
-  }
-  .entry-image {
-    margin-bottom: 1em;
-    position: relative;
-
-    &:before {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 0;
-      border-style: solid;
-    }
-
-    @include media-breakpoint-down(sm) {
-      &:before {
-        border-style: solid;
-        border-width: 0.4em 0.4em 0 0.4em;
-        border-color: $body-color transparent transparent transparent;
-        bottom: -0.375em;
-        left: 1.5em;
-      }
-    }
-    @include media-breakpoint-up(md) {
-      padding-right: 0.75em;
-
-      &:before {
-        border-style: solid;
-        border-width: 0.4em 0 0.4em 0.4em;
-        border-color: transparent transparent transparent $body-color;
-        top: 1em;
-        right: 0.4em;
-      }
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-      border: 0.1em solid $body-color;
-    }
-  }
-
-  &:nth-child(even) {
-    background-color: $gray-lightest;
-
-    .entry-image {
-      @include media-breakpoint-up(md) {
-        padding-right: 15px;
-        padding-left: 0.75em;
-
-        &:before {
-          right: auto;
-          border-width: 0.4em 0.4em 0.4em 0;
-          border-color: transparent $body-color transparent transparent;
-          top: 1em;
-          left: 0.4em;
-        }
-      }
-    }
-  }
-}
-
-.entry-image-placeholder {
-  display: block;
-  width: 100%;
-  height: 20vw;
-  border: 0.1em solid $body-color;
-}
-
-.pagination-container {
-  text-align: center;
-  margin: 3em 0;
-
-  .page-numbers {
-    margin: 0 0.3em;
+.card-image {
+  img {
+    width: 100%;
+    height: auto;
   }
 }
 
@@ -594,3 +521,9 @@ blockquote {
     }
   }
 }
+
+@import "forms";
+
+@import "front-page";
+
+@import "archive";

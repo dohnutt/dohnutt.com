@@ -1,0 +1,73 @@
+/*
+ * Form styling
+ */
+
+
+input[type="text"],
+input[type="email"],
+input[type="phone"],
+input[type="phone_better"],
+input[type="tel"],
+input[type="textarea"],
+select {
+  height: 2.5em;
+  font-size: 1.25em;
+  width: 100%;
+  padding: 0.25em;
+  font-style: italic;
+}
+
+.intl-tel-input {
+  width: 100%;
+}
+
+.caldera-grid {
+  .row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 1em;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.first_col,
+.last_col,
+.single,
+.col-sm-12 {
+  grid-column: span 12;
+}
+
+@media (min-width: 30em) {
+  .col-sm-7 {
+    grid-column: span 7;
+  }
+  .col-sm-6 {
+    grid-column: span 6;
+  }
+  .col-sm-5 {
+    grid-column: span 5;
+  }
+}
+
+
+.frm_hidden {
+  display: none;
+}
+
+.field_required {
+  color: $brand-danger !important;
+}
+
+.help-block {
+  color: $brand-danger;
+}
+
+
+.frm_half {
+}
+
+.frm_description {
+  font-size: 0.8em;
+  color: $gray-light;
+}

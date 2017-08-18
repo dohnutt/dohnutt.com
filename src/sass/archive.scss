@@ -1,0 +1,89 @@
+.entry-content {
+  + .entries {
+    margin-top: 5em;
+  }
+}
+
+
+
+.entries {
+  display: grid;
+  grid-template-columns: 40em;
+  width: 100%;
+  justify-content: center;
+
+  @media (max-width: 45em ) {
+    grid-template-columns: 100%;
+  }
+}
+
+
+.entry {
+  grid-column: 1;
+  width: 100%;
+  padding: 2em 1em;
+
+  .entry-title {
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.25em;
+    word-wrap: break-word;
+
+    @media (min-width: 45em ) {
+      font-size: 7vw;
+      margin-top: calc(-3.3vw - 1rem);
+    }
+
+    @media (max-width: 45em ) {
+      font-size: 12vw;
+      margin-top: calc(-3.3vw - 1rem);
+    }
+  }
+
+  .card {
+    transform: rotateZ(0);
+    transition: transform 0.5s cubic-bezier(0.9, 0, 0, 0.6);
+    transform-origin: center;
+
+    &:hover,
+    &:focus,
+    &:hover:focus {
+      transform-origin: 50% 50% 50%;
+      transform: perspective(40em) rotateY( 15deg );
+    }
+
+    @media (max-width: 45em ) {
+      border-width: 0.125em;
+    }
+  }
+
+  &:nth-child(even) {
+    .card {
+      &:hover,
+      &:focus,
+      &:hover:focus {
+        transform-origin: 50% 50% 50%;
+        transform: perspective(40em) rotateY( -10deg );
+      }
+    }
+  }
+}
+
+
+.entry-meta {
+  color: $gray-light;
+
+  a {
+    color: inherit;
+  }
+}
+
+
+.pagination-container {
+  text-align: center;
+  margin: 3em 0;
+
+  .page-numbers {
+    margin: 0 0.3em;
+  }
+}
