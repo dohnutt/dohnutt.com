@@ -1,29 +1,13 @@
-//@prepros-prepend ../bower_components/bootstrap/js/dist/alert.js
-//@prepros-prepend ../bower_components/bootstrap/js/dist/button.js
-//@prepros-prepend ../bower_components/bootstrap/js/dist/carousel.js
-//@prepros-prepend ../bower_components/bootstrap/js/dist/collapse.js
-//@prepros-prepend ../bower_components/bootstrap/js/dist/dropdown.js
-//@prepros-prepend ../bower_components/bootstrap/js/dist/modal.js
-//@prepros-prepend ../bower_components/tether/dist/js/tether.min.js
-//@prepros-prepend ../bower_components/bootstrap/js/dist/tooltip.js
-//@prepros-prepend ../bower_components/bootstrap/js/dist/popover.js
-//@prepros-prepend ../bower_components/bootstrap/js/dist/tab.js
-//@prepros-prepend ../bower_components/bootstrap/js/dist/util.js
-
 (function($) {
 
   /*
    * Accessible skip to content link
    */
-  $(".skip").click(function(event){
-    // strip the leading hash and declare the content we're skipping to
-    event.preventDefault();
-    var skipTo="#"+this.href.split('#')[1];
-    // Setting 'tabindex' to -1 takes an element out of normal tab flow but allows it to be focused via javascript
-    $(skipTo).attr('tabindex', -1).on('blur focusout', function () {
-      // when focus leaves this element, remove the tabindex attribute
+  $(".skip").click(function(e) {
+    e.preventDefault();
+    $('#' + this.href.split('#')[1]).attr('tabindex', -1).on('blur focusout', function() {
       $(this).removeAttr('tabindex');
-    }).focus(); // focus on the content container
+    }).focus();
   });
 
   /*
@@ -34,4 +18,13 @@
     window.open($(this).attr('href'), 'shareWindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 275) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
     return false;
   });
+
+
+  $('.navbar-toggler').on('click', function(e) {
+     var $target = $($(this).data('target'));
+     $target.toggleClass('is-open d-block show');
+  });
+
+
+
 })(jQuery);

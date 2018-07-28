@@ -1,0 +1,1 @@
+@keyframes tada{0%{transform:scale3d(1, 1, 1)}0%,24%,50%,74%{transform:rotate3d(0, 0, 1, 7deg)}25%,49%,75%,99%{transform:rotate3d(0, 0, 1, -7deg)}to{transform:scale3d(1, 1, 1)}}.tada{animation-name:tada}

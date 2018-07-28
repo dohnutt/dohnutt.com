@@ -56,11 +56,11 @@ select {
 }
 
 .field_required {
-  color: $brand-danger !important;
+  color: $danger;
 }
 
 .help-block {
-  color: $brand-danger;
+  color: $danger;
 }
 
 
@@ -69,5 +69,5 @@ select {
 
 .frm_description {
   font-size: 0.8em;
-  color: $gray-light;
+  color: $gray-500;
 }

@@ -8,7 +8,10 @@ get_header(); ?>
           the_post(); ?>
 
           <article class="entry-container">
+
             <?php
+            echo get_template_part('parts/hero');
+
             if ( has_post_thumbnail() ) :
               //echo '<figure class="entry-image">'; the_post_thumbnail( 'large', array('class'=>'img-fluid')); echo '</figure>';
             endif; ?>

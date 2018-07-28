@@ -1,14 +1,17 @@
-<footer class="wrap">
+<footer class="pg-footer wrap">
   <div class="container-fluid">
 
     <div class="row">
       <div class="col-sm-6">
         <?php
-        wp_nav_menu( array(
+        $nav = wp_nav_menu(array(
           'theme_location' => 'footer',
           'depth' => 1,
-          'menu_class' => 'nav nav-inline',
-        ) );
+          'menu_class' => 'list-inline mb-0',
+          'echo' => false,
+        ));
+        $nav = str_replace('<li class="', '<li class="list-inline-item ', $nav);
+        echo $nav;
         ?>
       </div>
       <div class="col-sm-6 text-sm-right">

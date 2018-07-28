@@ -1,68 +1,37 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <?php wp_head(); ?>
+    </head>
 
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <body <?php body_class(); ?>>
+        <?php include_once('img/font-awesome.svg'); ?>
 
-    <?php wp_head(); ?>
-  </head>
+        <header class="pg-header wrap">
+            <a href="#content" class="skip">Skip to content</a>
 
-  <body <?php body_class(); ?>>
-    <?php include_once('img/font-awesome.svg'); ?>
+            <nav class="pg-navbar navbar navbar-default navbar-expand-md">
+                <a class="navbar-brand" href="<?php echo site_url(); ?>/">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="EM Monogram" title="Eric Moss (@dohnutt)" class="logo">
+                </a>
+                <button class="navbar-toggler hidden-md-up collapsed" type="button" data-toggle="collapse" data-target="#primaryNav" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">
+                    &#9776;
+                </button>
 
-    <header class="wrap">
-      <a href="#content" class="skip">Skip to content</a>
+                <div class="collapse navbar-collapse" id="primaryNav">
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location'      => 'primary',
+                        'depth'               => 1,
+                        'menu_class'          => 'navbar-nav',
+                        'container'           => false,
+                        'fallback_cb'         => 'Dohnutt_Walker_Nav_Menu::fallback',
+                        'walker'              => new Dohnutt_Walker_Nav_Menu(),
+                    )); ?>
+                </div>
+            </nav>
 
-      <nav class="navbar navbar-default">
-        <div class="navbar-header">
-          <button class="navbar-toggler hidden-md-up collapsed" type="button" data-toggle="collapse" data-target="#primaryNav" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">&#9776;</button>
-          <a class="navbar-brand" href="<?php echo site_url(); ?>/">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="EM Monogram" title="Eric Moss (@dohnutt)" class="logo">
-          </a>
-        </div>
-        <div class="collapse navbar-toggleable-sm" id="primaryNav">
-          <?php
-          wp_nav_menu( array(
-            'theme_location'      => 'primary',
-            'depth'               => 1,
-            'menu_class'          => 'nav navbar-nav',
-            'container'           => '',
-            'fallback_cb'         => 'Dohnutt_Walker_Nav_Menu::fallback',
-            'walker'              => new Dohnutt_Walker_Nav_Menu(),
-          ) ); ?>
-        </div>
-      </nav>
-
-      <div class="hero">
-        <?php
-        if ( function_exists('yoast_breadcrumb') ) :
-          yoast_breadcrumb('<p class="breadcrumbs">','</p>');
-        endif;
-
-        $title = get_the_title();
-        $title_alt = get_field('title_alt');
-
-        if ( $title_alt )
-          $title = $title_alt;
-
-        if ( is_post_type_archive('portfolio') ) :
-          echo '<h1 class="entry-title">Portfolio</h1>';
-        elseif ( is_home() ) :
-          echo '<h1 class="entry-title">Thoughts</h1>';
-        elseif ( is_archive() ) :
-          the_archive_title('<h1 class="entry-title">','</h1>');
-        elseif ( is_search() ) :
-          echo '<h1 class="entry-title"><em>Search:</em> ' . get_search_query() . '</h1>';
-        else :
-          echo '<h1 class="entry-title">' . $title . '</h1>';
-        endif;
-        ?>
-      </div>
-
-    </header>
+        </header>

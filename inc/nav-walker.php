@@ -67,7 +67,7 @@ class Dohnutt_Walker_Nav_Menu extends Walker_Nav_Menu {
 			if ( in_array( 'current-menu-item', $classes ) )
 				$class_names .= ' active';
 
-      $class_names .= ' nav-item';
+            $class_names .= ' nav-item';
 
 			$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
@@ -81,8 +81,8 @@ class Dohnutt_Walker_Nav_Menu extends Walker_Nav_Menu {
 			$atts['target'] = ! empty( $item->target )	? $item->target	: '';
 			$atts['rel']    = ! empty( $item->xfn )		? $item->xfn	: '';
 
-      // <a> tag classes.
-      $a_class_names = 'nav-link';
+            // `a` tag classes.
+            $a_class_names = 'nav-link';
 
 			// If item has_children add atts to <a>.
 			if ( $args->has_children && $depth === 0 ) {
