@@ -4,20 +4,22 @@ get_header(); ?>
     <main class="wrap" id="content">
 
       <?php
-      $args = array(
-        'post_type' => 'page',
-        'name' => 'portfolio',
-      );
-      $q = new WP_Query($args);
-      if ( $q->have_posts() ) :
-        while ( $q->have_posts() ) :
-          $q->the_post(); ?>
-          <div class="entry-content">
-            <?php the_content(); ?>
-          </div>
-        <?php
-        endwhile;
-        wp_reset_postdata();
+      echo get_template_part('parts/hero');
+
+      if ( is_post_type_archive() ) :
+          $content = new WP_Query(array(
+            'post_type' => 'page',
+            'name' => get_post_type(),
+          ));
+          if ( $content->have_posts() ) :
+            while ( $content->have_posts() ) :
+              $content->the_post(); ?>
+              <div class="entry-content">
+                <?php the_content(); ?>
+              </div><?php
+            endwhile;
+            wp_reset_postdata();
+          endif;
       endif; ?>
 
       <div class="entries">
@@ -78,7 +80,7 @@ get_header(); ?>
           wp_reset_postdata();
         else :
           echo '<div class="alert alert-warning">Oops! No posts were found.</div>';
-        endif; ?>        
+        endif; ?>
       </div>
 
     </main>
