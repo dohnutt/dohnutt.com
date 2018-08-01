@@ -15,6 +15,8 @@ Text Domain: dohnutt
 @import 'archive';
 @import 'front-page';
 
+
+
 /*
  * General styling & overrides
  */
@@ -92,8 +94,8 @@ main {
 a:focus,
 .btn:focus,
 button:focus {
-  outline: 0.1rem auto #999999;
-  outline-offset: 0.2rem;
+  outline: 0.3rem auto $primary;
+  outline-offset: 1rem;
 }
 
 ::selection {
@@ -189,12 +191,21 @@ header.wrap .logo {
   font-style: italic;
   transition: color 0.1s ease, border-color 0.1s ease;
   border-bottom: 0.1em solid transparent;
+
+  &:hover,
+  &:focus,
+  &:hover:focus {
+    color: $primary;
+    border-color: currentColor;
+  }
 }
 
-.nav-link:hover, .nav-link:focus, .nav-link:hover:focus {
-  color: $primary;
-  border-color: currentColor;
+.current-menu-item {
+    .nav-link {
+        border-color: currentColor;
+    }
 }
+
 
 .navbar-brand {
   position: relative;
@@ -241,36 +252,49 @@ header.wrap .logo {
   border-radius: 100%;
 }
 
-.hero {
+.pg-hero {
   padding: 2em 0;
+
+  .pg-title {
+      font-size: 4em;
+      font-size: 9vw;
+      line-height: 1.2;
+      margin: 0;
+      display: inline-block;
+      margin-left: -0.025em;
+
+
+      @media (max-width: 767px) {
+          font-size: 13.25vw;
+
+          br {
+              display: none;
+          }
+      }
+  }
 }
 
-.hero .entry-title {
-  font-size: 4em;
-  font-size: 9vw;
-  line-height: 1.2;
-  margin: 0;
-  display: inline-block;
-  margin-left: -0.025em;
-}
-
-@media (max-width: 767px) {
-  .hero .entry-title {
-    font-size: 13.25vw;
-  }
-  .hero .entry-title br {
-    display: none;
-  }
-}
 
 .entry-image {
   margin-bottom: 3em;
 }
 
-.entry-content p {
-  line-height: 1.8;
-  max-width: 34em;
-  margin-bottom: 2em;
+.entry-content {
+    p {
+        line-height: 1.8;
+
+        + ul {
+            margin-top: -1em;
+        }
+    }
+    p, ul {
+        max-width: 34em;
+        margin-bottom: 2em;
+    }
+    hr {
+        max-width: 8em;
+        margin: 0 0 2em;
+    }
 }
 
 
