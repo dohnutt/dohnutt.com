@@ -59,6 +59,8 @@ class Dohnutt_Walker_Nav_Menu extends Walker_Nav_Menu {
 			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 			$classes[] = 'menu-item-' . $item->ID;
 
+            $classes[] = 'nav-item';
+
 			$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 
 			if ( $args->has_children )
@@ -67,7 +69,6 @@ class Dohnutt_Walker_Nav_Menu extends Walker_Nav_Menu {
 			if ( in_array( 'current-menu-item', $classes ) )
 				$class_names .= ' active';
 
-            $class_names .= ' nav-item';
 
 			$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
@@ -94,7 +95,7 @@ class Dohnutt_Walker_Nav_Menu extends Walker_Nav_Menu {
 				$atts['href'] = ! empty( $item->url ) ? $item->url : '';
 			}
 
-      $atts['class'] = $a_class_names;
+            $atts['class'] = $a_class_names;
 
 			$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
 
