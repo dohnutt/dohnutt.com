@@ -1,6 +1,7 @@
 <?php
 
 require_once 'inc/admin.php';
+require_once 'inc/helpers.php';
 require_once 'inc/nav-walker.php';
 
 
@@ -250,4 +251,26 @@ if ( ! function_exists('dohnutt_sidebars') ) {
         ));
     }
 
+}
+
+
+
+// Add bootstrap classes to form fields
+add_filter( 'wpforms_field_properties', 'dohnutt_wpforms_field_properties', 10, 3 );
+function dohnutt_wpforms_field_properties( $properties, $field, $form_data ) {
+    foreach ( $properties['inputs'] as $key => $input ) {
+        $properties['inputs'][$key]['class'][] = 'form-control';
+    }
+
+    return $properties;
+}
+
+
+
+// Add bootstrap classes to form submit buttons
+add_filter( 'wpforms_frontend_form_data', 'dohnutt_wpforms_frontend_form_data');
+function dohnutt_wpforms_frontend_form_data( $form_data ) {
+    $form_data['settings']['submit_class'] = 'btn btn-primary';
+
+    return $form_data;
 }
