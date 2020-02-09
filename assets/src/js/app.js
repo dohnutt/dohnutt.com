@@ -22,8 +22,6 @@ const COLOR_MODE_KEY = '--color-mode';
 const schemeToggleButton = document.querySelector('.js-scheme-toggle');
 const schemeStatus = document.querySelector('.js-scheme-status');
 
-console.log(schemeToggleButton);
-
 const getCSSCustomProp = propKey => {
   let response = getComputedStyle(document.documentElement).getPropertyValue(propKey);
 
