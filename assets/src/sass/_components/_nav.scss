@@ -33,6 +33,7 @@
   }
   @include media-breakpoint-down(md) {
     color: $white;
+    box-shadow: 0.25em 0.25em 2em 0 rgba($black, 0.4);
   }
 
   .scheme__status {

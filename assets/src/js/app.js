@@ -1,12 +1,9 @@
 // @codekit-prepend "../packages/bootstrap/js/dist/util.js";
 // @codekit-prepend "../packages/bootstrap/js/dist/alert.js";
 // @codekit-prepend "../packages/bootstrap/js/dist/button.js";
-// @codekit-prepend "../packages/bootstrap/js/dist/carousel.js";
 // @codekit-prepend "../packages/bootstrap/js/dist/collapse.js";
 // @codekit-prepend "../packages/bootstrap/js/dist/dropdown.js";
 // @codekit-prepend "../packages/bootstrap/js/dist/modal.js";
-// @codekit-prepend "../packages/bootstrap/js/dist/tooltip.js";
-// @codekit-prepend "../packages/bootstrap/js/dist/popover.js";
 // @codekit-prepend "../packages/bootstrap/js/dist/scrollspy.js";
 // @codekit-prepend "../packages/bootstrap/js/dist/tab.js";
 // @codekit-prepend "../packages/bootstrap/js/dist/index.js";
@@ -82,16 +79,13 @@ applySetting();
 
 
 
+$(document).click(function (e) {
+  var _opened = $('.navbar-collapse').hasClass('show');
 
-/*
- * Prevent Gravity Forms from being submitted twice
- *
-$('.wpforms-form').submit(function(event) {
-  $('.wpforms-submit', this).text('Processing, please wait...');
-  $('.wpforms-submit', this).attr('disabled', 'disabled');
+  if ( !$(e.target).closest('.navbar-collapse').length && !$(e.target).is('.navbar-collapse') && _opened === true ) {
+    $('.navbar-collapse').collapse('toggle');
+  }
 });
-*/
-
 
 
 /*
