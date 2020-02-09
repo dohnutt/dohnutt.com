@@ -1,0 +1,79 @@
+/*
+ * Gutenberg
+ * `src/sass/gutenberg.scss`
+ *
+ * Component styles for the WordPress Gutenberg editor.
+ *
+ */
+
+
+
+.wp-block-quote {
+  @extend .blockquote;
+  border-left-color: rgba($body-color, 0.3);
+  border-left-style: solid;
+  padding-left: 1em;
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  cite {
+    font-size: 0.7em;
+    opacity: 0.8;
+  }
+}
+
+
+.entry__content {
+  h1, .h1,
+  h2, .h2,
+  h3, .h3 {
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    padding-top: 0.25em;
+  }
+  h1, .h1 {
+    font-size: ( $h1-font-size * 0.8 );
+  }
+  h2, .h2 {
+    font-size: ( $h2-font-size * 0.8 );
+  }
+}
+
+
+.wp-block-separator {
+  margin-left: 0;
+  margin-right: 0;
+
+  &.is-style-default {
+    width: 10em;
+  }
+  &.is-style-wide {
+    width: 100%;
+
+  }
+}
+
+
+.wp-block-table {
+  width: 100%;
+  @extend .table;
+}
+
+
+.pg-title {
+  font-style: italic;
+  color: $gray-600;
+
+  &,
+  .entry__content & {
+    @include media-breakpoint-up(lg) {
+      font-size: 6vw;
+    }
+    @media screen and (min-width: 1600px) {
+      font-size: 8vw;
+    }
+  }
+
+}

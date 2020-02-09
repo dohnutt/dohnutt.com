@@ -1,0 +1,158 @@
+/*
+ * Nav & navbar
+ * `components/_nav.scss`
+ */
+
+
+
+
+.pg-navbar {
+  min-height: 7.6em;
+
+  .navbar-nav {
+    .nav-link {
+      padding-left: 1.333rem;
+      padding-right: 1.333rem;
+    }
+  }
+}
+.navbar-collapse {
+  @include media-breakpoint-up(lg) {
+    margin-left: 8em;
+  }
+  @include media-breakpoint-down(md) {
+    position: absolute;
+    top: 6em;
+    right: 0;
+    width: 100%;
+    max-width: 20em;
+    z-index: $zindex-fixed;
+
+    .navbar-nav {
+      background-color: $gray-600;
+      margin: 0 15px;
+      padding: 0.5em 0;
+
+      &:before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: -7px;
+        right: 42px;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 7px solid $gray-600;
+      }
+    }
+  }
+}
+
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+}
+
+.navbar-toggler {
+  &:not(.collapsed) {
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,<svg viewBox='0 0 15.6 15.6' xmlns='http://www.w3.org/2000/svg'><path stroke='rgba(0,0,0,0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M0,0l15.6,15.6 M0,15.6L15.6,0'/></svg>");
+      background-size: 60%;
+    }
+  }
+}
+
+
+
+.navbar-brand {
+  position: fixed;
+  top: $navbar-padding-y;
+  //z-index: $zindex-fixed;
+  font-size: 1.25em;
+  margin-right: 1em;
+  border: 0.1em solid transparent;
+  height: 6.1em;
+  width: 6.1em;
+  padding: 0;
+  transition: opacity 0.5s ease;
+
+  @include media-breakpoint-down(sm) {
+    position: absolute;
+  }
+
+  &:hover {
+    &:after {
+      content: '';
+      -webkit-animation-name: tada;
+      -webkit-animation-duration: 1.5s;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
+      opacity: 1;
+    }
+
+    .logo {
+      opacity: 0;
+    }
+  }
+
+  &:focus,
+  .navbar-brand:hover:focus {
+    box-shadow: none;
+    outline: 0px;
+    border-color: $primary;
+    border-radius: 100%;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/apple-donut.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .1s ease-out;
+  }
+}
+
+
+@keyframes tada {
+  0% {
+    transform:scale3d(1, 1, 1)
+  }
+  0%, 24%, 50%, 74% {
+    transform:rotate3d(0, 0, 1, 7deg)
+  }
+  25%, 49%, 75%, 99% {
+    transform:rotate3d(0, 0, 1, -7deg);
+  }
+}
+
+.logo {
+  fill: currentColor;
+}
+
+
+.navbar--scroll {
+  .navbar-brand {
+    opacity: 0.4;
+  }
+}
+
+
+.nav-link {
+  color: $gray-600;
+
+  &:hover,
+  &:focus {
+    color: $link-color;
+  }
+
+  @include media-breakpoint-down(lg) {
+    color: $white;
+  }
+}

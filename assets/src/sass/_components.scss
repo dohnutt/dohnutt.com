@@ -1,0 +1,232 @@
+/*
+ * Components
+ * `src/sass/components.scss`
+ *
+ * Site-wide reusable patterns.
+ *
+ */
+
+
+
+
+/*
+ * Accessiblity
+ */
+
+
+// Override WP items with bootstrap's .sr-only styling.
+.screen-reader-text {
+  @include sr-only();
+}
+
+
+// Skip to content link.
+.a11y-skip {
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  height: 1px;
+  width: 1px;
+  text-align: left;
+  overflow: hidden;
+
+  &:active,
+  &:focus,
+  &:hover {
+    left: 10px;
+    top: 10px;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    padding: 1em;
+    background-color: #fff;
+  }
+}
+
+
+
+
+/*
+ * Typography
+ */
+@import '_typography';
+
+@import '_components/_forms';
+
+@import '_components/_btn';
+
+@import '_components/_nav';
+
+//@import '_components/_card';
+
+
+
+/*
+ * Lists
+ */
+
+.list--share {
+  .share__item--facebook a {
+    color: $facebook;
+  }
+  .share__item--twitter a {
+    color: $twitter;
+  }
+  .share__item--linkedin a {
+    color: $linkedin;
+  }
+  .share__item--email a {
+    color: $email;
+  }
+
+  .share__item {
+    a:hover,
+    a:focus,
+    a:hover:focus {
+      color: $link-hover-color;
+    }
+  }
+}
+
+
+
+
+.dropdown-toggle {
+  &:focus {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+}
+
+
+
+@import '_components/_images';
+
+
+
+
+/*
+ * Yoast SEO Breadcrumbs
+ */
+
+.breadcrumbs {
+  font-size: 0.7em;
+
+  .separator {
+    padding: 0 0.3em;
+  }
+}
+
+.breadcrumb_last {
+  max-width: 17em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+
+
+
+/*
+ * Bootstrap Alerts
+ */
+.alert {
+  padding: 0.75em;
+
+  .alert-link {
+    color: #fff;
+    text-decoration: underline;
+
+    &:hover,
+    &:focus,
+    &:hover:focus {
+      text-decoration: none;
+    }
+  }
+
+  &:before {
+    content: '\f05a';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: bold;
+    padding-right: 0.4em;
+  }
+}
+.alert-default {
+  background-color: $secondary;
+  border: 1px solid $secondary;
+  color: $body-color;
+
+  .alert-link {
+    color: $link-color;
+    text-decoration: underline;
+
+    &:hover,
+    &:focus,
+    &:hover:focus {
+      color: $link-hover-color;
+      text-decoration: none;
+    }
+  }
+}
+.alert-success {
+  &:before {
+    content: '\f058';
+  }
+}
+.alert-warning {
+  &:before {
+    content: '\f071';
+  }
+}
+.alert-danger {
+  &:before {
+    content: '\f06a';
+  }
+}
+
+
+
+
+/*
+ * Pagination
+ */
+//
+.pagination {
+  @include clearfix;
+  padding: 2em 0;
+  font-size: 0.9em;
+}
+.nav-links {
+  .page-numbers {
+    display: inline-block;
+    padding: 0.5em 0.75em 0.25em;
+    border-radius: $border-radius;
+  }
+  .current {
+    background-color: $component-active-bg;
+    color: $component-active-color;
+  }
+}
+
+
+
+/*
+ * Background colors
+ */
+.bg-primary {
+  background-color: $primary;
+}
+.bg-success {
+  background-color: $success;
+}
+.bg-info {
+  background-color: $info;
+}
+.bg-warning {
+  background-color: $warning;
+}
+.bg-danger {
+  background-color: $danger;
+}

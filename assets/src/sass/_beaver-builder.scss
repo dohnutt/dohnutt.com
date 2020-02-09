@@ -1,0 +1,67 @@
+/*
+ * Beaver Builder
+ * `beaver-builder.scss`
+ */
+
+
+// Fix padding & margin discrepancies between builder and non-builder layout (gutenberg)
+.main--builder {
+  .entry__main {
+    padding-left: 0;
+    padding-right: 0;
+
+    .fl-builder-content {
+      @include media-breakpoint-up(lg) {
+        margin-top: -30px;
+        margin-left: -15px;
+        margin-right: -15px;
+      }
+    }
+  }
+}
+
+
+.fl-builder-content {
+  // Outermost BB wrapper
+
+}
+
+
+.fl-accordion-button {
+  display: block;
+  position: relative;
+  border-bottom: 0px;
+}
+.fl-accordion-button-icon {
+  display: block;
+  line-height: 1;
+  position: absolute;
+  right: 1em;
+  top: 50%;
+  height: 1em;
+  transform: translateY(-50%);
+  opacity: 1;
+}
+.fl-accordion-content {
+  border-top: $card-border-width solid $card-border-color;
+}
+
+
+.fl-post-grid-post, .fl-post-feed-post {
+  overflow: visible;
+}
+.fl-post-feed-post {
+  border-bottom: 0px;
+}
+
+
+.fl-module-fl-post-navigation .nav-links {
+
+  .nav-next,
+  .nav-previous {
+    width: auto;
+  }
+  .nav-previous {
+    margin-right: auto;
+  }
+}

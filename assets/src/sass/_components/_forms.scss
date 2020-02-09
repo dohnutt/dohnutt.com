@@ -1,0 +1,53 @@
+/*
+ * Forms
+ * `src/sass/componennts/_forms.scss`
+ *
+ * Forms and input styling.
+ *
+ */
+
+
+.form-control {
+  border: 0px;
+}
+
+
+.wpforms-field-hp {
+  @extend .sr-only;
+}
+
+
+.wpforms-field-container {
+  margin: 1.5em 0 2em;
+}
+
+.wpforms-field {
+  margin: 1em 0;
+}
+
+
+@include media-breakpoint-up(sm) {
+
+  .wpforms-field-row {
+    display: flex;
+    margin: 0 -0.5em;
+  }
+
+  .wpforms-field-row-block {
+    width: 100%;
+    padding: 0 0.5em;
+  }
+
+}
+
+
+.wpforms-field-sublabel {
+  font-size: 0.8em;
+  color: $gray-600;
+}
+
+
+.wpforms-submit {
+  width: 10em;
+  max-width: 100%;
+}

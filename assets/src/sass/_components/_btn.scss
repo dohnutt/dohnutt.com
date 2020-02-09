@@ -1,0 +1,30 @@
+/*
+ * Buttons
+ * `src/sass/componennts/_btn.scss`
+ *
+ * Forms and input styling.
+ *
+ */
+
+.btn {
+  font-size: 1em;
+  padding: 0.6em 0.8em;
+}
+
+.btn-lg {
+  font-size: $font-size-lg;
+}
+
+.btn-sm {
+  font-size: $font-size-sm;
+}
+
+.btn-xs {
+  font-size: 0.7em;
+}
+
+
+
+.btn-primary {
+  color: $body-color;
+}

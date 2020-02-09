@@ -1,15 +1,18 @@
 <?php
 /**
- * Class Name: Dohnutt_Walker_Nav_Menu
+ * Class Name: Doh_Nav_Walker
  * GitHub URI: https://github.com/twittem/wp-bootstrap-navwalker
- * Description: A custom WordPress nav walker class to implement the Bootstrap 3 navigation style in a custom theme using the WordPress built in menu manager. Modified for Bootstrap 4.
- * Version: 2.1.0
- * Author: Edward McIntyre - @twittem, Modified by Eric Moss - @dohnutt.
+ * Description: A custom WordPress nav walker class to implement the Bootstrap 3 navigation style in a custom theme using the WordPress built in menu manager.
+ * Version: 2.0.4
+ * Author: Edward McIntyre - @twittem
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-class Dohnutt_Walker_Nav_Menu extends Walker_Nav_Menu {
+if ( ! defined('ABSPATH') ) exit;
+
+
+class Doh_Nav_Walker extends Walker_Nav_Menu {
 
 	/**
 	 * @see Walker::start_lvl()
@@ -45,9 +48,9 @@ class Dohnutt_Walker_Nav_Menu extends Walker_Nav_Menu {
 		 * a 0 if the strings are equal.
 		 */
 		if ( strcasecmp( $item->attr_title, 'divider' ) == 0 && $depth === 1 ) {
-			$output .= $indent . '<li role="presentation" class="divider">';
+			$output .= $indent . '<li role="presentation" class="dropdown-divider">';
 		} else if ( strcasecmp( $item->title, 'divider') == 0 && $depth === 1 ) {
-			$output .= $indent . '<li role="presentation" class="divider">';
+			$output .= $indent . '<li role="presentation" class="dropdown-divider">';
 		} else if ( strcasecmp( $item->attr_title, 'dropdown-header') == 0 && $depth === 1 ) {
 			$output .= $indent . '<li role="presentation" class="dropdown-header">' . esc_attr( $item->title );
 		} else if ( strcasecmp($item->attr_title, 'disabled' ) == 0 ) {
@@ -58,8 +61,7 @@ class Dohnutt_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 			$classes[] = 'menu-item-' . $item->ID;
-
-            $classes[] = 'nav-item';
+      $classes[] = 'nav-item';
 
 			$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 
@@ -69,33 +71,44 @@ class Dohnutt_Walker_Nav_Menu extends Walker_Nav_Menu {
 			if ( in_array( 'current-menu-item', $classes ) )
 				$class_names .= ' active';
 
+      if ( !empty($item->menu_item_parent) )
+        $class_names .= ' p-0';
 
 			$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
 			$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
 			$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
-			$output .= $indent . '<li' . $id . $value . $class_names .'>';
+      $atts = array();
+      $attributes = '';
+			foreach ( $atts as $attr => $value ) {
+				if ( ! empty( $value ) ) {
+					$value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+					$attributes .= ' ' . $attr . '="' . $value . '"';
+				}
+			}
+
+			$output .= $indent . '<li' . $id . $value . $class_names . $attributes . '>';
 
 			$atts = array();
 			$atts['title']  = ! empty( $item->title )	? $item->title	: '';
 			$atts['target'] = ! empty( $item->target )	? $item->target	: '';
 			$atts['rel']    = ! empty( $item->xfn )		? $item->xfn	: '';
+      $atts['class'] = 'nav-link ';
 
-            // `a` tag classes.
-            $a_class_names = 'nav-link';
-
-			// If item has_children add atts to <a>.
+			// If item has_children add atts to `<a>`.
 			if ( $args->has_children && $depth === 0 ) {
-				$atts['href']   		= '#';
-				$atts['data-toggle']	= 'dropdown';
-				$a_class_names .= ' dropdown-toggle';
-				$atts['aria-haspopup']	= 'true';
+				$atts['href'] = '#';
+				$atts['data-toggle'] = 'dropdown';
+				$atts['class'] = 'nav-link dropdown-toggle';
+				$atts['aria-haspopup'] = 'true';
+
 			} else {
 				$atts['href'] = ! empty( $item->url ) ? $item->url : '';
 			}
 
-            $atts['class'] = $a_class_names;
+      if ( !empty($item->menu_item_parent) )
+        $atts['class'] = str_replace('nav-link', 'dropdown-item', $atts['class']);
 
 			$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
 
@@ -109,17 +122,7 @@ class Dohnutt_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 			$item_output = $args->before;
 
-			/*
-			 * Glyphicons
-			 * ===========
-			 * Since the the menu item is NOT a Divider or Header we check the see
-			 * if there is a value in the attr_title property. If the attr_title
-			 * property is NOT null we apply it as the class name for the glyphicon.
-			 */
-			if ( ! empty( $item->attr_title ) )
-				$item_output .= '<a'. $attributes .'><span class="glyphicon ' . esc_attr( $item->attr_title ) . '"></span>&nbsp;';
-			else
-				$item_output .= '<a'. $attributes .'>';
+			$item_output .= '<a'. $attributes .'>';
 
 			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 			$item_output .= ( $args->has_children && 0 === $depth ) ? ' <span class="caret"></span></a>' : '</a>';

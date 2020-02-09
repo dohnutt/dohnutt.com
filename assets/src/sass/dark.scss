@@ -1,0 +1,53 @@
+/*
+ * Dark
+ * `src/sass/dark.scss`
+ */
+
+
+@import '_setup';
+
+$body-bg: $gray-900;
+$body-color: $gray-300;
+
+:focus {
+  box-shadow: 0 0 0 0.1rem $primary;
+}
+
+body {
+  background-color: $body-bg;
+  color: $body-color;
+}
+
+img:not([src*=".svg"]) {
+  filter: grayscale(75%);
+}
+
+.navbar-brand {
+  color: $gray-600;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+}
+
+.navbar-toggler {
+  &:not(.collapsed) {
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,<svg viewBox='0 0 15.6 15.6' xmlns='http://www.w3.org/2000/svg'><path stroke='rgba(255,255,255,0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M0,0l15.6,15.6 M0,15.6L15.6,0'/></svg>");
+    }
+  }
+}
+
+pre {
+  color: $gray-500;
+}
+
+
+.form-control {
+  background-color: $gray-800;
+
+  &:focus {
+    background-color: $gray-700;
+    box-shadow: 0 0 0 0.2rem $primary;
+  }
+}

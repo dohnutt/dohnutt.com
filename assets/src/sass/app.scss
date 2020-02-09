@@ -1,0 +1,113 @@
+/*
+ * Main
+ * `src/sass/app.scss`
+ */
+
+
+@import '_setup';
+
+@import '_bootstrap';
+@import '_grid';
+
+
+
+
+body {
+  font-size: $font-size-base * 0.8;
+
+  @include media-breakpoint-up(sm) {
+    font-size: $font-size-base * 0.9;
+  }
+  @include media-breakpoint-up(md) {
+    font-size: $font-size-base;
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-base * 1.1;
+  }
+  @include media-breakpoint-up(xl) {
+    font-size: $font-size-base * 1.2;
+  }
+}
+
+
+
+
+@import '_components';
+
+
+
+.pg-header {
+  margin: 0 0 2em;
+}
+.pg-footer {
+  margin: 4em 0 1em;
+  font-size: 0.8em;
+  color: $gray-600;
+
+  a {
+    color: inherit;
+
+    &:hover,
+    &:focus {
+      color: $link-color;
+    }
+  }
+}
+
+/*
+ * Content/inner pages.
+ */
+
+.entry__meta {
+  font-size: 0.8em;
+  color: $text-muted;
+
+  ul {
+    @extend .list-inline;
+  }
+}
+ul.entry__meta {
+  @extend .list-inline;
+}
+
+.entry__content {
+  > p > img,
+  > p > a > img
+  > img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.entry__footer {
+  margin: 3em 0 5em;
+  padding: 1em 0;
+  font-size: 0.9em;
+
+  .widget_share {
+    .widget-title {
+      font-size: 1em;
+    }
+  }
+}
+
+
+
+@import '_widgets';
+
+
+
+.entries {
+  margin-bottom: 2em;
+}
+.entries__entry {
+  + .entries__entry {
+    margin-top: 2em;
+  }
+}
+
+
+
+@import '_gutenberg';
+
+//@import '_beaver-builder';

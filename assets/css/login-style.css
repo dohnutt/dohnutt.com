@@ -1,0 +1,288 @@
+/*
+ * WordPress Login page styles
+ */
+
+html {
+  font-size: 20px;
+}
+
+body {
+    background-color: #fff;
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-family: "Space Mono", "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 1em;
+}
+
+a {
+  color: #00b39d;
+  text-decoration: underline;
+  text-underline-position: under;
+  -webkit-text-decoration-skip: objects;
+}
+a:hover,
+a:focus {
+    color: #00675a;
+    text-decoration: underline;
+}
+
+#login {
+    width: 500px;
+    max-width: 100%;
+}
+
+.login #login h1 a {
+    background-image: url( 'http://ericmoss.ca/wp-content/themes/ericmoss/img/logo.svg' );
+    background-size: 100% 100%;
+    background-position: center top;
+    background-repeat: no-repeat;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 2em;
+    padding-bottom: 0;
+    display: block;
+}
+
+.login form {
+    border: 0px;
+    background-color: transparent;
+    overflow: visible;
+    padding: 0;
+    transition: transform .2s ease, -webkit-transform .2s ease;
+}
+
+.login label {
+    font-size: inherit;
+}
+
+.login form .input,
+.login input[type=text] {
+    border-radius: 0;
+    border: 0px solid #bbb;
+    border-bottom-width: 2px;
+    padding: 0 0 0.25em;
+    line-height: 1;
+    margin: 0;
+    background: transparent;
+    font-size: 1.4em;
+}
+
+input[type=checkbox],
+input[type=color],
+input[type=date],
+input[type=datetime-local],
+input[type=datetime],
+input[type=email],
+input[type=month],
+input[type=number],
+input[type=password],
+input[type=radio],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=time],
+input[type=url],
+input[type=week],
+select,
+textarea {
+    box-shadow: none;
+    transition: box-shadow 0.2s ease;
+}
+
+input[type=checkbox]:focus,
+input[type=color]:focus,
+input[type=date]:focus,
+input[type=datetime-local]:focus,
+input[type=datetime]:focus,
+input[type=email]:focus,
+input[type=month]:focus,
+input[type=number]:focus,
+input[type=password]:focus,
+input[type=radio]:focus,
+input[type=search]:focus,
+input[type=tel]:focus,
+input[type=text]:focus,
+input[type=time]:focus,
+input[type=url]:focus,
+input[type=week]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  outline-offset: -1px;
+  border-color: #00b39d;
+  box-shadow: none;
+  background-color: #eee;
+}
+
+input[type=checkbox], input[type=radio] {
+    height: 1em;
+    margin: -0.25em 0.25em 0 0;
+    width: 1em;
+    min-width: 1em;
+    font-size: 1em;
+}
+
+input[type=checkbox]:checked:before,
+input[type=radio]:checked:before {
+    width: 1em;
+    color: #333;
+    fill: #333;
+    font-size: 1.275em;
+    content: url(data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2020%2020%27%3E%3Cpath%20d%3D%27M14.83%204.89l1.34.94-5.81%208.38H9.02L5.78%209.67l1.34-1.25%202.57%202.4z%27%20fill%3D%27%2300b39d%27%2F%3E%3C%2Fsvg%3E);
+}
+
+#login form p,
+#login form .user-pass-wrap {
+  margin-bottom: 1.5em;
+}
+
+#login form p:last-of-type {
+  margin-bottom: 0;
+}
+
+.login form .forgetmenot {
+  margin-bottom: 20px;
+}
+.login form .forgetmenot label {
+  font-size: inherit;
+}
+#login form p.submit {
+  clear: both;
+}
+
+.login form .forgetmenot,
+.login .button-primary {
+  float: none;
+}
+
+
+
+/*
+ * Buttons
+ */
+
+.wp-core-ui .button,
+.wp-core-ui .button-primary,
+.wp-core-ui .button-secondary {
+  font-size: inherit;
+  transition: background 0.2s ease;
+}
+
+.wp-core-ui .button,
+.wp-core-ui .button-secondary {
+    background-color: #888;
+    color: #fff;
+    border: 0px;
+}
+
+.login .button.wp-hide-pw {
+    color: #888;
+}
+
+.wp-core-ui .button-secondary:hover {
+    color: #333;
+}
+
+.wp-core-ui .button-primary {
+    background: #00b39d;
+    border:0px;
+    box-shadow: none;
+    text-shadow: none;
+    height: 40px;
+    line-height: 38px;
+    width: 100%;
+    font-weight: bold;
+}
+
+.wp-core-ui .button-primary {
+    background: #00b39d;
+    border:0px;
+    box-shadow: none;
+    text-shadow: none;
+    height: 40px;
+    line-height: 38px;
+    width: 100%;
+    font-weight: bold;
+}
+.wp-core-ui .button-primary.focus,
+.wp-core-ui .button-primary.hover,
+.wp-core-ui .button-primary:focus,
+.wp-core-ui .button-primary:hover {
+    background: #00675a;
+    box-shadow: none;
+}
+
+.wp-core-ui .button-group.button-large .button,
+.wp-core-ui .button.button-large {
+  height: 3em;
+  line-height: 2.8;
+}
+
+
+
+/*
+ * Links below
+ */
+.login #nav,
+.login #backtoblog,
+.login .privacy-policy-page-link {
+  font-size: 0.8em;
+}
+
+.login .privacy-policy-page-link {
+  margin-top: 4em;
+  color: rgba(255,255,255,0.7);
+}
+
+.login #nav a,
+.login #backtoblog a {
+  color: #888;
+  transition: color 0.2s ease;
+  text-decoration: underline;
+}
+.login #nav a:hover,
+.login #backtoblog a:hover,
+.login #nav a:focus,
+.login #backtoblog a:focus {
+  color: #00675a;
+  text-decoration: underline;
+}
+
+.login #login_error,
+.login .message,
+.login .success {
+    font-size: 0.8em;
+  background-color: #eee;
+}
+.login .message,
+.login .success {
+  border-left-color: #00675a;
+}
+.login #login_error {
+  border-left-color: #d43530;
+}
+
+
+/*
+ * Admin email verification
+ */
+.admin-email__actions div {
+    display: flex;
+    text-align: center;
+}
+.admin-email__actions-secondary > a {
+    margin: 0 auto;
+}
+
+
+@media screen and (min-width: 420px) {
+  .login #nav,
+  .login #backtoblog {
+    margin: 30px 0;
+  }
+  .login #nav {
+    float: right;
+  }
+  .login #backtoblog {
+    float: left;
+  }
+}

@@ -1,87 +1,103 @@
 <?php
 get_header(); ?>
 
-    <main class="wrap" id="content">
+    <main class="<?php echo doh_main_class('pg-main'); ?>">
 
-      <?php
-      echo get_template_part('parts/hero');
+      <?php do_action('doh_main_open'); ?>
 
-      if ( is_post_type_archive() ) :
-          $content = new WP_Query(array(
-            'post_type' => 'page',
-            'name' => get_post_type(),
-          ));
-          if ( $content->have_posts() ) :
-            while ( $content->have_posts() ) :
-              $content->the_post(); ?>
-              <div class="entry-content">
-                <?php the_content(); ?>
-              </div><?php
-            endwhile;
-            wp_reset_postdata();
-          endif;
-      endif; ?>
+      <div class="container main__container">
+        <div class="row">
 
-      <div class="entries">
-        <?php
-        if ( have_posts() ) :
-          while ( have_posts() ) :
-        		the_post(); ?>
-            <article <?php post_class('entry'); ?>>
-              <div class="card">
-                <div class="card-image">
-                  <?php
-                  if ( has_post_thumbnail() ) :
-                    echo '<a href="' . get_the_permalink() . '">';
-                    the_post_thumbnail('loop', array(
-                      'class' => 'img-fluid',
-                    ));
-                    echo '</a>';
-                  else: ?>
-                    <a href="<?php the_permalink(); ?>" class="entry-image-placeholder"></a>
-                  <?php
-                  endif; ?>
-                </div>
-                <div class="card-body">
-                  <a href="<?php the_permalink(); ?>">
-                    <h3 class="entry-title"><?php the_title(); ?></h3>
-                  </a>
-                  <p class="entry-excerpt">
-                    <?php echo get_the_excerpt(); ?>
-                    <a href="<?php the_permalink(); ?>" class="more-link">Keep reading <i class="fa fa-angle-right"></i></a>
-                  </p>
-                  <?php
-                  if ( 'post' !== get_post_type() ) : ?>
-                    <small class="entry-meta">
-                      <span class="entry-date"><?php echo get_the_date(); ?></span>
-                      <span class="entry-author"><?php the_author_posts_link(); ?></span>
+          <div class="entry__main col-12">
+            <div class="entries">
+              <?php
+
+              do_action('doh_before_loop');
+
+              if ( have_posts() ) :
+
+                while ( have_posts() ) :
+              		the_post();
+
+                  ?>
+                  <div <?php post_class('row entries__entry'); ?>>
+
+                    <div class="col-md-4 entry__image">
                       <?php
-                      $category_list = array();
-                      if ( has_category() ) :
-                        echo '<span class="entry-categories">Category: ';
-                        foreach ( get_the_category() as $category) :
-                          $category_list[] = '<a href="'. get_category_link( $category->term_id ) .'">' . $category->cat_name . '</a>';
-                        endforeach;
-                        echo implode(', ', $category_list);
-                        echo '</span>';
+                      if ( has_post_thumbnail() ) :
+                        echo '<a href="' . get_permalink() . '">';
+                        the_post_thumbnail('medium', array('class' => 'img-fluid'));
+                        echo '</a>';
+                      else: ?>
+                        <a href="<?php the_permalink(); ?>" class="img-placeholder"></a>
+                      <?php
                       endif; ?>
-                    </small>
+                    </div>
+
+                    <div class="col-md-8 entry__details">
+
+                      <h2 class="entry__title h3">
+                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                      </h2>
+
+                      <div class="entry__excerpt">
+                        <?php the_excerpt(); ?>
+                      </div>
+                      <?php
+
+                      if ( 'post' == get_post_type() ) :
+
+                        ?>
+                        <div class="entry__meta">
+                          <span class="entry__meta__item entry__date">
+                            <?php echo get_the_date(); ?>
+                          </span>
+                          <?php
+
+                          if ( 'eric' !== get_the_author_meta('user_login') ) : ?>
+                            <span class="entry__meta__item entry__author">Author: <?php the_author_posts_link(); ?></span>
+                          <?php
+                          endif;
+
+                          ?>
+                          <span class="entry__meta__item entry__categories">
+                            <?php echo get_the_category_list(', '); ?>
+                          </span>
+                        </div>
+                        <?php
+
+                      endif;
+
+                      ?>
+                    </div>
+
+                  </div>
                   <?php
-                  endif; ?>
+
+              	endwhile;
+                the_posts_pagination();
+
+              else :
+
+                ?>
+                <div class="alert alert-warning">
+                  Oops! No posts were found.
                 </div>
-              </div>
-            </article>
-          <?php
-        	endwhile; ?>
-          <div class="pagination-container">
-            <?php the_posts_pagination(); ?>
+                <?php
+
+              endif;
+              wp_reset_postdata();
+
+              do_action('doh_before_loop');
+
+              ?>
+            </div>
           </div>
-          <?php
-          wp_reset_postdata();
-        else :
-          echo '<div class="alert alert-warning">Oops! No posts were found.</div>';
-        endif; ?>
+
+        </div>
       </div>
+
+      <?php do_action('doh_main_close'); ?>
 
     </main>
 

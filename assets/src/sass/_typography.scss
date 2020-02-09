@@ -1,0 +1,55 @@
+/*
+ * Typography
+ * `typography.scss`
+ */
+
+
+a {
+  text-decoration: underline;
+
+  &:hover,
+  &:focus,
+  &:hover:focus {
+    text-decoration: none;
+  }
+
+  &.btn,
+  &.share-link,
+  &.nav-link,
+  &.action__item,
+  &.card,
+  .panel-heading &,
+  &.dropdown-item {
+    text-decoration: none;
+  }
+}
+
+
+.h1, .h2, .h3, .h4, .h5, .h6,
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+
+  a {
+    color: $link-color;
+  }
+}
+
+.lead {
+  font-weight: 400;
+  font-size: $font-size-lg;
+  margin-bottom: 0.7em;
+}
+
+
+.small, small {
+  font-size: $font-size-sm;
+}
+
+
+blockquote {
+  border-left-width: 4px;
+}
+
+.blockquote-reverse {
+  border-right-width: 4px;
+}
