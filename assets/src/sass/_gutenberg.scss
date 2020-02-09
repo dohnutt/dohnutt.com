@@ -49,6 +49,13 @@
 
 }
 
+.entry__preheader {
+  p {
+    max-width: 40em;
+    color: $text-muted;
+  }
+}
+
 
 .wp-block-separator {
   margin-left: 0;
@@ -74,7 +81,7 @@
 /*
  * Embeds
  */
-.wp-block-embed {
+.wp-embed-aspect-16-9 {
   position: relative;
   padding-bottom: 56.25%;
   padding-top: 35px;

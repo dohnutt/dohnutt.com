@@ -126,11 +126,22 @@ function doh_project_year() {
   if ( ! is_singular('portfolio') )
     return;
 
+  global $post;
+
   ?>
   <div class="entry__preheader">
+    <?php
+
+    if ( isset($post->post_excerpt) && ! empty($post->post_excerpt) ) :
+      echo '<p class="entry__lead lead">' . $post->post_excerpt . '</p>';
+    endif;
+
+    ?>
     <div class="entry__meta d-inline-block">
-      <span class="meta__item"><a href="<?php echo get_post_type_archive_link('portfolio'); ?>" class="text-muted">&larr; All projects</a></span>
-      <span class="meta__item"><?php the_field('year'); ?></span>
+      <span class="meta__item"><a href="<?php echo get_post_type_archive_link('portfolio'); ?>" class="text-muted">&larr; All projects</a></span><?php
+      if ( $year = get_field('year') ) : ?>
+        <span class="meta__item"><?php echo $year; ?></span><?php
+      endif; ?>
     </div>
   </div>
   <?php
@@ -196,18 +207,11 @@ function doh_post_meta() {
 
   ?>
   <div class="entry__meta mb-3">
-    <span class="entry__meta__item entry__date">
+    <time datetime="<?php echo get_the_date('c'); ?>" itemprop="datePublished" class="meta__item entry__date">
       <?php echo get_the_date(); ?>
-    </span>
-    <?php
-
-    if ( 'eric' !== get_the_author_meta('user_login') ) : ?>
-      <span class="entry__meta__item entry__author">Author: <?php the_author_posts_link(); ?></span>
-      <?php
-    endif;
-
-    ?>
-    <span class="entry__meta__item entry__categories">
+    </time>
+    <span class="meta__item entry__author"><?php the_author_posts_link(); ?></span>
+    <span class="meta__item entry__categories">
       <?php echo get_the_category_list(', '); ?>
     </span>
   </div>
