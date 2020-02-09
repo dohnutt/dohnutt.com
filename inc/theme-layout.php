@@ -165,7 +165,7 @@ function doh_default_footer() {
 add_action('doh_main_close', 'doh_footer_cta');
 function doh_footer_cta() {
 
-  if ( is_page('contact') || is_404() )
+  if ( is_page(array('contact','jesus')) || is_404() )
     return;
 
   ?>
