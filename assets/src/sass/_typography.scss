@@ -6,6 +6,9 @@
 
 a {
   text-decoration: underline;
+  text-underline-position: under;
+  text-decoration-style: dotted;
+  text-decoration-color: rgba($gray-600, 0.6);
 
   &:hover,
   &:focus,

@@ -40,18 +40,18 @@ if ( ! function_exists('doh_theme_assets' ) ) {
 // Get and store a random font value
 if ( ! function_exists('doh_save_random_font' ) ) {
 
-    add_action('after_setup_theme', 'doh_save_random_font');
-    function doh_save_random_font() {
-        $fonts = include( get_stylesheet_directory() . '/inc/google-fonts.php' );
-        $key = array_rand($fonts);
+  add_action('after_setup_theme', 'doh_save_random_font');
+  function doh_save_random_font() {
+    $fonts = include( get_stylesheet_directory() . '/inc/google-fonts.php' );
+    $key = array_rand($fonts);
 
-        $enable = false;
+    $enable = false;
 
-        if ( $enable )
-            update_option('doh_random_font', $fonts[$key]);
-        else
-            update_option('doh_random_font', $fonts['Space Mono']);
-    }
+    if ( $enable )
+      update_option('doh_random_font', $fonts[$key]);
+    else
+      update_option('doh_random_font', $fonts['Space Mono']);
+  }
 
 }
 

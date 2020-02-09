@@ -1,22 +1,31 @@
 <footer class="pg-footer">
+  <?php
+
+  do_action('doh_footer_open');
+
+  ?>
   <div class="container-fluid">
 
     <div class="row my-3">
-      <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+      <div class="col-12">
+        <p class="footer__copyright small mb-3 mb-lg-0 d-inline-block">&copy; <?php echo date('Y'); ?> <a href="https://twitter.com/dohnutt">@dohnutt</a></p>
         <?php
+
         wp_nav_menu( array(
           'theme_location' => 'footer',
           'depth' => 1,
           'container' => false,
-          'menu_class' => 'menu--footer list-inline mb-0',
-
+          'menu_class' => 'footer__menu menu--footer list-inline mb-0 d-inline-block',
         ) );
+        
         ?>
-      </div>
-      <div class="col-12 col-lg-6">
-        <p class="small m-0">&copy; <?php echo date('Y'); ?> <a href="https://twitter.com/dohnutt">@dohnutt</a></p>
       </div>
     </div>
 
   </div>
+  <?php
+
+  do_action('doh_footer_close');
+
+  ?>
 </footer>

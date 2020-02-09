@@ -61,7 +61,7 @@ if ( ! function_exists('doh_header_brand') ) {
 
 
 
-// Default header layout. Can be overridden with Beaver Themer.
+// Default header layout.
 add_action('doh_header', 'doh_default_header');
 function doh_default_header() {
   echo get_template_part('parts/navbar');
@@ -136,10 +136,28 @@ function doh_default_hero() {
 }
 
 
-// Default footer layout. Can be overridden with Beaver Themer.
+// Default footer layout.
 add_action('doh_footer', 'doh_default_footer');
 function doh_default_footer() {
   echo get_template_part('parts/footer');
+}
+
+
+// Default footer layout.
+add_action('doh_main_close', 'doh_footer_cta');
+function doh_footer_cta() {
+
+  if ( is_page(11) || is_404() )
+    return;
+
+  ?>
+  <a href="<?php echo get_permalink('contact'); ?>" class="footer__cta align-items-center">
+    <div class="col-12">
+      <span class="d-block d-md-inline-block h5 mb-0">Want to work together?</span>
+      <span class="cta__btn btn btn-primary py-3 mt-3 mt-md-n1">Let's talk</span>
+    </div>
+  </a>
+  <?php
 }
 
 

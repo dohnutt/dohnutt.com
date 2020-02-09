@@ -18,8 +18,8 @@ body {
   color: $body-color;
 }
 
-img:not([src*=".svg"]) {
-  filter: grayscale(75%);
+hr {
+  border-color: darken($gray-900, 2%);
 }
 
 .navbar-brand {
@@ -49,5 +49,14 @@ pre {
   &:focus {
     background-color: $gray-700;
     box-shadow: 0 0 0 0.2rem $primary;
+  }
+}
+
+
+
+.footer__cta {
+  &:hover,
+  &:focus {
+    background-color: darken($body-bg, 5%);
   }
 }

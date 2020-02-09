@@ -47,17 +47,13 @@ if ( class_exists('acf') ) {
   	<?php
   }
 
-  // Enqueue google maps for ACF
-  if ( ! function_exists('doh_acf_gmap_key') ) {
-    add_action('acf/init', 'doh_acf_gmap_key');
-    function doh_acf_gmap_key() {
-      // Default key for development sites
-      $key = 'AIzaSyCcgMOxdxTd8VfIJ_74KWc0eEta6fV8m_s';
-    	acf_update_setting(
-        'google_api_key',
-        apply_filters('doh_google_api_key', $key)
-      );
-    }
+  add_filter('doh_page_title', 'doh_alt_page_title');
+  function doh_alt_page_title($title) {
+
+    if ( is_page() && $alt = get_field('title_alt') )
+      $title = $alt;
+
+    return '<h1 class="pg-title">' . $title . '</h1>';
   }
 
 }

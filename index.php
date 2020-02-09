@@ -9,7 +9,7 @@ get_header(); ?>
         <div class="row">
 
           <div class="entry__main col-12">
-            <div class="entries">
+            <div class="entries my-5">
               <?php
 
               do_action('doh_before_loop');
@@ -20,19 +20,7 @@ get_header(); ?>
               		the_post();
 
                   ?>
-                  <div <?php post_class('row entries__entry'); ?>>
-
-                    <div class="col-md-4 entry__image">
-                      <?php
-                      if ( has_post_thumbnail() ) :
-                        echo '<a href="' . get_permalink() . '">';
-                        the_post_thumbnail('medium', array('class' => 'img-fluid'));
-                        echo '</a>';
-                      else: ?>
-                        <a href="<?php the_permalink(); ?>" class="img-placeholder"></a>
-                      <?php
-                      endif; ?>
-                    </div>
+                  <div <?php post_class('row entries__entry align-items-center'); ?>>
 
                     <div class="col-md-8 entry__details">
 
@@ -55,8 +43,7 @@ get_header(); ?>
                           <?php
 
                           if ( 'eric' !== get_the_author_meta('user_login') ) : ?>
-                            <span class="entry__meta__item entry__author">Author: <?php the_author_posts_link(); ?></span>
-                          <?php
+                            <span class="entry__meta__item entry__author">Author: <?php the_author_posts_link(); ?></span><?php
                           endif;
 
                           ?>
@@ -71,6 +58,18 @@ get_header(); ?>
                       ?>
                     </div>
 
+                    <div class="col-md-4 entry__image">
+                      <?php
+
+                      if ( has_post_thumbnail() ) :
+                        echo '<a href="' . get_permalink() . '">';
+                        the_post_thumbnail('medium', array('class' => 'img-fluid rounded'));
+                        echo '</a>';
+                      endif;
+
+                      ?>
+                    </div>
+
                   </div>
                   <?php
 
@@ -80,8 +79,8 @@ get_header(); ?>
               else :
 
                 ?>
-                <div class="alert alert-warning">
-                  Oops! No posts were found.
+                <div class="empty text-muted">
+                  Uh, nothin' to see here.
                 </div>
                 <?php
 

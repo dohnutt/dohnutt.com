@@ -4,7 +4,7 @@
 
   <nav class="pg-navbar navbar navbar-expand-lg">
 
-    <a class="navbar-brand" href="<?php home_url(); ?>">
+    <a class="navbar-brand" href="<?php echo home_url(); ?>">
       <?php include get_doh_assets_dir() . '/img/logo.svg'; ?>
       <span class="sr-only">Eric Moss (@dohnutt)</span>
     </a>

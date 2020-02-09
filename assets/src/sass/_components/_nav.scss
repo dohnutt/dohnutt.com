@@ -8,6 +8,7 @@
 
 .pg-navbar {
   min-height: 7.6em;
+  position: relative;
 
   .navbar-nav {
     .nav-link {
@@ -142,6 +143,17 @@
     opacity: 0.4;
   }
 }
+
+
+
+@include media-breakpoint-up(lg) {
+  .nav-item-social {
+    + .nav-item-social {
+      margin-left: -0.5em;
+    }
+  }
+}
+
 
 
 .nav-link {

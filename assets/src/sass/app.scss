@@ -37,14 +37,14 @@ body {
 
 
 .pg-header {
-  margin: 0 0 2em;
+  margin: 0 0 1em;
 }
 .pg-footer {
-  margin: 4em 0 1em;
+  margin: 2em 0 1em;
   font-size: 0.8em;
   color: $gray-600;
 
-  a {
+  a:not(.btn) {
     color: inherit;
 
     &:hover,
@@ -53,6 +53,34 @@ body {
     }
   }
 }
+
+.footer__cta {
+  padding: 2em 0;
+  margin-bottom: 2em;
+  display: block;
+  text-decoration: none;
+  color: $text-muted;
+  transition: background-color 0.3s ease, color 0.3s ease, padding-left 1s ease;
+
+  &:hover,
+  &:focus {
+    background-color: darken($body-bg,10%);
+    color: $link-color;
+  }
+
+  @include media-breakpoint-up(md) {
+    border-radius: $border-radius 0 0 $border-radius;
+
+    &:hover, &:focus {
+      padding-left: 1.5em;
+    }
+  }
+}
+
+.footer__copyright {
+  width: 11.5em;
+}
+
 
 /*
  * Content/inner pages.
@@ -80,7 +108,7 @@ ul.entry__meta {
 }
 
 .entry__footer {
-  margin: 3em 0 5em;
+  margin: 3em 0 1em;
   padding: 1em 0;
   font-size: 0.9em;
 

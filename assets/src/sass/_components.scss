@@ -145,45 +145,6 @@
       text-decoration: none;
     }
   }
-
-  &:before {
-    content: '\f05a';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: bold;
-    padding-right: 0.4em;
-  }
-}
-.alert-default {
-  background-color: $secondary;
-  border: 1px solid $secondary;
-  color: $body-color;
-
-  .alert-link {
-    color: $link-color;
-    text-decoration: underline;
-
-    &:hover,
-    &:focus,
-    &:hover:focus {
-      color: $link-hover-color;
-      text-decoration: none;
-    }
-  }
-}
-.alert-success {
-  &:before {
-    content: '\f058';
-  }
-}
-.alert-warning {
-  &:before {
-    content: '\f071';
-  }
-}
-.alert-danger {
-  &:before {
-    content: '\f06a';
-  }
 }
 
 
@@ -192,7 +153,7 @@
 /*
  * Pagination
  */
-//
+
 .pagination {
   @include clearfix;
   padding: 2em 0;
