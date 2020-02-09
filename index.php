@@ -22,7 +22,7 @@ get_header(); ?>
                   ?>
                   <div <?php post_class('row entries__entry align-items-center'); ?>>
 
-                    <div class="col-md-8 entry__details">
+                    <div class="col-12 col-md-8 entry__details">
 
                       <h2 class="entry__title h3">
                         <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
@@ -58,12 +58,12 @@ get_header(); ?>
                       ?>
                     </div>
 
-                    <div class="col-md-4 entry__image">
+                    <div class="col-12 col-md-4 entry__image">
                       <?php
 
                       if ( has_post_thumbnail() ) :
                         echo '<a href="' . get_permalink() . '">';
-                        the_post_thumbnail('medium', array('class' => 'img-fluid rounded'));
+                        the_post_thumbnail('medium', array('class' => 'entry__img img-fluid rounded'));
                         echo '</a>';
                       endif;
 
