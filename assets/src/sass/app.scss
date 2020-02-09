@@ -35,6 +35,12 @@ body {
 @import '_components';
 
 
+::selection {
+  color: $white;
+  background-color: $primary;
+  text-shadow: 0.1em 0.1em 0 $gray-900;
+}
+
 
 .pg-header {
   margin: 0 0 1em;
@@ -85,17 +91,27 @@ body {
 /*
  * Content/inner pages.
  */
-
+.pg-title + .entry__preheader {
+  margin-top: -1em;
+  margin-bottom: 2em;
+}
 .entry__meta {
-  font-size: 0.8em;
   color: $text-muted;
-
-  ul {
-    @extend .list-inline;
-  }
+  font-size: 0;
 }
 ul.entry__meta {
   @extend .list-inline;
+}
+.meta__item {
+  font-size: $font-size-base;
+
+  + .meta__item {
+
+    &:before {
+      content: '•';
+      margin: 0 0.5em;
+    }
+  }
 }
 
 .entry__content {

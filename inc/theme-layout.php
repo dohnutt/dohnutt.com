@@ -102,7 +102,7 @@ function doh_featured_image() {
       <?php
 
       the_post_thumbnail('large', array(
-        'class' => 'img-fluid entry__image__img'
+        'class' => 'img-fluid entry__image__img rounded'
       ));
 
       if ( ! doh_is_content_empty( get_post(get_post_thumbnail_id())->post_excerpt ) ) :
@@ -118,6 +118,24 @@ function doh_featured_image() {
   endif;
 
 }
+
+
+// Display 'Year' for projects
+add_action('doh_after_title', 'doh_project_year');
+function doh_project_year() {
+  if ( ! is_singular('portfolio') )
+    return;
+
+  ?>
+  <div class="entry__preheader">
+    <div class="entry__meta d-inline-block">
+      <span class="meta__item"><a href="<?php echo get_post_type_archive_link('portfolio'); ?>" class="text-muted">&larr; All projects</a></span>
+      <span class="meta__item"><?php the_field('year'); ?></span>
+    </div>
+  </div>
+  <?php
+}
+
 
 
 // Display breadcrumbs before the page title
@@ -147,11 +165,11 @@ function doh_default_footer() {
 add_action('doh_main_close', 'doh_footer_cta');
 function doh_footer_cta() {
 
-  if ( is_page(11) || is_404() )
+  if ( is_page('contact') || is_404() )
     return;
 
   ?>
-  <a href="<?php echo get_permalink('contact'); ?>" class="footer__cta align-items-center">
+  <a href="/contact" class="footer__cta align-items-center">
     <div class="col-12">
       <span class="d-block d-md-inline-block h5 mb-0">Want to work together?</span>
       <span class="cta__btn btn btn-primary py-3 mt-3 mt-md-n1">Let's talk</span>

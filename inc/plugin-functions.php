@@ -49,11 +49,12 @@ if ( class_exists('acf') ) {
 
   add_filter('doh_page_title', 'doh_alt_page_title');
   function doh_alt_page_title($title) {
+    $alt = get_field('title_alt');
 
-    if ( is_page() && $alt = get_field('title_alt') )
-      $title = $alt;
+    if ( ! is_page() || empty($alt) )
+      return $title;
 
-    return '<h1 class="pg-title">' . $title . '</h1>';
+    return '<h1 class="pg-title">' . $alt . '</h1>';
   }
 
 }

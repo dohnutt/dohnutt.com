@@ -246,9 +246,16 @@
 	margin: 0 auto 1.4em;
 }
 
+
+
+.wp-block-image {
+  border-radius: $border-radius;
+}
+
+.wp-block-image figcaption,
 .wp-caption-text,
 .wp-caption-dd {
+  font-size: $font-size-sm;
+  padding-top: $thumbnail-padding;
 	color: $text-muted;
-	font-size: $font-size-sm;
-	padding-top: $thumbnail-padding;
 }

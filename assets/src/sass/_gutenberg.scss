@@ -26,18 +26,14 @@
 
 
 .entry__content {
+  line-height: 1.6;
+
   h1, .h1,
   h2, .h2,
   h3, .h3 {
     margin-bottom: 0.5em;
     margin-top: 0.5em;
     padding-top: 0.25em;
-  }
-  h1, .h1 {
-    font-size: ( $h1-font-size * 0.8 );
-  }
-  h2, .h2 {
-    font-size: ( $h2-font-size * 0.8 );
   }
 
   p,
@@ -81,10 +77,10 @@
 
   &,
   .entry__content & {
-    @include media-breakpoint-up(lg) {
-      font-size: 6vw;
+    @include media-breakpoint-up(md) {
+      font-size: 6.4vw;
     }
-    @media screen and (min-width: 1600px) {
+    @media screen and (min-width: 1500px) {
       font-size: 7.2vw;
     }
   }

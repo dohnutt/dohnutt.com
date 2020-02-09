@@ -45,10 +45,12 @@ pre {
 
 .form-control {
   background-color: $gray-800;
+  color: $body-color;
 
   &:focus {
     background-color: $gray-700;
     box-shadow: 0 0 0 0.2rem $primary;
+    color: inherit;
   }
 }
 
