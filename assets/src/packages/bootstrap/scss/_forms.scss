@@ -159,7 +159,8 @@ select.form-control {
 }
 
 textarea.form-control {
-  height: auto;
+  min-height: $input-height;
+  height: 8em;
 }
 
 // Form groups
