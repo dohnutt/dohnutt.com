@@ -26,7 +26,7 @@
 
 
 .entry__content {
-  line-height: 1.6;
+  line-height: 1.7;
 
   h1, .h1,
   h2, .h2,
@@ -44,7 +44,14 @@
   h4,
   h5,
   h6 {
-    max-width: 40em;
+    max-width: 54em;
+  }
+
+  ul,
+  ol {
+    li {
+      margin-bottom: 0.125em;
+    }
   }
 
 }
