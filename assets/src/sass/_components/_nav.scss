@@ -37,8 +37,9 @@
   }
 
   .scheme__status {
-    width: 3.5em;
+    width: 3.25em;
     display: inline-block;
+    text-align: right;
   }
 
   hr {
@@ -188,6 +189,7 @@
 
 .nav-link {
   color: $gray-600;
+  border-radius: $border-radius;
 
   &:hover,
   &:focus {
