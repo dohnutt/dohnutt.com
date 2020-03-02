@@ -258,4 +258,46 @@
   font-size: $font-size-sm;
   padding-top: $thumbnail-padding;
 	color: $text-muted;
+  line-height: 1.4;
+}
+
+
+
+
+.home-img-float {
+  background-color: $gray-900;
+  width: 200px;
+  max-width: 40%;
+  float: right;
+  margin-top: 1em;
+  margin-left: 2em;
+  opacity: 0.7;
+
+  img {
+    mix-blend-mode: luminosity;
+    border-radius: $border-radius;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .home-img-float {
+    position: absolute;
+    z-index: -1;
+    top: -5%;
+    right: 0;
+    max-width: none;
+    width: auto;
+    height: 88vh;
+    pointer-events: none;
+    opacity: 0.25;
+
+    img {
+      height: 100%;
+      width: auto;
+      border-radius: $border-radius 0 0 $border-radius;
+    }
+    figcaption {
+      display: none;
+    }
+  }
 }

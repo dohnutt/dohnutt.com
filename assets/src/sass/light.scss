@@ -10,3 +10,21 @@
 :root {
   --color-mode: 'light';
 }
+
+
+
+.light-mode {
+
+  .home-img-float {
+    background-color: $white;
+  }
+
+  @media screen and (min-width: 1200px) {
+
+    .home-img-float {
+      opacity: 0.3;
+    }
+
+  }
+
+}

@@ -111,6 +111,7 @@
   font-style: italic;
   color: $gray-600;
   margin-bottom: 0.5em;
+  mix-blend-mode: overlay;
 
   &,
   .entry__content & {
@@ -120,6 +121,12 @@
     @media screen and (min-width: 1500px) {
       font-size: 7.2vw;
     }
+  }
+
+  strong {
+    font-weight: inherit;
+    color: $black;
+    mix-blend-mode: overlay;
   }
 
 }
