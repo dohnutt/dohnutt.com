@@ -4,13 +4,15 @@
  */
 
 
+
 @import '_setup';
 
 
-:root {
-  --color-mode: 'light';
+@media (prefers-color-scheme: no-preference), (prefers-color-scheme: light) {
+  :root {
+    --color-mode: 'light';
+  }
 }
-
 
 
 .light-mode {

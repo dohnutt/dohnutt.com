@@ -4,6 +4,11 @@
  */
 
 
+
+:root {
+  --color-mode: 'dark';
+}
+
 @import '_setup';
 
 @import '_bootstrap';

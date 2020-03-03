@@ -21,8 +21,8 @@ if ( ! function_exists('doh_theme_assets' ) ) {
     $ver = doh_is_dev() ? filemtime(get_doh_stylesheet_path()) : CLIENT_THEME_VER;
     $font = get_option('doh_random_font');
     wp_register_style( 'doh-style',       get_doh_stylesheet_uri(), array(), $ver );
-    wp_register_style( 'doh-style-light', get_doh_assets_dir_uri() . '/css/light.css', array('doh-style'), $ver);
-    wp_register_style( 'doh-style-dark',  get_doh_assets_dir_uri() . '/css/dark.css', array('doh-style'), $ver, '(prefers-color-scheme: dark)' );
+    wp_register_style( 'doh-style-dark',  get_doh_assets_dir_uri() . '/css/dark.css', array('doh-style'), $ver );
+    wp_register_style( 'doh-style-light', get_doh_assets_dir_uri() . '/css/light.css', array('doh-style'), $ver );
     wp_register_style( 'doh-fonts',       '//fonts.googleapis.com/css?display=swap&family=' . $font['title'] . ':' . $font['weights'], array(), time() );
 
     /*

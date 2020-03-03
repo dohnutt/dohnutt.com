@@ -37,6 +37,8 @@ const applySetting = passedSetting => {
     document.documentElement.classList.add(currentSetting+'-mode');
     setToggle(currentSetting);
   } else {
+    document.documentElement.classList.remove('light-mode', 'dark-mode');
+    document.documentElement.classList.add(getCSSCustomProp(COLOR_MODE_KEY)+'-mode');
     setToggle(getCSSCustomProp(COLOR_MODE_KEY));
   }
 };

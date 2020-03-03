@@ -4,15 +4,21 @@
  */
 
 
+
 @import '_setup';
 
 $body-bg: $gray-900;
 $body-color: $gray-300;
 
 
-:root {
-  --color-mode: 'dark';
+@media (prefers-color-scheme: dark) {
+
+  :root {
+    --color-mode: 'dark';
+  }
+
 }
+
 
 .dark-mode {
 
