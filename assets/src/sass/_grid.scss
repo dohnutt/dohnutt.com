@@ -13,6 +13,8 @@
 
 
 .pg-main {
+  isolation: isolate;
+  
   @include media-breakpoint-up(md) {
     margin-left: calc(8em + 1.333rem);
   }
