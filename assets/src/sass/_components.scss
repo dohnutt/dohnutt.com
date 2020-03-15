@@ -175,7 +175,7 @@
 
 
 .browser {
-  border: 3px solid rgba($gray-600, 0.6);
+  border: 3px solid rgba($gray-600, 0.4);
   border-radius: 0.4rem;
   border-top-width: 1.5em;
   position: relative;
@@ -183,13 +183,17 @@
   &:before {
     content: '';
     background-image: url("../img/browser.svg");
-    background-size: 2.25em 0.6em;
+    background-size: 2em 0.5em;
     background-repeat: no-repeat;
     position: absolute;
-    width: 2.25em;
-    height: 0.6em;
+    width: 2em;
+    height: 0.5em;
     top: -1.0125em;
     left: 0.5em;
+  }
+
+  img {
+    border-radius: 0;
   }
 
   figcaption,
