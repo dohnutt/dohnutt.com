@@ -20,28 +20,6 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
-        },
-        {
-            "key": "field_5e6e8cac7b798",
-            "label": "Collaborators",
-            "name": "collaborators",
-            "type": "taxonomy",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "taxonomy": "collaborator",
-            "field_type": "multi_select",
-            "allow_null": 1,
-            "add_term": 1,
-            "save_terms": 1,
-            "load_terms": 1,
-            "return_format": "object",
-            "multiple": 0
         }
     ],
     "location": [
@@ -61,5 +39,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1584303310
+    "modified": 1584309046
 }
