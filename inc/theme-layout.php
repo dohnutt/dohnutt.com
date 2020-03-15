@@ -121,8 +121,8 @@ function doh_featured_image() {
 
 
 // Display 'Year' for projects
-add_action('doh_after_title', 'doh_project_year');
-function doh_project_year() {
+add_action('doh_after_title', 'doh_project_meta');
+function doh_project_meta() {
   if ( ! is_singular('portfolio') )
     return;
 
@@ -137,7 +137,7 @@ function doh_project_year() {
     endif;
 
     ?>
-    <div class="entry__meta d-inline-block">
+    <div class="entry__meta">
       <span class="meta__item"><a href="<?php echo get_post_type_archive_link('portfolio'); ?>" class="text-muted">&larr; All projects</a></span><?php
       if ( $year = get_field('year') ) : ?>
         <span class="meta__item"><?php echo $year; ?></span><?php

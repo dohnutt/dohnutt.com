@@ -41,8 +41,8 @@ $purple:  #6f42c1 !default;
 $pink:    #e83e8c !default;
 $red:     #dc3545 !default;
 $orange:  #fd7e14 !default;
-$yellow:  #ffc107 !default;
-$green:   #28a745 !default;
+$yellow:  #afaa16 !default;
+$green:   #00af78 !default;
 $teal:    #00b39d !default;
 $cyan:    #17a2b8 !default;
 
@@ -302,7 +302,7 @@ $font-family-base:            $font-family-sans-serif !default;
 
 $font-size-base:              1.25rem !default; // Assumes the browser default, typically `16px`
 $font-size-lg:                $font-size-base * 1.6 !default;
-$font-size-sm:                $font-size-base * .8 !default;
+$font-size-sm:                $font-size-base * 0.8 !default;
 
 $font-weight-lighter:         lighter !default;
 $font-weight-light:           300 !default;
@@ -997,9 +997,9 @@ $alert-border-radius:               $border-radius !default;
 $alert-link-font-weight:            $font-weight-bold !default;
 $alert-border-width:                $border-width !default;
 
-$alert-bg-level:                    -10 !default;
-$alert-border-level:                -9 !default;
-$alert-color-level:                 6 !default;
+$alert-bg-level:                    0 !default;
+$alert-border-level:                0 !default;
+$alert-color-level:                 0 !default;
 
 
 // Progress bars
