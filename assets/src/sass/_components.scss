@@ -181,7 +181,9 @@
   position: relative;
 
   &:before {
-    content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 30'><circle cx='15' cy='15' r='15' fill='#dc3545'/><circle cx='60' cy='15' r='15' fill='#c3b700'/><circle cx='105' cy='15' r='15' fill='#00af78'/></svg>");
+    content: '';
+    background-image: url("../img/browser.svg");
+    position: absolute;
     width: 4em;
     height: 0.8em;
     top: 0.25em;
