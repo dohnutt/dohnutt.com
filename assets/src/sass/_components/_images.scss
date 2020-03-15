@@ -249,7 +249,9 @@
 
 
 .wp-block-image {
-  border-radius: $border-radius;
+  img {
+    border-radius: $border-radius;
+  }
 }
 
 .wp-block-image figcaption,
