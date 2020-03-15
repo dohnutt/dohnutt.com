@@ -176,9 +176,11 @@
 
 .browser {
   border: 3px solid rgba($gray-600, 0.4);
-  border-radius: 0.4rem;
+  border-radius: $border-radius;
   border-top-width: 1.5em;
   position: relative;
+  display: inline-block;
+  clear: both;
 
   &:before {
     content: '';
