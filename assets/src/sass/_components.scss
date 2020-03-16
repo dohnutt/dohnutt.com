@@ -203,4 +203,13 @@
     margin-left: 1em;
     margin-right: 1em;
   }
+
+  &.wp-block-image.is-resized {
+    display: inline-block;
+
+    > figcaption,
+    > .wp-caption {
+      display: block;
+    }
+  }
 }
