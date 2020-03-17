@@ -68,3 +68,10 @@ blockquote {
 .blockquote-reverse {
   border-right-width: 4px;
 }
+
+
+.resize-dash {
+  transform: scaleX(2);
+  display: inline-block;
+  margin: 0 0.3em;
+}

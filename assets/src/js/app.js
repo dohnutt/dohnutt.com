@@ -10,6 +10,11 @@
 
 document.documentElement.classList.remove('no-js');
 
+
+
+/*
+ * Light/dark mode
+ */
 if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
   console.log('🎉 Dark mode is supported');
 }
@@ -81,7 +86,20 @@ applySetting();
 
 
 
+/*
+ * Wrap all em and en dashes in `span.resize-dash`
+ */
+function wrapDashes() {
+  $('.entry__content').html( $('.entry__content').html().replace( /\b(—|–|&ndash;|&mdash;)/g, '<span class="resize-dash">$1</span>' ) );
+}
 
+wrapDashes();
+
+
+
+/*
+ * Toggle navbar
+ */
 $(document).click(function (e) {
   var _opened = $('.navbar-collapse').hasClass('show');
 
@@ -89,6 +107,7 @@ $(document).click(function (e) {
     $('.navbar-collapse').collapse('toggle');
   }
 });
+
 
 
 /*
@@ -127,20 +146,4 @@ $('.share__link').click(function(event) {
 
   return false;
 
-});
-
-
-
-$(window).load(function() {
-  // stuff
-});
-
-
-$(window).resize(function() {
-  // stuff
-});
-
-
-$(window).scroll(function() {
-  // stuff
 });
