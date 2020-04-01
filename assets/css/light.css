@@ -1,1 +1,1 @@
-@media (prefers-color-scheme:light),(prefers-color-scheme:no-preference){:root{--color-mode:"light"}}.light-mode .home-img-float{background-color:#fff}@media screen and (min-width:1200px){.light-mode .home-img-float{opacity:0.3}}
+@media (prefers-color-scheme:light),(prefers-color-scheme:no-preference){:root{--color-mode:'light'}}.light-mode .home-img-float{background-color:#fff}@media screen and (min-width:1200px){.light-mode .home-img-float{opacity:0.3}}
