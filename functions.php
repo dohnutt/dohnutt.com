@@ -3,7 +3,7 @@ if ( ! defined('ABSPATH') ) exit;
 
 
 define( 'DOH_THEME_VER', '1.0.0' );
-define( 'CLIENT_THEME_VER', '1.0.0' );
+define( 'CLIENT_THEME_VER', '1.2.1' );
 
 
 
