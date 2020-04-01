@@ -1,12 +1,12 @@
-// @codekit-prepend "../packages/bootstrap/js/dist/util.js";
-// @codekit-prepend "../packages/bootstrap/js/dist/alert.js";
-// @codekit-prepend "../packages/bootstrap/js/dist/button.js";
-// @codekit-prepend "../packages/bootstrap/js/dist/collapse.js";
-// @codekit-prepend "../packages/bootstrap/js/dist/dropdown.js";
-// @codekit-prepend "../packages/bootstrap/js/dist/modal.js";
-// @codekit-prepend "../packages/bootstrap/js/dist/scrollspy.js";
-// @codekit-prepend "../packages/bootstrap/js/dist/tab.js";
-// @codekit-prepend "../packages/bootstrap/js/dist/index.js";
+// @codekit-prepend "../../../node_modules/bootstrap/js/dist/util.js";
+// @codekit-prepend "../../../node_modules/bootstrap/js/dist/alert.js";
+// @codekit-prepend "../../../node_modules/bootstrap/js/dist/button.js";
+// @codekit-prepend "../../../node_modules/bootstrap/js/dist/collapse.js";
+// @codekit-prepend "../../../node_modules/bootstrap/js/dist/dropdown.js";
+// @codekit-prepend "../../../node_modules/bootstrap/js/dist/modal.js";
+// @codekit-prepend "../../../node_modules/bootstrap/js/dist/scrollspy.js";
+// @codekit-prepend "../../../node_modules/bootstrap/js/dist/tab.js";
+// @codekit-prepend "../../../node_modules/bootstrap/js/dist/index.js";
 
 document.documentElement.classList.remove('no-js');
 
@@ -50,7 +50,7 @@ const applySetting = passedSetting => {
 
 const setToggle = currentSetting => {
   let checkedVal = currentSetting === 'light' ? false : true;
-  let statusText = currentSetting === 'light' ? 'Light' : 'Dark';
+  let statusText = currentSetting === 'light' ? '☀' : '🌙';
   schemeToggleButton.checked = checkedVal;
   schemeStatus.innerText = statusText;
   //console.log(`Color mode is now "${currentSetting}" "${checkedVal}"`);
