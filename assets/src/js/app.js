@@ -49,8 +49,8 @@ const applySetting = passedSetting => {
 };
 
 const setToggle = currentSetting => {
-  let checkedVal = currentSetting === 'light' ? false : true;
-  let statusText = currentSetting === 'light' ? '☀' : '🌙';
+  let checkedVal = currentSetting === 'dark' ? true : false;
+  let statusText = currentSetting === 'dark' ? '🌙' : '☀';
   schemeToggleButton.checked = checkedVal;
   schemeStatus.innerText = statusText;
   //console.log(`Color mode is now "${currentSetting}" "${checkedVal}"`);
