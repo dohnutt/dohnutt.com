@@ -1,12 +1,12 @@
-// @codekit-prepend "../../../node_modules/bootstrap/js/dist/util.js";
-// @codekit-prepend "../../../node_modules/bootstrap/js/dist/alert.js";
-// @codekit-prepend "../../../node_modules/bootstrap/js/dist/button.js";
-// @codekit-prepend "../../../node_modules/bootstrap/js/dist/collapse.js";
-// @codekit-prepend "../../../node_modules/bootstrap/js/dist/dropdown.js";
-// @codekit-prepend "../../../node_modules/bootstrap/js/dist/modal.js";
-// @codekit-prepend "../../../node_modules/bootstrap/js/dist/scrollspy.js";
-// @codekit-prepend "../../../node_modules/bootstrap/js/dist/tab.js";
-// @codekit-prepend "../../../node_modules/bootstrap/js/dist/index.js";
+// @prepros-prepend "../../../node_modules/bootstrap/js/dist/util.js";
+// @prepros-prepend "../../../node_modules/bootstrap/js/dist/alert.js";
+// @prepros-prepend "../../../node_modules/bootstrap/js/dist/button.js";
+// @prepros-prepend "../../../node_modules/bootstrap/js/dist/collapse.js";
+// @prepros-prepend "../../../node_modules/bootstrap/js/dist/dropdown.js";
+// @prepros-prepend "../../../node_modules/bootstrap/js/dist/modal.js";
+// @prepros-prepend "../../../node_modules/bootstrap/js/dist/scrollspy.js";
+// @prepros-prepend "../../../node_modules/bootstrap/js/dist/tab.js";
+// @prepros-prepend "../../../node_modules/bootstrap/js/dist/index.js";
 
 document.documentElement.classList.remove('no-js');
 
