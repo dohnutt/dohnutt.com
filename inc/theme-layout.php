@@ -173,7 +173,7 @@ function doh_default_footer() {
 
 
 // Default footer layout.
-add_action('doh_main_close', 'doh_footer_cta');
+add_action('doh_main_close', 'doh_footer_cta', 15);
 function doh_footer_cta() {
 
   if ( is_page(array('contact','jesus')) || is_404() )
@@ -234,4 +234,67 @@ function doh_entry_footer() {
     ?>
   </div>
   <?php
+}
+
+
+
+// Displays recent/pinned projects on the homepage
+add_action('doh_main_close', 'doh_homepage_projects');
+function doh_homepage_projects() {
+
+  if ( ! is_front_page() )
+    return;
+
+  $q = new WP_Query([
+    'post_type' => 'portfolio',
+    'status' => 'publish',
+    'posts_per_page' => 3,
+  ]);
+
+  if ( ! $q->have_posts() )
+    return;
+
+  ?>
+  <div class="container mb-5">
+    <hr />
+    <div class="d-flex mb-4 align-items-center">
+      <h2 class="d-inline-block mr-3"><em>Work</em></h2>
+      <a href="<?php echo get_post_type_archive_link('portfolio'); ?>" class="small ml-auto px-3">All projects &rarr;</a>
+    </div>
+    <div class="row entries">
+      <?php
+      while ( $q->have_posts() ) :
+        $q->the_post();
+
+        ?>
+        <div <?php post_class('col-12 col-lg-4 mb-5'); ?>>
+          <div class="entry__image mb-3">
+            <?php
+
+            if ( has_post_thumbnail() ) :
+              echo '<a href="' . get_permalink() . '">';
+              the_post_thumbnail('large', array('class' => 'entry__img img-fluid rounded'));
+              echo '</a>';
+            endif;
+
+            ?>
+          </div>
+
+          <div class="entry__details">
+
+            <h3 class="entry__title h6 mb-0">
+              <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+            </h3>
+
+          </div>
+
+        </div>
+        <?php
+
+      endwhile;
+      ?>
+    </div>
+  </div>
+  <?php
+
 }
