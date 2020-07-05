@@ -8,7 +8,7 @@
 
     <div class="row my-3">
       <div class="col-12">
-        <p class="footer__copyright small mb-3 mb-lg-0 d-inline-block">&copy; <?php echo date('Y'); ?> <a href="https://twitter.com/dohnutt">@dohnutt</a></p>
+        <p class="footer__copyright mb-3 mb-lg-0 d-inline-block">&copy; <?php echo date('Y'); ?> <a href="https://twitter.com/dohnutt">@dohnutt</a></p>
         <?php
 
         wp_nav_menu( array(
@@ -17,7 +17,7 @@
           'container' => false,
           'menu_class' => 'footer__menu menu--footer list-inline mb-0 d-inline-block',
         ) );
-        
+
         ?>
       </div>
     </div>
