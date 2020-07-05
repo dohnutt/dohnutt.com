@@ -3,9 +3,9 @@
 // @prepros-prepend "../../../node_modules/bootstrap/js/dist/button.js";
 // @prepros-prepend "../../../node_modules/bootstrap/js/dist/collapse.js";
 // @prepros-prepend "../../../node_modules/bootstrap/js/dist/dropdown.js";
-// @prepros-prepend "../../../node_modules/bootstrap/js/dist/modal.js";
-// @prepros-prepend "../../../node_modules/bootstrap/js/dist/scrollspy.js";
-// @prepros-prepend "../../../node_modules/bootstrap/js/dist/tab.js";
+// @//prepros-prepend "../../../node_modules/bootstrap/js/dist/modal.js";
+// @//prepros-prepend "../../../node_modules/bootstrap/js/dist/scrollspy.js";
+// @//prepros-prepend "../../../node_modules/bootstrap/js/dist/tab.js";
 // @prepros-prepend "../../../node_modules/bootstrap/js/dist/index.js";
 
 document.documentElement.classList.remove('no-js');
