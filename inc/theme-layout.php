@@ -258,8 +258,8 @@ function doh_homepage_projects() {
   <div class="container mb-5">
     <hr />
     <div class="d-flex mb-4 align-items-center">
-      <h2 class="d-inline-block mr-3"><em>Work</em></h2>
-      <a href="<?php echo get_post_type_archive_link('portfolio'); ?>" class="small ml-auto px-3">All projects &rarr;</a>
+      <h2><em>Work</em></h2>
+      <a href="<?php echo get_post_type_archive_link('portfolio'); ?>" class="ml-auto px-3 text-muted">All projects &rarr;</a>
     </div>
     <div class="row entries">
       <?php
@@ -273,7 +273,7 @@ function doh_homepage_projects() {
 
             if ( has_post_thumbnail() ) :
               echo '<a href="' . get_permalink() . '">';
-              the_post_thumbnail('large', array('class' => 'entry__img img-fluid rounded'));
+              the_post_thumbnail('opengraph', array('class' => 'entry__img img-fluid rounded'));
               echo '</a>';
             endif;
 
@@ -281,11 +281,9 @@ function doh_homepage_projects() {
           </div>
 
           <div class="entry__details">
-
-            <h3 class="entry__title h6 mb-0">
+            <h3 class="entry__title font-size-inherit mb-0">
               <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
             </h3>
-
           </div>
 
         </div>
