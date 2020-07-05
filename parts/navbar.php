@@ -20,7 +20,7 @@
         wp_nav_menu( array(
           'theme_location'      => 'primary',
           'depth'               => 2,
-          'menu_class'          => 'navbar-nav navbar-nav--primary menu--primary',
+          'menu_class'          => 'navbar-nav navbar-nav--primary menu--primary align-items-lg-center',
           'container'           => false,
           'fallback_cb'         => 'Doh_Nav_Walker::fallback',
           'walker'              => new Doh_Nav_Walker(),
