@@ -17,6 +17,7 @@ if ( ! function_exists('doh_theme_init') ) {
     /*
      * Set up / modify theme defaults.
      */
+    require_once('inc/post-types.php');
     require_once('inc/theme-setup.php');
 
     /*
