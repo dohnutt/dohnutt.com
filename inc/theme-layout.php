@@ -273,7 +273,7 @@ function doh_homepage_projects() {
 
             if ( has_post_thumbnail() ) :
               echo '<a href="' . get_permalink() . '">';
-              the_post_thumbnail('opengraph', array('class' => 'entry__img img-fluid rounded'));
+              the_post_thumbnail('medium-landscape', array('class' => 'entry__img img-fluid rounded'));
               echo '</a>';
             endif;
 

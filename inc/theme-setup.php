@@ -114,7 +114,7 @@ if ( !function_exists('doh_theme_support') ) {
     //add_image_size( 'tiny', 100, 100, true );
     //add_image_size( 'gallery', 480, 480, true );
     //add_image_size( 'feature', 800, 600, true );
-    add_image_size( 'opengraph-small', 600, 315, true );
+    add_image_size( 'medium-landscape', 600, 400, true );
     add_image_size( 'opengraph', 1200, 630, true );
 
     register_nav_menus( array(
