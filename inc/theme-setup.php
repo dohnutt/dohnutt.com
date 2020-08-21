@@ -58,7 +58,7 @@ if ( ! function_exists('doh_save_random_font' ) ) {
 
 add_action( 'wp_enqueue_scripts', 'doh_jquery_add_inline' );
 function doh_jquery_add_inline() {
-    wp_add_inline_script( 'jquery-core', '$ = jQuery.noConflict(false);' );
+    wp_add_inline_script( 'jquery', '$ = jQuery.noConflict(false);' );
     wp_add_inline_style( 'doh-fonts', 'body { font-family: "' . get_option('doh_random_font')['title'] . '", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }' );
 }
 
