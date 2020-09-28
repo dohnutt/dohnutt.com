@@ -95,8 +95,8 @@ if ( ! function_exists('doh_theme_enqueue') ) {
 
 // Disable all emoji libraries from WordPress
 add_action( 'init', 'doh_disable_emojis' );
-function disable_emojis() {
-  
+function doh_disable_emojis() {
+
   remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
   remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
   remove_action( 'wp_print_styles', 'print_emoji_styles' );
