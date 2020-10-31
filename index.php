@@ -21,9 +21,9 @@ get_header(); ?>
 
                   ?>
                   <div <?php post_class('entries__entry align-items-center'); ?>>
-                    <a href="<?php the_permalink(); ?>" class="card row">
+                    <a href="<?php the_permalink(); ?>" class="card row no-gutters">
 
-                      <div class="col-12 col-md-8 entry__details p-5 pr-md-3 d-md-flex flex-md-column p-5 pr-md-3 justify-md-content-center">
+                      <div class="col-12 col-md-8 entry__details d-md-flex flex-md-column p-5 pr-md-3 justify-md-content-center">
 
                         <h2 class="entry__title h3">
                           <?php the_title(); ?>
@@ -54,7 +54,7 @@ get_header(); ?>
                       </div>
 
                       <div class="col-12 col-md-4 entry__image d-flex">
-                        <div class="d-flex align-items-center py-3">
+                        <div class="d-flex align-items-center px-3 pt-md-3 pb-3">
                           <?php
 
                           if (has_post_thumbnail()) :
