@@ -127,6 +127,12 @@ ul.entry__meta {
   }
 }
 
+.entry__excerpt {
+  :last-child {
+    margin-bottom: 0;
+  }
+}
+
 .entry__footer {
   margin: 3em 0 1em;
   padding: 1em 0;
@@ -165,7 +171,13 @@ ul.entry__meta {
 }
 .entries__entry {
   + .entries__entry {
-    margin-top: 2em;
+    margin-top: 1em;
+  }
+
+  &:nth-child(even) {
+    .row {
+      //flex-direction: row-reverse;
+    }
   }
 }
 

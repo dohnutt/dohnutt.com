@@ -59,7 +59,7 @@
 
 @import '_components/_nav';
 
-//@import '_components/_card';
+@import '_components/_card';
 
 
 
@@ -170,6 +170,11 @@
 }
 .bg-danger {
   background-color: $danger;
+}
+
+
+.object-fit-cover {
+  
 }
 
 

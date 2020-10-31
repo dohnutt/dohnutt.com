@@ -20,56 +20,52 @@ get_header(); ?>
               		the_post();
 
                   ?>
-                  <div <?php post_class('row entries__entry align-items-center'); ?>>
+                  <div <?php post_class('entries__entry align-items-center'); ?>>
+                    <a href="<?php the_permalink(); ?>" class="card row">
 
-                    <div class="col-12 col-md-8 entry__details">
+                      <div class="col-12 col-md-8 entry__details p-5 pr-md-3 d-md-flex flex-md-column p-5 pr-md-3 justify-md-content-center">
 
-                      <h2 class="entry__title h3">
-                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                      </h2>
+                        <h2 class="entry__title h3">
+                          <?php the_title(); ?>
+                        </h2>
 
-                      <div class="entry__excerpt">
-                        <?php the_excerpt(); ?>
-                      </div>
-                      <?php
-
-                      if ( 'post' == get_post_type() ) :
-
-                        ?>
-                        <div class="entry__meta">
-                          <span class="entry__meta__item entry__date">
-                            <?php echo get_the_date(); ?>
-                          </span>
-                          <?php
-
-                          if ( 'eric' !== get_the_author_meta('user_login') ) : ?>
-                            <span class="entry__meta__item entry__author">Author: <?php the_author_posts_link(); ?></span><?php
-                          endif;
-
-                          ?>
-                          <span class="entry__meta__item entry__categories">
-                            <?php echo get_the_category_list(', '); ?>
-                          </span>
+                        <div class="entry__excerpt">
+                          <?php the_excerpt(); ?>
                         </div>
                         <?php
 
-                      endif;
+                        if ('post' == get_post_type()) :
 
-                      ?>
-                    </div>
+                          ?>
+                          <div class="entry__meta">
+                            <span class="entry__meta__item entry__date">
+                              <?php echo get_the_date(); ?>
+                            </span>
 
-                    <div class="col-12 col-md-4 entry__image">
-                      <?php
+                            <span class="entry__meta__item entry__categories">
+                              <?php //echo get_the_category_list(', '); ?>
+                            </span>
+                          </div>
+                          <?php
 
-                      if ( has_post_thumbnail() ) :
-                        echo '<a href="' . get_permalink() . '">';
-                        the_post_thumbnail('medium', array('class' => 'entry__img img-fluid rounded'));
-                        echo '</a>';
-                      endif;
+                        endif;
 
-                      ?>
-                    </div>
+                        ?>
+                      </div>
 
+                      <div class="col-12 col-md-4 entry__image d-flex">
+                        <div class="d-flex align-items-center py-3">
+                          <?php
+
+                          if (has_post_thumbnail()) :
+                            the_post_thumbnail('medium', array('class' => 'entry__img img-fluid rounded'));
+                          endif;
+
+                          ?>
+                        </div>
+                      </div>
+
+                    </a>
                   </div>
                   <?php
 

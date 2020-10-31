@@ -196,7 +196,7 @@ $body-color:                $gray-900 !default;
 
 $link-color:                              theme-color('primary') !default;
 $link-decoration:                         none !default;
-$link-hover-color:                        darken($link-color, 15%) !default;
+$link-hover-color:                        lighten($link-color, 15%) !default;
 $link-hover-decoration:                   underline !default;
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
 $emphasized-link-hover-darken-percentage: 15% !default;
@@ -257,9 +257,9 @@ $line-height-sm:              1.5 !default;
 $border-width:                2px !default;
 $border-color:                $gray-300 !default;
 
-$border-radius:               .4rem !default;
-$border-radius-lg:            .6rem !default;
-$border-radius-sm:            .2rem !default;
+$border-radius:               0.25rem !default;
+$border-radius-lg:            0.5rem !default;
+$border-radius-sm:            0.05rem !default;
 
 $rounded-pill:                50rem !default;
 
@@ -533,7 +533,7 @@ $form-check-inline-margin-x:            .75rem !default;
 $form-check-inline-input-margin-x:      .3125rem !default;
 
 $form-grid-gutter-width:                10px !default;
-$form-group-margin-bottom:              1rem !default;
+$form-group-margin-bottom:              1em !default;
 
 $input-group-addon-color:               $input-color !default;
 $input-group-addon-bg:                  $gray-200 !default;
@@ -841,8 +841,8 @@ $jumbotron-bg:                      $gray-200 !default;
 
 // Cards
 
-$card-spacer-y:                     .75rem !default;
-$card-spacer-x:                     1.25rem !default;
+$card-spacer-y:                     1.5rem !default;
+$card-spacer-x:                     2rem !default;
 $card-border-width:                 $border-width !default;
 $card-border-radius:                $border-radius !default;
 $card-border-color:                 rgba($black, .125) !default;
@@ -850,7 +850,7 @@ $card-inner-border-radius:          calc(#{$card-border-radius} - #{$card-border
 $card-cap-bg:                       rgba($black, .03) !default;
 $card-cap-color:                    null !default;
 $card-color:                        null !default;
-$card-bg:                           $white !default;
+$card-bg:                           darken($body-bg,10%) !default;
 
 $card-img-overlay-padding:          1.25rem !default;
 
@@ -992,7 +992,7 @@ $modal-transition:                  transform .3s ease-out !default;
 
 $alert-padding-y:                   .75rem !default;
 $alert-padding-x:                   1.25rem !default;
-$alert-margin-bottom:               1rem !default;
+$alert-margin-bottom:               1em !default;
 $alert-border-radius:               $border-radius !default;
 $alert-link-font-weight:            $font-weight-bold !default;
 $alert-border-width:                $border-width !default;
@@ -1063,7 +1063,7 @@ $breadcrumb-padding-y:              .75rem !default;
 $breadcrumb-padding-x:              1rem !default;
 $breadcrumb-item-padding:           .5rem !default;
 
-$breadcrumb-margin-bottom:          1rem !default;
+$breadcrumb-margin-bottom:          1em !default;
 
 $breadcrumb-bg:                     $gray-200 !default;
 $breadcrumb-divider-color:          $gray-600 !default;

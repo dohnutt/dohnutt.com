@@ -267,24 +267,25 @@ function doh_homepage_projects() {
         $q->the_post();
 
         ?>
-        <div <?php post_class('col-12 col-lg-4 mb-5'); ?>>
-          <div class="entry__image mb-3">
-            <?php
+        <div <?php post_class('col-12 col-lg-4 mb-5 d-flex'); ?>>
 
-            if ( has_post_thumbnail() ) :
-              echo '<a href="' . get_permalink() . '">';
-              the_post_thumbnail('medium-landscape', array('class' => 'entry__img img-fluid rounded'));
-              echo '</a>';
-            endif;
+          <a href="<?php the_permalink(); ?>" class="card d-flex flex-column w-100">
+            <div class="card-img px-3 pt-3 pb-2">
+              <?php
 
-            ?>
-          </div>
+              if (has_post_thumbnail()) :
+                the_post_thumbnail('medium-landscape', array('class' => 'entry__img img-fluid rounded'));
+              endif;
 
-          <div class="entry__details">
-            <h3 class="entry__title font-size-inherit mb-0">
-              <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-            </h3>
-          </div>
+              ?>
+            </div>
+
+            <div class="px-4 pb-5 pt-3 entry__details">
+              <h3 class="entry__title font-size-inherit mb-0">
+                <?php the_title(); ?>
+              </h3>
+            </div>
+          </a>
 
         </div>
         <?php

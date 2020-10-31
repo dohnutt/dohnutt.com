@@ -2,3 +2,26 @@
  * Card
  * `components/_card.scss`
  */
+
+
+.card {
+  background-color: $card-bg;
+  border-radius: $card-border-radius;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+a.card {
+  color: inherit;
+
+  .entry__title {
+    color: $link-color;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: lighten($card-bg, 5%);
+  }
+}
+
+.card-body {
+  padding: $card-spacer-y $card-spacer-x;
+}

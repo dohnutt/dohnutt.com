@@ -63,12 +63,20 @@ $body-color: $gray-300;
     }
   }
 
-
+  .card {
+    background-color: lighten($body-bg, 5%);
+  }
+  a.card {
+      &:hover,
+      &:focus {
+        background-color: lighten($body-bg, 10%);
+      }
+  }
 
   .footer__cta {
     &:hover,
     &:focus {
-      background-color: darken($body-bg, 5%);
+      background-color: lighten($body-bg, 5%);
     }
   }
 
