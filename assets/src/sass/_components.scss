@@ -29,6 +29,7 @@
   width: 1px;
   text-align: left;
   overflow: hidden;
+  z-index: 9999;
 
   &:active,
   &:focus,
@@ -40,6 +41,7 @@
     overflow: visible;
     padding: 1em;
     background-color: #fff;
+
   }
 }
 
@@ -174,7 +176,7 @@
 
 
 .object-fit-cover {
-  
+
 }
 
 
