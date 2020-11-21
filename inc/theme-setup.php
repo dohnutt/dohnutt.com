@@ -328,7 +328,7 @@ function doh_widget_tag_cloud_font_size( array $args ) {
 
 
 // Filter oembeds so that they are responsive.
-add_filter('oembed_dataparse', 'doh_embed_filter', 0, 3 );
+//add_filter('oembed_dataparse', 'doh_embed_filter', 0, 3 );
 function doh_embed_filter( $output, $data, $url ) {
 	return '<div class="embed-responsive embed-responsive-16by9">' . $output . '</div>';
 }
