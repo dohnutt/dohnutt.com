@@ -194,7 +194,25 @@ function doh_footer_cta() {
 // Display the post's featured image
 add_action('doh_before_content', 'doh_entry_image');
 function doh_entry_image() {
+
   doh_featured_image();
+}
+
+
+
+// Display the post's featured image
+add_action('doh_after_header', 'doh_entry_image_bg');
+function doh_entry_image_bg() {
+
+  if ( !is_singular('portfolio') ) {
+    return;
+  }
+
+  ?>
+  <div class="header__wrap">
+    <?php doh_featured_image(); ?>
+  </div>
+  <?php
 }
 
 
