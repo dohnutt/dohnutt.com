@@ -113,12 +113,6 @@ if ( defined('WPFORMS_VERSION') ) {
  */
 if ( defined('WPSEO_VERSION') ) {
 
-  // Tell Yoast to use the "opengraph" image size.
-  add_filter( 'wpseo_opengraph_image_size', 'doh_wpseo_image_size', 10, 1 );
-  function doh_wpseo_image_size( $string ) {
-    return 'opengraph';
-  }
-
   // Move Yoast metabox to bottom
   add_filter( 'wpseo_metabox_prio', 'doh_wpseo_metabox_priority');
   function doh_wpseo_metabox_priority() {
