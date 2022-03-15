@@ -1,9 +1,24 @@
 <?php
-if ( ! defined('ABSPATH') ) exit;
+/**
+ * Functions and definitions
+ *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
+ * @package FSE
+ * @since 1.0.0
+ */
+
+if ( ! defined('ABSPATH') ) {
+  exit;
+}
 
 
-define( 'DOH_THEME_VER', '1.0.0' );
-define( 'CLIENT_THEME_VER', '1.2.1' );
+/**
+ * The theme version.
+ *
+ * @since 1.0.0
+ */
+define( 'DOH_THEME_VER', wp_get_theme()->get( 'Version' ) );
 
 
 
