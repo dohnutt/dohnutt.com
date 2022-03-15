@@ -15,20 +15,24 @@ if ( ! function_exists('doh_theme_assets' ) ) {
 
   add_action('init', 'doh_theme_assets');
   function doh_theme_assets() {
+
+    $ver = doh_is_dev() ? time() : DOH_THEME_VER;
+    $fonts_url = 'https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap';
+
+    // Include WPTT webfont loader
+    require_once get_theme_file_path( 'inc/wptt-webfont-loader.php' );
+
     /*
      * CSS
      */
-    $ver = doh_is_dev() ? filemtime(get_doh_stylesheet_path()) : CLIENT_THEME_VER;
-    $font = get_option('doh_random_font');
     wp_register_style( 'doh-style',       get_doh_stylesheet_uri(), array(), $ver );
     wp_register_style( 'doh-style-dark',  get_doh_assets_dir_uri() . '/css/dark.css', array('doh-style'), $ver );
     wp_register_style( 'doh-style-light', get_doh_assets_dir_uri() . '/css/light.css', array('doh-style'), $ver );
-    wp_register_style( 'doh-fonts',       '//fonts.googleapis.com/css?display=swap&family=' . $font['title'] . ':' . $font['weights'], array(), time() );
+    wp_register_style( 'doh-fonts',       wptt_get_webfont_url($fonts_url), array(), $ver );
 
     /*
      * JavaScript
      */
-    $ver = doh_is_dev() ? filemtime(get_doh_assets_dir() . '/js/app.min.js') : CLIENT_THEME_VER;
     wp_register_script( 'doh-script',    get_doh_assets_dir_uri() . '/js/app.min.js', array('jquery'), $ver, true );
     wp_register_script( 'doh-font-awesome', '//kit.fontawesome.com/8ad0c03176.js', array(), null, true );
 
@@ -37,29 +41,9 @@ if ( ! function_exists('doh_theme_assets' ) ) {
 }
 
 
-// Get and store a random font value
-if ( ! function_exists('doh_save_random_font' ) ) {
-
-  add_action('after_setup_theme', 'doh_save_random_font');
-  function doh_save_random_font() {
-    $fonts = include( get_stylesheet_directory() . '/inc/google-fonts.php' );
-    $key = array_rand($fonts);
-
-    $enable = false;
-
-    if ( $enable )
-      update_option('doh_random_font', $fonts[$key]);
-    else
-      update_option('doh_random_font', $fonts['Space Mono']);
-  }
-
-}
-
-
 add_action( 'wp_enqueue_scripts', 'doh_jquery_add_inline' );
 function doh_jquery_add_inline() {
     wp_add_inline_script( 'jquery', '$ = jQuery.noConflict(false);' );
-    wp_add_inline_style( 'doh-fonts', 'body { font-family: "' . get_option('doh_random_font')['title'] . '", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }' );
 }
 
 
