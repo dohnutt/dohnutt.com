@@ -12,7 +12,7 @@
 
     <?php do_action('doh_body_open'); ?>
 
-    <a href="#content" class="skip-navigation a11y-skip" tabindex="0">Skip to content (Press enter)</a>
+    <a href="#content" class="a11y-skip js-a11y-skip" tabindex="0">Skip to content (Press enter)</a>
 
     <?php
 

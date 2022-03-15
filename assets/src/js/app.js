@@ -24,7 +24,7 @@ const COLOR_MODE_KEY = '--color-mode';
 const schemeToggleButton = document.querySelector('.js-scheme-toggle');
 const schemeLabel = document.querySelector('.js-scheme-label');
 
-const getCSSCustomProp = propKey => {
+const getCSSCustomProp = function (propKey) {
   let response = getComputedStyle(document.documentElement).getPropertyValue(propKey);
 
   if (response.length) {
@@ -34,7 +34,7 @@ const getCSSCustomProp = propKey => {
   return response;
 };
 
-const applySetting = passedSetting => {
+const applySetting = function (passedSetting) {
   let currentSetting = passedSetting || localStorage.getItem(STORAGE_KEY);
 
   if (currentSetting) {
@@ -48,14 +48,14 @@ const applySetting = passedSetting => {
   }
 };
 
-const setToggle = currentSetting => {
+const setToggle = function (currentSetting) {
   let checkedVal = currentSetting === 'dark' ? true : false;
   let label = currentSetting === 'dark' ? '🌙' : '☀';
   schemeToggleButton.checked = checkedVal;
   schemeLabel.innerText = label;
 };
 
-const toggleSetting = () => {
+const toggleSetting = function () {
   let currentSetting = localStorage.getItem(STORAGE_KEY);
 
   switch (currentSetting) {
@@ -75,9 +75,7 @@ const toggleSetting = () => {
   return currentSetting;
 };
 
-schemeToggleButton.addEventListener('click', event => {
-  //event.preventDefault();
-
+schemeToggleButton.addEventListener('click', function (event) {
   applySetting(toggleSetting());
 });
 
@@ -89,7 +87,8 @@ applySetting();
  * Wrap all em and en dashes in `span.resize-dash`
  */
 function wrapDashes() {
-  $('.entry__content').html( $('.entry__content').html().replace( /\b(—|–|&ndash;|&mdash;)/g, '<span class="resize-dash">$1</span>' ) );
+  var content = document.querySelector('.entry__content');
+  content.innerHTML = content.innerHTML.replace(/\b(—|–|&ndash;|&mdash;)/g, '<span class="resize-dash">$1</span>')
 }
 
 wrapDashes();
@@ -99,10 +98,10 @@ wrapDashes();
 /*
  * Toggle navbar
  */
-$(document).click(function (e) {
+$(document).click(function (event) {
   var _opened = $('.navbar-collapse').hasClass('show');
 
-  if ( !$(e.target).closest('.navbar-collapse').length && !$(e.target).is('.navbar-collapse') && _opened === true ) {
+  if ( !$(event.target).closest('.navbar-collapse').length && !$(event.target).is('.navbar-collapse') && _opened === true ) {
     $('.navbar-collapse').collapse('toggle');
   }
 });
@@ -112,20 +111,19 @@ $(document).click(function (e) {
 /*
  * Accessible skip to content link
  */
-$('.a11y-skip').click(function(event) {
+document.querySelector('.js-a11y-skip').addEventListener('click', function (event) {
 
   event.preventDefault();
 
-  // strip the leading hash and declare the content we're skipping to
-  var skipTo = '#' + this.href.split('#')[1];
+  var el = document.querySelector('#' + this.href.split('#')[1]);
+  var removeElTabindex = function () {
+    el.removeAttribute('tabindex');
+  }
 
-  // Setting 'tabindex' to -1 takes an element out of normal tab flow but allows it to be focused via javascript
-  $(skipTo).attr('tabindex', -1).on('blur focusout', function () {
-
-    // when focus leaves this element, remove the tabindex attribute
-    $(this).removeAttr('tabindex');
-
-  }).focus(); // focus on the content container
+  el.setAttribute('tabindex', '-1');
+  el.addEventListener('blur', removeElTabindex, false);
+  el.addEventListener('focusout', removeElTabindex, false);
+  el.focus();
 
 });
 
@@ -134,7 +132,7 @@ $('.a11y-skip').click(function(event) {
 /*
  * Open share links in a small popup window
  */
-$('.share__link').click(function(event) {
+$('.share__link').click(function (event) {
 
   event.preventDefault();
 
