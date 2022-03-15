@@ -1,12 +1,12 @@
-// @prepros-prepend "../../../node_modules/bootstrap/js/dist/util.js";
-// @prepros-prepend "../../../node_modules/bootstrap/js/dist/alert.js";
-// @prepros-prepend "../../../node_modules/bootstrap/js/dist/button.js";
-// @prepros-prepend "../../../node_modules/bootstrap/js/dist/collapse.js";
-// @prepros-prepend "../../../node_modules/bootstrap/js/dist/dropdown.js";
-// @//prepros-prepend "../../../node_modules/bootstrap/js/dist/modal.js";
-// @//prepros-prepend "../../../node_modules/bootstrap/js/dist/scrollspy.js";
-// @//prepros-prepend "../../../node_modules/bootstrap/js/dist/tab.js";
-// @prepros-prepend "../../../node_modules/bootstrap/js/dist/index.js";
+import "bootstrap/js/dist/util.js";
+//import "bootstrap/js/dist/alert.js";
+//import "bootstrap/js/dist/button.js";
+import "bootstrap/js/dist/collapse.js";
+//import "bootstrap/js/dist/dropdown.js";
+//import "bootstrap/js/dist/modal.js";
+//import "bootstrap/js/dist/scrollspy.js";
+//import "bootstrap/js/dist/tab.js";
+//import "bootstrap/js/dist/index.js";
 
 document.documentElement.classList.remove('no-js');
 
