@@ -22,7 +22,7 @@ if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
 const STORAGE_KEY = 'user-color-scheme';
 const COLOR_MODE_KEY = '--color-mode';
 const schemeToggleButton = document.querySelector('.js-scheme-toggle');
-const schemeStatus = document.querySelector('.js-scheme-status');
+const schemeLabel = document.querySelector('.js-scheme-label');
 
 const getCSSCustomProp = propKey => {
   let response = getComputedStyle(document.documentElement).getPropertyValue(propKey);
@@ -50,10 +50,9 @@ const applySetting = passedSetting => {
 
 const setToggle = currentSetting => {
   let checkedVal = currentSetting === 'dark' ? true : false;
-  let statusText = currentSetting === 'dark' ? '🌙' : '☀';
+  let label = currentSetting === 'dark' ? '🌙' : '☀';
   schemeToggleButton.checked = checkedVal;
-  schemeStatus.innerText = statusText;
-  //console.log(`Color mode is now "${currentSetting}" "${checkedVal}"`);
+  schemeLabel.innerText = label;
 };
 
 const toggleSetting = () => {

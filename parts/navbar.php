@@ -29,7 +29,7 @@
         ?>
         <hr class="d-lg-none" />
         <div class="scheme ml-3 ml-lg-auto mr-lg-5 navbar-text align-items-center">
-          <label for="scheme-toggle" role="status" class="scheme__status js-scheme-status">🌙</label>
+          <label for="scheme-toggle" role="status" class="scheme__label js-scheme-label">🌙</label>
           <div class="toggle scheme__toggle">
             <input class="toggle__input js-scheme-toggle" id="scheme-toggle" type="checkbox" value="dark" checked autocomplete="off">
             <label class="toggle__switch" for="scheme-toggle"></label>
