@@ -1,0 +1,213 @@
+/*
+ * Nav & navbar
+ * `components/_nav.scss`
+ */
+
+
+
+
+.pg-navbar {
+	min-height: 7.6em;
+	position: relative;
+
+	.navbar-nav {
+		.nav-link {
+			padding-left: 1.333rem;
+			padding-right: 1.333rem;
+		}
+	}
+
+	.scheme__toggle {
+		transform: translateY(-0.1em);
+	}
+}
+
+.navbar__dropdown {
+	@include media-breakpoint-up(lg) {
+		width: 100%;
+		display: flex;
+		flex-basis: auto;
+
+		.scheme__label {
+			color: $text-muted;
+		}
+	}
+
+	@include media-breakpoint-down(md) {
+		color: $white;
+		box-shadow: 0.25em 0.25em 2em 0 rgba($black, 0.4);
+	}
+
+	.scheme__label {
+		width: 1.5em;
+		display: inline-block;
+	}
+
+	hr {
+		opacity: 0.2;
+	}
+}
+
+.navbar-collapse {
+	@include media-breakpoint-up(lg) {
+		margin-left: 8em;
+	}
+
+	@include media-breakpoint-down(md) {
+		position: absolute;
+		top: 6em;
+		right: 0;
+		width: 100%;
+		max-width: 20em;
+		z-index: $zindex-fixed;
+
+		.navbar__dropdown {
+			border-radius: $border-radius;
+			background-color: $gray-600;
+			margin: 0 15px;
+			padding: 0.5em 0;
+
+			&:before {
+				content: '';
+				position: absolute;
+				width: 0;
+				height: 0;
+				top: -9px;
+				right: 42px;
+				border-left: 9px solid transparent;
+				border-right: 9px solid transparent;
+				border-bottom: 9px solid $gray-600;
+			}
+		}
+	}
+}
+
+
+.navbar-toggler-icon {
+	background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+}
+
+.navbar-toggler {
+	&:not(.collapsed) {
+		.navbar-toggler-icon {
+			background-image: url("data:image/svg+xml;charset=utf8,<svg viewBox='0 0 15.6 15.6' xmlns='http://www.w3.org/2000/svg'><path stroke='rgba(0,0,0,0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M0,0l15.6,15.6 M0,15.6L15.6,0'/></svg>");
+			background-size: 60%;
+		}
+	}
+}
+
+
+
+.navbar-brand {
+	position: fixed;
+	top: $navbar-padding-y;
+	//z-index: $zindex-fixed;
+	font-size: 1.25em;
+	margin-right: 1em;
+	border: 0.1em solid transparent;
+	height: 6.1em;
+	width: 6.1em;
+	padding: 0;
+	color: $gray-900;
+	transition: opacity 0.5s ease;
+
+	@include media-breakpoint-down(sm) {
+		position: absolute;
+	}
+
+	&:hover {
+		&:after {
+			content: '';
+			animation-name: tada;
+			animation-duration: 1.5s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+			opacity: 1;
+		}
+
+		.logo {
+			opacity: 0;
+		}
+	}
+
+	&:focus,
+	.navbar-brand:hover:focus {
+		box-shadow: none;
+		outline: 0px;
+		border-color: $primary;
+		border-radius: 100%;
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-image: url("img/apple-donut.png");
+		background-size: 100%;
+		background-repeat: no-repeat;
+		left: 0;
+		top: 0;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity .1s ease-out;
+	}
+}
+
+
+@keyframes tada {
+	0% {
+		transform: scale3d(1, 1, 1)
+	}
+
+	0%,
+	24%,
+	50%,
+	74% {
+		transform: rotate3d(0, 0, 1, 7deg)
+	}
+
+	25%,
+	49%,
+	75%,
+	99% {
+		transform: rotate3d(0, 0, 1, -7deg);
+	}
+}
+
+.logo {
+	fill: currentColor;
+}
+
+
+.navbar--scroll {
+	.navbar-brand {
+		opacity: 0.4;
+	}
+}
+
+
+
+@include media-breakpoint-up(lg) {
+	.nav-item-social {
+		+.nav-item-social {
+			margin-left: -0.5em;
+		}
+	}
+}
+
+
+
+.nav-link {
+	color: $gray-600;
+	border-radius: $border-radius;
+
+	&:hover,
+	&:focus {
+		color: $link-color;
+	}
+
+	@include media-breakpoint-down(md) {
+		color: $white;
+	}
+}

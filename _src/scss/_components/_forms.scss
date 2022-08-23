@@ -1,0 +1,117 @@
+/*
+ * Forms
+ * `src/sass/componennts/_forms.scss`
+ *
+ * Forms and input styling.
+ *
+ */
+
+
+.form-control {
+	border: 0px;
+}
+
+
+.wpforms-field-hp {
+	@extend .sr-only;
+}
+
+
+.wpforms-field-container {
+	margin: 1.5em 0 2em;
+}
+
+.wpforms-field {
+	margin: 1em 0;
+}
+
+
+@include media-breakpoint-up(sm) {
+
+	.wpforms-field-row {
+		display: flex;
+		margin: 0 -0.5em;
+	}
+
+	.wpforms-field-row-block {
+		width: 100%;
+		padding: 0 0.5em;
+	}
+
+}
+
+
+.wpforms-field-sublabel {
+	font-size: 0.8em;
+	color: $gray-600;
+}
+
+
+.wpforms-submit {
+	width: 10em;
+	max-width: 100%;
+}
+
+
+
+
+/*
+ * Toggle switch
+ */
+
+.toggle {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	width: 3em;
+	height: 1.55555556em;
+	line-height: $line-height-base;
+
+	.no-js {
+		.toggle {
+			display: none;
+		}
+	}
+}
+
+.toggle__switch {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: $gray-500;
+	color: #fff;
+	transition: .4s;
+	font-weight: normal;
+	border-radius: $border-radius;
+	margin: 0;
+
+	&:before {
+		position: absolute;
+		content: "";
+		height: 1.11111111em;
+		width: 1.11111111em;
+		left: 0.222222222em;
+		bottom: 0.222222222em;
+		background-color: white;
+		transition: .4s;
+		border-radius: $border-radius;
+		z-index: 2;
+	}
+}
+
+.toggle__input {
+	@extend .sr-only;
+
+	&:checked {
+		+ .toggle__switch {
+			background-color: darken($gray-900, 10%);
+
+			&:before {
+				transform: translateX(1.47em);
+			}
+		}
+	}
+}
