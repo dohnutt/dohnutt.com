@@ -1,41 +1,28 @@
 <?php
 get_header(); ?>
 
-    <main class="<?php echo doh_main_class('pg-main'); ?>">
+<main class="<?php echo doh_main_class('pg-main'); ?>">
 
-      <?php
-      do_action('doh_main_open');
+	<?php do_action('doh_main_open'); ?>
 
-      ?>
-      <div class="container-fluid main__container">
+	<div class="container-fluid main__container">
 
-        <div class="row">
+		<?php do_action('doh_before_content'); ?>
 
-          <div class="entry__main col-12">
-            <?php
+		<div class="entry__content">
 
-            do_action('doh_before_content');
+			<h1><?php _e('Uh.', 'doh-theme'); ?></h1>
+			<p><?php _e("Nothin' to see here.", "doh-theme"); ?><p>
 
-            ?>
-            <div class="entry__content">
-              <h1>Uh.</h1>
-              <p>Nothin' to see here.<p>
-            </div>
-            <?php
+		</div>
 
-            do_action('doh_after_content');
+		<?php do_action('doh_after_content'); ?>
 
-            ?>
-          </div>
+	</div>
 
-        </div>
+	<?php do_action('doh_main_close'); ?>
 
-      </div>
-      <?php
-
-      do_action('doh_main_close'); ?>
-
-    </main>
+</main>
 
 <?php
-get_footer(); ?>
+get_footer();

@@ -1,50 +1,33 @@
 <?php
 get_header(); ?>
 
-    <main class="<?php echo doh_main_class('pg-main'); ?>">
+<main class="<?php echo doh_main_class('pg-main'); ?>">
 
-      <?php
-      do_action('doh_main_open');
+	<?php do_action('doh_main_open'); ?>
 
-      if ( have_posts() ) :
+	<div class="container-fluid main__container">
 
-        ?>
-        <div class="container-fluid main__container">
+		<?php
+		while ( have_posts() ) :
+			the_post(); ?>
 
-          <div class="row">
+			<?php do_action('doh_before_content'); ?>
 
-            <div class="entry__main col-12">
-              <?php
-              while ( have_posts() ) :
-                the_post();
+			<div class="entry__content">
 
-                do_action('doh_before_content');
+				<?php the_content(); ?>
 
-                ?>
-                <div class="entry__content">
-                  <?php
+			</div>
 
-                  the_content();
+			<?php do_action('doh_after_content'); ?>
 
-                  ?>
-                </div>
-                <?php
+		<?php endwhile; ?>
 
-                do_action('doh_after_content');
+	</div>
+	
+	<?php do_action('doh_main_close'); ?>
 
-              endwhile; ?>
-            </div>
-
-          </div>
-
-        </div>
-        <?php
-
-      endif;
-
-      do_action('doh_main_close'); ?>
-
-    </main>
+</main>
 
 <?php
-get_footer(); ?>
+get_footer();

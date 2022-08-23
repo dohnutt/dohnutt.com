@@ -15,9 +15,6 @@
     <a href="#content" class="a11y-skip js-a11y-skip" tabindex="0">Skip to content (Press enter)</a>
 
     <?php
-
     do_action('doh_before_header');
     do_action('doh_header');
     do_action('doh_after_header');
-
-    ?>

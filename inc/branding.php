@@ -7,7 +7,9 @@
  *
  */
 
-if ( ! defined('ABSPATH') ) exit;
+if ( ! defined('ABSPATH') ) {
+	exit;
+}
 
 
 // Modify login screen to be Doh-branded.
