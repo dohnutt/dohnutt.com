@@ -34,6 +34,7 @@ if ( ! function_exists('doh_theme_init') ) {
      */
     require_once('inc/post-types.php');
     require_once('inc/theme-setup.php');
+    require_once('inc/cleanup.php');
 
     /*
      * Set up theme layouts
