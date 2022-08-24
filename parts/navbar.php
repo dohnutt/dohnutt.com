@@ -5,7 +5,7 @@
 	<nav class="pg-navbar navbar navbar-expand-lg">
 
 		<a class="navbar-brand" href="<?php echo home_url(); ?>">
-			<?php include get_theme_file_path() . '/img/logo.svg'; ?>
+			<?php include get_theme_file_path('img/logo.svg'); ?>
 			<span class="sr-only"><?php _e('Eric Moss (@dohnutt)', 'doh-theme'); ?></span>
 		</a>
 

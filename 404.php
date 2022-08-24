@@ -1,7 +1,7 @@
 <?php
 get_header(); ?>
 
-<main class="<?php echo doh_main_class('pg-main'); ?>">
+<main class="pg-main">
 
 	<?php do_action('doh_main_open'); ?>
 
