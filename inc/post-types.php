@@ -7,18 +7,23 @@
  *
  */
 
+if ( ! defined('ABSPATH') ) {
+	exit;
+}
+
+
 function doh_register_post_types() {
 
   /*
    * 'portfolio' post type
    */
   $args = [
-    'label' => __( 'Projects', 'doh' ),
+    'label' => __( 'Projects', 'doh-theme' ),
     'labels' => [
-      'name' => __( 'Projects', 'doh' ),
-      'singular_name' => __( 'Project', 'doh' ),
-      'menu_name' => __( 'Projects', 'doh' ),
-      'archives' => __( 'Projects', 'doh' ),
+      'name' => __( 'Projects', 'doh-theme' ),
+      'singular_name' => __( 'Project', 'doh-theme' ),
+      'menu_name' => __( 'Projects', 'doh-theme' ),
+      'archives' => __( 'Projects', 'doh-theme' ),
     ],
     'description' => '',
     'public' => true,
@@ -55,28 +60,28 @@ function doh_register_taxonomies() {
    * 'collaborator' post type
    */
   $args = [
-    'label' => __( 'Collaborators', 'doh' ),
+    'label' => __( 'Collaborators', 'doh-theme' ),
     'labels' => [
-      'name' => __( 'Collaborators', 'doh' ),
-      'singular_name' => __( 'Collaborator', 'doh' ),
-      'menu_name' => __( 'Collaborators', 'doh' ),
-      'all_items' => __( 'All Collaborators', 'doh' ),
-      'edit_item' => __( 'Edit Collaborator', 'doh' ),
-      'view_item' => __( 'View Collaborator', 'doh' ),
-      'update_item' => __( 'Update Collaborator name', 'doh' ),
-      'add_new_item' => __( 'Add new Collaborator', 'doh' ),
-      'new_item_name' => __( 'New Collaborator name', 'doh' ),
-      'parent_item' => __( 'Parent Collaborator', 'doh' ),
-      'parent_item_colon' => __( 'Parent Collaborator:', 'doh' ),
-      'search_items' => __( 'Search Collaborators', 'doh' ),
-      'popular_items' => __( 'Popular Collaborators', 'doh' ),
-      'separate_items_with_commas' => __( 'Separate Collaborators with commas', 'doh' ),
-      'add_or_remove_items' => __( 'Add or remove Collaborators', 'doh' ),
-      'choose_from_most_used' => __( 'Choose from the most used Collaborators', 'doh' ),
-      'not_found' => __( 'No Collaborators found', 'doh' ),
-      'no_terms' => __( 'No Collaborators', 'doh' ),
-      'items_list_navigation' => __( 'Collaborators list navigation', 'doh' ),
-      'items_list' => __( 'Collaborators list', 'doh' ),
+      'name' => __( 'Collaborators', 'doh-theme' ),
+      'singular_name' => __( 'Collaborator', 'doh-theme' ),
+      'menu_name' => __( 'Collaborators', 'doh-theme' ),
+      'all_items' => __( 'All Collaborators', 'doh-theme' ),
+      'edit_item' => __( 'Edit Collaborator', 'doh-theme' ),
+      'view_item' => __( 'View Collaborator', 'doh-theme' ),
+      'update_item' => __( 'Update Collaborator name', 'doh-theme' ),
+      'add_new_item' => __( 'Add new Collaborator', 'doh-theme' ),
+      'new_item_name' => __( 'New Collaborator name', 'doh-theme' ),
+      'parent_item' => __( 'Parent Collaborator', 'doh-theme' ),
+      'parent_item_colon' => __( 'Parent Collaborator:', 'doh-theme' ),
+      'search_items' => __( 'Search Collaborators', 'doh-theme' ),
+      'popular_items' => __( 'Popular Collaborators', 'doh-theme' ),
+      'separate_items_with_commas' => __( 'Separate Collaborators with commas', 'doh-theme' ),
+      'add_or_remove_items' => __( 'Add or remove Collaborators', 'doh-theme' ),
+      'choose_from_most_used' => __( 'Choose from the most used Collaborators', 'doh-theme' ),
+      'not_found' => __( 'No Collaborators found', 'doh-theme' ),
+      'no_terms' => __( 'No Collaborators', 'doh-theme' ),
+      'items_list_navigation' => __( 'Collaborators list navigation', 'doh-theme' ),
+      'items_list' => __( 'Collaborators list', 'doh-theme' ),
     ],
     'public' => true,
     'publicly_queryable' => true,

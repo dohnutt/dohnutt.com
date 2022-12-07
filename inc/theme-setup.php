@@ -17,7 +17,8 @@ if ( ! function_exists('doh_theme_assets' ) ) {
 	add_action('init', 'doh_theme_assets');
 	function doh_theme_assets() {
 		$ver = doh_is_dev() ? time() : DOH_THEME_VER;
-		$fonts_url = 'https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap';
+		$fonts_url = 'https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap';
+		// edit: https://fonts.google.com/share?selection.family=Inter:wght@600%7CSpace%20Mono:ital,wght@0,400;0,700;1,400;1,700
 
 		// Include WPTT webfont loader
 		require_once get_theme_file_path( 'inc/wptt-webfont-loader.php' );
@@ -26,8 +27,6 @@ if ( ! function_exists('doh_theme_assets' ) ) {
 		 * CSS
 		 */
 		wp_register_style( 'doh-style',       get_stylesheet_uri(), array(), $ver );
-		wp_register_style( 'doh-style-dark',  get_theme_file_uri( 'dark.css' ), array('doh-style'), $ver );
-		wp_register_style( 'doh-style-light', get_theme_file_uri( 'light.css' ), array('doh-style'), $ver );
 		wp_register_style( 'doh-fonts',       wptt_get_webfont_url($fonts_url), array(), $ver );
 
 		/*
@@ -76,13 +75,6 @@ if ( !function_exists('doh_theme_support') ) {
 		add_theme_support( 'automatic-feed-links' );
 		//add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat' ) );
 		add_theme_support( 'yoast-seo-breadcrumbs' );
-		add_theme_support( 'customize-selective-refresh-widgets' );
-		add_theme_support( 'custom-logo', array(
-			'height' => 120,
-			'width' => 400,
-			'flex-height' => true,
-			'flex-width' => false,
-		) );
 
 		//add_image_size( 'tiny', 100, 100, true );
 		//add_image_size( 'gallery', 480, 480, true );

@@ -1,18 +1,5 @@
 import "../scss/style.scss";
 
-//import "bootstrap/js/dist/util.js";
-//import "bootstrap/js/dist/alert.js";
-//import "bootstrap/js/dist/button.js";
-//import "bootstrap/js/dist/collapse.js";
-//import "bootstrap/js/dist/dropdown.js";
-//import "bootstrap/js/dist/modal.js";
-//import "bootstrap/js/dist/scrollspy.js";
-//import "bootstrap/js/dist/tab.js";
-//import "bootstrap/js/dist/index.js";
-
-
-document.documentElement.classList.remove('no-js');
-
 
 /**
  * Light/dark mode
@@ -91,55 +78,3 @@ function wrapDashes() {
 }
 
 wrapDashes();
-
-
-
-/*
- * Toggle navbar
- */
-$(document).click(function (event) {
-	var _opened = $('.navbar-collapse').hasClass('show');
-
-	if (!$(event.target).closest('.navbar-collapse').length && !$(event.target).is('.navbar-collapse') && _opened === true) {
-		$('.navbar-collapse').collapse('toggle');
-	}
-});
-
-
-
-/*
- * Accessible skip to content link
- */
-document.querySelector('.js-a11y-skip').addEventListener('click', function (event) {
-
-	event.preventDefault();
-
-	var el = document.querySelector('#' + this.href.split('#')[1]);
-	var removeElTabindex = function () {
-		el.removeAttribute('tabindex');
-	}
-
-	el.setAttribute('tabindex', '-1');
-	el.addEventListener('blur', removeElTabindex, false);
-	el.addEventListener('focusout', removeElTabindex, false);
-	el.focus();
-
-});
-
-
-
-/*
- * Open share links in a small popup window
- */
-$('.share__link').click(function (event) {
-
-	event.preventDefault();
-
-	window.open(
-		$(this).attr('href'),
-		'shareWindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 275) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0'
-	);
-
-	return false;
-
-});
