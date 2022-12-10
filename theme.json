@@ -64,13 +64,18 @@
     },
     "styles": {
         "color": {
-            "text": "var(--wp--preset--color--black)"
+            "text": "var(--color-primary)"
         },
 		"elements": {
 			"link": {
 				"color": {
-                    "text": "var(--wp--preset--color--cyan)"
+                    "text": "inherit"
                 }
+			},
+			"caption": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--small)"
+				}
 			}
 		},
         "typography": {

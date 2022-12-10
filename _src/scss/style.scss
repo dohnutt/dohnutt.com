@@ -15,6 +15,11 @@ Text Domain: doh-theme
 
 
 body {
+	--color-primary: #00b39d;
+	--color-secondary: #fface2;
+	--color-tertiary: #100e0d;
+
+	font-family: $font-family;
     font-size: $font-size;
 
 	@include media-breakpoint-up(md) {
@@ -24,14 +29,11 @@ body {
     @include media-breakpoint-up(lg) {
         font-size: $font-size * 2;
     }
-
-	--color-primary: #00b39d;
-	--color-secondary: #fface2;
-	--color-tertiary: #100e0d;
 }
 
+@import '_themes';
+
 body {
-	font-family: $font-family;
 	color: var(--color-primary);
 	background-color: var(--color-tertiary);
 }
@@ -43,14 +45,72 @@ body {
 
 
 ::selection {
-    color: #fff;
+    color: var(--color-tertiary);
     background-color: var(--color-primary);
 }
 
 
+@import '_display';
+@import '_spacing';
 @import '_typography';
+
+
+.wp-site-blocks {
+	padding: 0 $gutter-half;
+}
+
 
 header, footer {
 	font-family: $font-sans-serif;
-	font-size: $font-size * 1.4;
+	padding-top: $gutter;
+	padding-bottom: $gutter;
+}
+
+.wp-block-navigation__responsive-container-close,
+.wp-block-navigation__responsive-container-open {
+	svg {
+		width: $font-size * 2;
+		height: $font-size * 2;
+	}
+}
+
+.wp-block-navigation ul {
+	margin-left: 0 - $nav-link-padding-x;
+}
+
+.wp-block-navigation-item__content {
+	display: inline-block;
+	padding: $nav-link-padding-y $nav-link-padding-x;
+}
+
+
+@include media-breakpoint-up(lg) {
+	header, footer {
+		font-size: 0.7em;
+	}
+
+	.wp-block-site-logo {
+		position: fixed;
+		top: 2rem;
+		left: calc(50% - #{(120px * 0.5) + (800px * 0.5)} - #{$gutter});
+	}
+
+	nav, main {
+		padding-left: calc(120px + #{$gutter});
+	}
+}
+
+
+@include media-breakpoint-down(md) {
+	header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+
+@include media-breakpoint-down(xs) {
+	header {
+		font-size: $font-size * 2;
+	}
 }

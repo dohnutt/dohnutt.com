@@ -9,26 +9,13 @@ if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
 	console.log('🎉 Dark mode is supported');
 }
 
-const STORAGE_KEY = 'user-color-scheme';
-const COLOR_MODE_KEY = '--color-mode';
-const schemeToggleButton = document.querySelector('.js-scheme-toggle');
-const schemeLabel = document.querySelector('.js-scheme-label');
-
-const getCSSCustomProp = function (propKey) {
-	let response = getComputedStyle(document.documentElement).getPropertyValue(propKey);
-
-	if (response.length) {
-		response = response.replace(/[\"\']/g, '').trim();
-	}
-
-	return response;
-};
+const STORAGE_KEY = 'doh-theme';
 
 const applySetting = function (passedSetting) {
-	let currentSetting = passedSetting || localStorage.getItem(STORAGE_KEY) || getCSSCustomProp(COLOR_MODE_KEY);
+	let currentSetting = passedSetting || localStorage.getItem(STORAGE_KEY) || 'teal-light';
 
-	document.documentElement.classList.remove('light-mode', 'dark-mode');
-	document.documentElement.classList.add(currentSetting + '-mode');
+	document.documentElement.classList.remove('teal-light', 'teal-dark');
+	document.documentElement.classList.add('teal-' + currentSetting);
 	setToggle(currentSetting);
 };
 
