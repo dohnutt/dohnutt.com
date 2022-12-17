@@ -62,8 +62,6 @@ body {
 
 header, footer {
 	font-family: $font-sans-serif;
-	padding-top: $gutter;
-	padding-bottom: $gutter;
 }
 
 .wp-block-navigation__responsive-container-close,
@@ -87,16 +85,6 @@ header, footer {
 @include media-breakpoint-up(lg) {
 	header, footer {
 		font-size: 0.7em;
-	}
-
-	.wp-block-site-logo {
-		position: fixed;
-		top: 2rem;
-		left: calc(50% - #{(120px * 0.5) + (800px * 0.5)} - #{$gutter});
-	}
-
-	nav, main {
-		padding-left: calc(120px + #{$gutter});
 	}
 }
 
