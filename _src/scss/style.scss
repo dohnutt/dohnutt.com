@@ -55,6 +55,14 @@ body {
 @import '_typography';
 
 
+body > .skip-link.screen-reader-text {
+	&:focus {
+		color: var(--color-tertiary);
+    	background-color: var(--color-primary);
+	}
+}
+
+
 .wp-site-blocks {
 	padding: 0 $gutter-half;
 }
@@ -72,33 +80,53 @@ header, footer {
 	}
 }
 
-.wp-block-navigation ul {
+.wp-block-navigation,
+.wp-block-site-logo {
 	margin-left: 0 - $nav-link-padding-x;
 }
 
-.wp-block-navigation-item__content {
+.wp-block-navigation-item__content,
+.wp-block-social-links.is-style-logos-only .wp-social-link a {
 	display: inline-block;
 	padding: $nav-link-padding-y $nav-link-padding-x;
 }
 
+.wp-block-social-links.is-style-logos-only {
+	[class*="wp-social-link-"] {
+		color: inherit;
+	}
+}
 
-@include media-breakpoint-up(lg) {
-	header, footer {
-		font-size: 0.7em;
+body {
+	.wp-block-navigation {
+		&:not(.has-background) {
+			.wp-block-navigation__responsive-container {
+				&.is-menu-open {
+					color: var(--color-tertiary);
+    				background-color: var(--color-primary);
+				}
+			}
+		}
 	}
 }
 
 
-@include media-breakpoint-down(md) {
-	header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+@include media-breakpoint-up(sm) {
+	header, footer {
+		font-size: $font-size;
 	}
 }
 
 @include media-breakpoint-down(xs) {
 	header {
+		display: flex;
+		justify-content: space-between;
+		align-items: start;
+		flex-direction: row-reverse;
 		font-size: $font-size * 2;
+	}
+
+	.admin-bar header nav {
+		margin-top: 46px;
 	}
 }
