@@ -7,11 +7,9 @@
  *
  */
 
-if ( ! defined('ABSPATH') ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
-
 
 
 if ( defined('WPFORMS_VERSION') ) {
