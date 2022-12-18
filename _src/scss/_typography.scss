@@ -29,8 +29,9 @@ h3,
 h4,
 h5,
 h6 {
-    margin-top: 0;
+    margin: $h-margin;
 	line-height: $h-line-height;
+	font-weight: $h-font-weight;
 }
 
 .resize-dash {
