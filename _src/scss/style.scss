@@ -43,7 +43,6 @@ body {
     box-shadow: 0 0 0 0.1rem var(--color-primary);
 }
 
-
 ::selection {
     color: var(--color-tertiary);
     background-color: var(--color-primary);
@@ -83,6 +82,13 @@ header, footer {
 .wp-block-navigation,
 .wp-block-site-logo {
 	margin-left: 0 - $nav-link-padding-x;
+}
+
+.wp-block-navigation__responsive-container .wp-block-navigation-link a {
+	&:hover,
+	&:focus {
+		color: var(--color-secondary);
+	}
 }
 
 .wp-block-navigation-item__content,
