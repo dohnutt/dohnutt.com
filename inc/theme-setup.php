@@ -54,12 +54,6 @@ if ( ! function_exists( 'doh_theme_enqueue' ) ) {
 	}
 }
 
-add_action( 'wp_body_open', 'doh_color_theme_set' );
-function doh_color_theme_set() {
-	echo "<script>document.body.setAttribute('data-theme', 'teal-light');</script>";
-}
-
-
 // Add theme supports and nav menus.
 if ( ! function_exists( 'doh_theme_support' ) ) {
 	add_action( 'after_setup_theme', 'doh_theme_support' );
