@@ -32,6 +32,7 @@ function toggleSetting() {
 }
 
 themeToggleButton.addEventListener('click', function (event) {
+	event.preventDefault();
 	applySetting(toggleSetting());
 });
 
