@@ -9,10 +9,10 @@ get_header(); ?>
 
 		<?php do_action('doh_before_content'); ?>
 
-		<div class="entry__content">
+		<div class="entry__content" style="min-height: 50vh;">
 
 			<h1><?php _e('Uh.', 'doh-theme'); ?></h1>
-			<p><?php _e("Nothin' to see here.", "doh-theme"); ?><p>
+			<p><?php _e("Nothin' to see here.", "doh-theme"); ?></p>
 
 		</div>
 
