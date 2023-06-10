@@ -31,7 +31,7 @@ body {
     }
 }
 
-@import '_themes';
+@import '_schemes';
 
 body {
 	color: var(--color-primary);
@@ -104,7 +104,7 @@ header, footer {
 }
 
 .wp-block-navigation {
-	.js-theme-toggle {
+	.js-scheme-toggle {
 		.wp-block-navigation-item__description {
 			display: initial;
 			border: 0;
