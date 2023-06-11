@@ -29,14 +29,18 @@ if ( ! function_exists( 'doh_theme_init' ) ) {
 
 	function doh_theme_init() {
 
+		/*
+         * Helper functions
+         */
 		require_once( 'inc/helper-functions.php' );
 
 		/*
 		 * Set up / modify theme defaults.
 		 */
 		require_once( 'inc/post-types.php' );
+		require_once( 'inc/taxonomies.php' );
 		require_once( 'inc/theme-setup.php' );
-		require_once( 'inc/cleanup.php' );
+		require_once( 'inc/admin-functions.php' );
 
 		/*
 		 * Override and extend plugin functionality.
@@ -47,6 +51,11 @@ if ( ! function_exists( 'doh_theme_init' ) ) {
 		 * Useful template functions.
 		 */
 		require_once( 'inc/template-functions.php' );
+
+		/*
+         * Hide and remove unnecessary functionality
+         */
+		require_once( 'inc/cleanup.php' );
 
 	}
 

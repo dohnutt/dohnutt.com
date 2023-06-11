@@ -33,7 +33,7 @@ if ( ! function_exists( 'doh_theme_assets' ) ) {
 		 * JavaScript
 		 */
 		wp_register_script( 'doh-head-script', '' );
-		wp_register_script( 'doh-script',    get_theme_file_uri( 'js/app.min.js'), array('jquery'), $ver, true );
+		wp_register_script( 'doh-script',    get_theme_file_uri( 'js/app.min.js'), array(), $ver, true );
 
 	}
 }

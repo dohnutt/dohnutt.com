@@ -1,5 +1,7 @@
 import "../scss/style.scss";
 
+const defaultScheme = 'pink-light';
+
 
 /**
  * Colour schemer
@@ -9,43 +11,51 @@ if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
 	console.log('🎉 Dark mode is supported');
 }
 
-const STORAGE_KEY = 'doh_scheme';
-const schemeToggleButton = document.querySelector('.js-scheme-toggle > a');
-const schemes = ['pink-light', 'pink-dark', 'teal-light', 'teal-dark'];
+const SCHEME_STORAGE_KEY = 'doh_scheme';
+let currentScheme = window.localStorage.getItem(SCHEME_STORAGE_KEY) || defaultScheme;
 
-function applySetting(passedSetting) {
-	let currentScheme = passedSetting || window.localStorage.getItem(STORAGE_KEY) || schemes[0];
+function applySetting(passedScheme) {
+	passedScheme = passedScheme || defaultScheme;
+
+	window.localStorage.setItem(SCHEME_STORAGE_KEY, passedScheme);
 
 	document.body.removeAttribute('data-scheme');
-	document.body.setAttribute('data-scheme', currentScheme);
+	document.body.setAttribute('data-scheme', passedScheme);
+
+	document.querySelectorAll('[data-scheme].is-current-scheme').forEach(function (activeEl) {
+		if (activeEl.classList.contains('schemer-button')) {
+			activeEl.setAttribute('data-scheme', passedScheme);
+		} else {
+			activeEl.classList.remove('is-current-scheme');
+		}
+	})
+
+	document.querySelectorAll('input[name="scheme"][value="'+ passedScheme +'"').forEach(function (input) {
+		input.setAttribute('checked', 'checked');
+		input.parentElement.parentElement.classList.add('is-current-scheme');
+	});
+
+	console.log('🤘 Scheme changed to ' + passedScheme);
 }
-
-function toggleSetting() {
-	let currentScheme = window.localStorage.getItem(STORAGE_KEY) || schemes[0];
-	let currentSchemeIndex = schemes.indexOf(currentScheme) || 0;
-
-	currentScheme = currentSchemeIndex >= (schemes.length - 1) ? schemes[0] : schemes[currentSchemeIndex + 1];
-	window.localStorage.setItem(STORAGE_KEY, currentScheme);
-	console.log('😎 Scheme changed to ' + currentScheme);
-	
-	return currentScheme;
-}
-
-schemeToggleButton.addEventListener('click', function (event) {
-	event.preventDefault();
-	applySetting(toggleSetting());
-});
-
-applySetting();
-
 
 
 /*
- * Wrap all em and en dashes in `span.resize-dash`
- */
+* Wrap all em and en dashes in `span.resize-dash`
+*/
 function wrapDashes() {
 	var content = document.querySelector('main');
-	content.innerHTML = content.innerHTML.replace(/\b(—|–|&ndash;|&mdash;)/g, '<span class="resize-dash">$1</span>')
+	if (content) {
+		content.innerHTML = content.innerHTML.replace(
+			/\b(—|–|&ndash;|&mdash;)/g,
+			'<span class="resize-dash">$1</span>'
+		);
+	}
+	
 }
 
+
+// Wrap dashes on load
 wrapDashes();
+
+// Apply local storage setting on load
+applySetting(currentScheme);
