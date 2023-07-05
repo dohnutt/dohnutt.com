@@ -2,10 +2,13 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    entry: './_src/js/app.js',
+    entry: {
+		'./app': './_src/js/app.js',
+		'./editor': './_src/js/editor.js',
+	},
     output: {
-        filename: 'app.min.js',
-        path: path.resolve(__dirname, 'js')
+        path: path.resolve(__dirname, 'js'),
+		filename: '[name].min.js',
     },
     optimization: {
         mangleExports: true,
