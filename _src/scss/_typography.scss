@@ -7,12 +7,12 @@ a {
     text-decoration: underline;
     text-underline-position: under;
     text-decoration-style: dotted;
-    text-decoration-color: var(--color-secondary);
+    text-decoration-color: var(--colour-secondary);
 
     &:hover,
     &:focus,
     &:hover:focus {
-		color: var(--color-secondary);
+		color: color-mix(in srgb, var(--colour-secondary), var(--colour-primary) 33.333%);
         text-decoration-color: currentColor;
     }
 }
