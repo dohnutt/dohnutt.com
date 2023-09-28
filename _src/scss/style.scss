@@ -145,7 +145,7 @@ body {
 	header {
 		display: flex;
 		justify-content: space-between;
-		align-items: start;
+		align-items: flex-start;
 		flex-direction: row-reverse;
 		font-size: $font-size * 2;
 	}
