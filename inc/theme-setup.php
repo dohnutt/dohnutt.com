@@ -27,7 +27,7 @@ if ( ! function_exists( 'doh_theme_assets' ) ) {
 		 * CSS
 		 */
 		wp_register_style( 'doh-style',       get_stylesheet_uri(), array(), $ver );
-		wp_register_style( 'doh-fonts',       wptt_get_webfont_url($fonts_url), array(), $ver );
+		wp_register_style( 'doh-fonts',       wptt_get_webfont_url( $fonts_url ), array(), $ver );
 
 		/*
 		 * JavaScript
@@ -47,10 +47,7 @@ if ( ! function_exists( 'doh_theme_enqueue' ) ) {
 		wp_enqueue_style( 'doh-fonts' );
 
 		wp_enqueue_script( 'doh-script' );
-		wp_add_inline_script(
-            'jquery',
-            '$ = jQuery.noConflict(false);'
-        );
+		wp_add_inline_script( 'jquery', '$ = jQuery.noConflict(false);' );
 	}
 }
 
