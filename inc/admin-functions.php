@@ -14,18 +14,20 @@ if ( ! defined('ABSPATH') ) {
 
 // Load fonts in editor
 if ( ! function_exists('doh_add_editor_scripts') ) {
-    add_action( 'enqueue_block_editor_assets', 'doh_add_editor_scripts' );
+    add_action( 'enqueue_block_assets', 'doh_add_editor_scripts' );
     function doh_add_editor_scripts() {
-        $ver = doh_is_dev() ? time() : DOH_THEME_VER;
 
-        wp_enqueue_style(
-            'doh-editor',
-            get_theme_file_uri('style-editor.css'),
-            array(),
-            $ver
-        );
+		if ( is_admin() ) {
+			$ver = doh_is_dev() ? time() : DOH_THEME_VER;
+			wp_enqueue_style(
+				'doh-editor',
+				get_theme_file_uri('style-editor.css'),
+				array(),
+				$ver
+			);
 
-        wp_enqueue_style( 'doh-fonts' );
+			wp_enqueue_style( 'doh-fonts' );
+		}
 
     }
 }
@@ -75,7 +77,7 @@ if ( ! function_exists('doh_hide_protected_posts') ) {
  * Disable fullscreen gutenberg
  */
 if ( ! function_exists('doh_disable_editor_default_fullscreen') ) {
-    add_action( 'enqueue_block_editor_assets', 'doh_disable_editor_default_fullscreen' );
+    add_action( 'enqueue_block_assets', 'doh_disable_editor_default_fullscreen' );
     function doh_disable_editor_default_fullscreen() {
         if ( ! is_admin() ) {
             return;
