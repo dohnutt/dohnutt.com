@@ -13,6 +13,12 @@ Text Domain: doh-theme
 @import '_variables';
 @import '_mixins';
 
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
 
 body {
 	--colour-primary: #00b39d;
@@ -36,6 +42,7 @@ body {
 body {
 	color: var(--colour-primary);
 	background-color: var(--colour-tertiary);
+	transition: background-color 0.4s cubic-bezier(.57,.21,.69,1.25), color 0.4s cubic-bezier(.57,.21,.69,1.25);
 }
 
 
