@@ -7,9 +7,10 @@
  *
  */
 
-if ( ! defined('ABSPATH') ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
 
 /**
  * Prettify print_r() output
@@ -58,8 +59,9 @@ if ( ! function_exists('dd') ) {
 }
 
 
-
-// Check if the current site is a dev site
+/**
+ * Check if the current site is a dev environment
+ */
 function doh_is_dev() {
 
 	// Skip ahead if wp_get_environment_type() is set

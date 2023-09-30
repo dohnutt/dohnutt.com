@@ -1,145 +1,100 @@
 import "../scss/style.scss";
 
-//import "bootstrap/js/dist/util.js";
-//import "bootstrap/js/dist/alert.js";
-//import "bootstrap/js/dist/button.js";
-//import "bootstrap/js/dist/collapse.js";
-//import "bootstrap/js/dist/dropdown.js";
-//import "bootstrap/js/dist/modal.js";
-//import "bootstrap/js/dist/scrollspy.js";
-//import "bootstrap/js/dist/tab.js";
-//import "bootstrap/js/dist/index.js";
-
-
-document.documentElement.classList.remove('no-js');
+const defaultScheme = 'pink-light';
 
 
 /**
- * Light/dark mode
+ * Colour schemer
  */
 
 if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
 	console.log('🎉 Dark mode is supported');
 }
 
-const STORAGE_KEY = 'user-color-scheme';
-const COLOR_MODE_KEY = '--color-mode';
-const schemeToggleButton = document.querySelector('.js-scheme-toggle');
-const schemeLabel = document.querySelector('.js-scheme-label');
+const SCHEME_COOKIE = 'doh_scheme';
+let currentScheme = getCookie(SCHEME_COOKIE) || defaultScheme;
 
-const getCSSCustomProp = function (propKey) {
-	let response = getComputedStyle(document.documentElement).getPropertyValue(propKey);
+window.applyScheme = function (passedScheme) {
+	passedScheme = passedScheme || defaultScheme;
 
-	if (response.length) {
-		response = response.replace(/[\"\']/g, '').trim();
-	}
+	setCookie(SCHEME_COOKIE, passedScheme, 30);
 
-	return response;
-};
+	document.body.removeAttribute('data-scheme');
+	document.body.setAttribute('data-scheme', passedScheme);
 
-const applySetting = function (passedSetting) {
-	let currentSetting = passedSetting || localStorage.getItem(STORAGE_KEY) || getCSSCustomProp(COLOR_MODE_KEY);
+	document.querySelectorAll('[data-scheme].is-current-scheme').forEach(function (activeEl) {
+		if (activeEl.classList.contains('schemer-button')) {
+			activeEl.setAttribute('data-scheme', passedScheme);
+		} else {
+			activeEl.classList.remove('is-current-scheme');
+		}
+	})
 
-	document.documentElement.classList.remove('light-mode', 'dark-mode');
-	document.documentElement.classList.add(currentSetting + '-mode');
-	setToggle(currentSetting);
-};
+	document.querySelectorAll('.scheme-button[value="'+ passedScheme +'"]').forEach(function (button) {
+		button.parentElement.classList.add('is-current-scheme');
+	});
 
-const setToggle = function (currentSetting) {
-	let checkedVal = currentSetting === 'dark' ? true : false;
-	let label = currentSetting === 'dark' ? '🌙' : '☀';
-	let ariaLabel = currentSetting === 'dark' ? 'Dark mode' : 'Light mode';
-	schemeToggleButton.checked = checkedVal;
-	schemeLabel.innerText = label;
-	schemeLabel.setAttribute('aria-label', ariaLabel);
-};
-
-const toggleSetting = function () {
-	let currentSetting = localStorage.getItem(STORAGE_KEY);
-
-	switch (currentSetting) {
-		case null:
-			currentSetting = getCSSCustomProp(COLOR_MODE_KEY) === 'dark' ? 'light' : 'dark';
-			break;
-		case 'light':
-			currentSetting = 'dark';
-			break;
-		case 'dark':
-			currentSetting = 'light';
-			break;
-	}
-
-	localStorage.setItem(STORAGE_KEY, currentSetting);
-
-	return currentSetting;
-};
-
-schemeToggleButton.addEventListener('click', function (event) {
-	applySetting(toggleSetting());
-});
-
-applySetting();
-
-
-
-/*
- * Wrap all em and en dashes in `span.resize-dash`
- */
-function wrapDashes() {
-	var content = document.querySelector('.entry__content');
-	content.innerHTML = content.innerHTML.replace(/\b(—|–|&ndash;|&mdash;)/g, '<span class="resize-dash">$1</span>')
+	console.log('🤘 Scheme changed to ' + passedScheme);
 }
 
+document.querySelectorAll('.scheme-button').forEach(function (button) {
+	button.addEventListener('click', function (e) {
+		window.applyScheme(e.target.value);
+	});
+});
+
+
+/**
+ * Manipulate cookies
+ */
+
+function setCookie(name, value, days) {
+    var expires = "";
+	
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+
+    for (var i=0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+
+    return null;
+}
+
+function eraseCookie(name) {
+    document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+
+/*
+* Wrap all em and en dashes in `span.resize-dash`
+*/
+function wrapDashes() {
+	var content = document.querySelector('main');
+	if (content) {
+		content.innerHTML = content.innerHTML.replace(
+			/\b(—|–|&ndash;|&mdash;)/g,
+			'<span class="resize-dash">$1</span>'
+		);
+	}
+	
+}
+
+
+// Wrap dashes on load
 wrapDashes();
 
-
-
-/*
- * Toggle navbar
- */
-$(document).click(function (event) {
-	var _opened = $('.navbar-collapse').hasClass('show');
-
-	if (!$(event.target).closest('.navbar-collapse').length && !$(event.target).is('.navbar-collapse') && _opened === true) {
-		$('.navbar-collapse').collapse('toggle');
-	}
-});
-
-
-
-/*
- * Accessible skip to content link
- */
-document.querySelector('.js-a11y-skip').addEventListener('click', function (event) {
-
-	event.preventDefault();
-
-	var el = document.querySelector('#' + this.href.split('#')[1]);
-	var removeElTabindex = function () {
-		el.removeAttribute('tabindex');
-	}
-
-	el.setAttribute('tabindex', '-1');
-	el.addEventListener('blur', removeElTabindex, false);
-	el.addEventListener('focusout', removeElTabindex, false);
-	el.focus();
-
-});
-
-
-
-/*
- * Open share links in a small popup window
- */
-$('.share__link').click(function (event) {
-
-	event.preventDefault();
-
-	window.open(
-		$(this).attr('href'),
-		'shareWindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 275) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0'
-	);
-
-	return false;
-
-});
+// Apply cookie on load
+applyScheme(currentScheme);

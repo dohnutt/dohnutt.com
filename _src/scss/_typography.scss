@@ -1,81 +1,42 @@
-/*
+/**
  * Typography
- * `typography.scss`
  */
 
 
 a {
-  text-decoration: underline;
-  text-underline-position: under;
-  text-decoration-style: dotted;
-  text-decoration-color: rgba($gray-600, 0.6);
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-style: dotted;
+    text-decoration-color: var(--colour-secondary);
 
-  &:hover,
-  &:focus,
-  &:hover:focus {
-    text-decoration: none;
-  }
-
-  &.btn,
-  &.share-link,
-  &.nav-link,
-  &.action__item,
-  &.card,
-  .panel-heading &,
-  &.dropdown-item {
-    text-decoration: none;
-  }
+    &:hover,
+    &:focus,
+    &:hover:focus {
+		color: color-mix(in srgb, var(--colour-secondary), var(--colour-primary) 33.333%);
+        text-decoration-color: currentColor;
+    }
 }
 
 
-.h1, .h2, .h3, .h4, .h5, .h6,
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-
-  a {
-    color: $link-color;
-  }
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: $h-margin;
+	line-height: $h-line-height;
+	font-weight: $h-font-weight;
 }
-
-.font-size-lg {
-  font-size: $font-size-lg;
-}
-
-.font-size-base {
-  font-size: $font-size-base;
-}
-
-.font-size-sm {
-  font-size: $font-size-sm;
-}
-
-.font-size-inherit {
-  font-size: inherit;
-}
-
-.lead {
-  font-weight: 400;
-  font-size: $font-size-lg;
-  margin-bottom: 0.7em;
-}
-
-
-.small, small {
-  font-size: 0.8em;
-}
-
-
-blockquote {
-  border-left-width: 4px;
-}
-
-.blockquote-reverse {
-  border-right-width: 4px;
-}
-
 
 .resize-dash {
-  transform: scaleX(2);
-  display: inline-block;
-  margin: 0 0.3em;
+    transform: scaleX(2);
+    display: inline-block;
+    margin: 0 0.3em;
 }

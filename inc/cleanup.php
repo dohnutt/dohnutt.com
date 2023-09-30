@@ -7,6 +7,9 @@
  *
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
  
 /*
@@ -29,7 +32,7 @@ function doh_disable_emojis() {
 }
 
 // Remove the emoji plugin from TinyMCE.
-function doh_disable_emojis_tinymce($plugins) {
+function doh_disable_emojis_tinymce( $plugins ) {
   if ( is_array( $plugins ) ) {
         return array_diff( $plugins, array( 'wpemoji' ) );
   } else {
@@ -54,21 +57,21 @@ function doh_disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
  */
 
 // Unregister unnecessary widgets.
-add_action('widgets_init', 'doh_unregister_widgets', 11);
+add_action( 'widgets_init', 'doh_unregister_widgets', 11 );
 function doh_unregister_widgets() {
-    unregister_widget('WP_Widget_Pages');
-    unregister_widget('WP_Widget_Calendar');
-    //unregister_widget('WP_Widget_Archives');
-    unregister_widget('WP_Widget_Links');
-    unregister_widget('WP_Widget_Meta');
-    //unregister_widget('WP_Widget_Search');
-    //unregister_widget('WP_Widget_Text');
-    //unregister_widget('WP_Widget_Categories');
-    //unregister_widget('WP_Widget_Recent_Posts');
-    unregister_widget('WP_Widget_Recent_Comments');
-    unregister_widget('WP_Widget_RSS');
-    unregister_widget('WP_Widget_Tag_Cloud');
-    //unregister_widget('WP_Nav_Menu_Widget');
+    unregister_widget( 'WP_Widget_Pages' );
+    unregister_widget( 'WP_Widget_Calendar' );
+    //unregister_widget( 'WP_Widget_Archives' );
+    unregister_widget( 'WP_Widget_Links' );
+    unregister_widget( 'WP_Widget_Meta' );
+    //unregister_widget( 'WP_Widget_Search' );
+    //unregister_widget( 'WP_Widget_Text' );
+    //unregister_widget( 'WP_Widget_Categories' );
+    //unregister_widget( 'WP_Widget_Recent_Posts' );
+    unregister_widget( 'WP_Widget_Recent_Comments' );
+    unregister_widget( 'WP_Widget_RSS' );
+    unregister_widget( 'WP_Widget_Tag_Cloud' );
+    //unregister_widget( 'WP_Nav_Menu_Widget' );
 }
 
 
@@ -78,7 +81,7 @@ function doh_unregister_widgets() {
  */
 
 // Remove unnecessary menu items from admin dashboard.
-add_action('admin_menu', 'doh_remove_menus');
+add_action( 'admin_menu', 'doh_remove_menus' );
 function doh_remove_menus() {
     //remove_menu_page( 'index.php' );
     //remove_menu_page( 'edit.php' );
@@ -94,7 +97,7 @@ function doh_remove_menus() {
 
 
 // Remove unnecessary menu items from the admin bar.
-add_action('wp_before_admin_bar_render', 'doh_admin_bar_render');
+add_action( 'wp_before_admin_bar_render', 'doh_admin_bar_render' );
 function doh_admin_bar_render() {
     global $wp_admin_bar;
     $wp_admin_bar->remove_menu('comments');
@@ -102,8 +105,9 @@ function doh_admin_bar_render() {
 
 
 // Hide WordPress update nag to all but admins
-add_action('admin_head', 'doh_hide_update_nag_if_not_admin', 1);
+add_action( 'admin_head', 'doh_hide_update_nag_if_not_admin' );
 function doh_hide_update_nag_if_not_admin() {
-  if ( ! current_user_can('update_core') )
-    remove_action( 'admin_notices', 'update_nag', 3 );
+	if ( ! current_user_can( 'update_core' ) ) {
+		remove_action( 'admin_notices', 'update_nag', 3 );
+	}
 }
