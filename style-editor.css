@@ -1,3 +1,7 @@
+.editor-styles-wrapper {
+	font-size: 40px !important;
+}
+
 body, .editor-styles-wrapper,
 .editor-styles-wrapper [data-scheme="teal-dark"] {
 	/* default */
@@ -22,4 +26,14 @@ body, .editor-styles-wrapper,
 	--colour-primary: #091353;
 	--colour-secondary: #00b39d;
 	--colour-tertiary: #fface2;
+}
+
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
+	font-weight: normal;
+	line-height: 1.3;
 }
