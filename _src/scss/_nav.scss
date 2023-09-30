@@ -3,6 +3,7 @@
  *
  */
 
+
 .wp-block-navigation__responsive-container-close,
 .wp-block-navigation__responsive-container-open {
 	svg {
@@ -11,11 +12,17 @@
 	}
 }
 
-.wp-block-navigation__responsive-container .wp-block-navigation-link a {
-	&:hover,
-	&:focus {
-		color: var(--colour-secondary);
+.wp-block-navigation-link {
+	a {
+		&:hover,
+		&:focus {
+			color: var(--colour-secondary);
+		}
 	}
+}
+
+.wp-block-navigation-item__content {
+	padding: $nav-link-padding-y $nav-link-padding-x;
 }
 
 body {
@@ -35,4 +42,17 @@ body {
 	&.is-menu-open {
 		padding-top: 3rem;
 	}
+}
+
+
+@include media-breakpoint-up(sm) {
+	.wp-block-navigation {
+		margin-left: 0 - $nav-link-padding-x;
+		margin-right: 0 - $nav-link-padding-x;
+	
+		ul {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}	
 }
