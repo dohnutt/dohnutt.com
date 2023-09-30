@@ -78,11 +78,15 @@ header, footer {
 	font-family: $font-sans-serif;
 }
 
+header {
+	margin-bottom:var(--wp--preset--spacing--60);
+}
+
 .wp-block-navigation__responsive-container-close,
 .wp-block-navigation__responsive-container-open {
 	svg {
-		width: $font-size * 2;
-		height: $font-size * 2;
+		width: $font-size * 3;
+		height: $font-size * 3;
 	}
 }
 
@@ -94,7 +98,7 @@ header, footer {
 .wp-block-navigation__responsive-container .wp-block-navigation-link a {
 	&:hover,
 	&:focus {
-		color: var(--color-secondary);
+		color: var(--colour-secondary);
 	}
 }
 
@@ -133,8 +137,8 @@ body {
 		&:not(.has-background) {
 			.wp-block-navigation__responsive-container {
 				&.is-menu-open {
-					color: var(--color-tertiary);
-    				background-color: var(--color-primary);
+					color: var(--colour-tertiary);
+    				background-color: var(--colour-primary);
 				}
 			}
 		}
@@ -152,9 +156,19 @@ body {
 	header {
 		display: flex;
 		justify-content: space-between;
-		align-items: flex-start;
-		flex-direction: row-reverse;
+		align-items: middle;
+		flex-direction: row-reverse;	
+	}
+
+	header nav {
 		font-size: $font-size * 2;
+	}
+
+	.wp-block-site-logo {
+		img {
+			width: 192px;
+			height: auto;
+		}
 	}
 
 	.admin-bar header nav {
