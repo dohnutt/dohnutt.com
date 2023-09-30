@@ -21,10 +21,10 @@ function doh_register_post_types() {
 	$args = [
 		'label' => __( 'Projects', 'doh-theme' ),
 		'labels' => [
-			'name' => __( 'Projects', 'doh-theme' ),
+			'name' => __( 'Work', 'doh-theme' ),
 			'singular_name' => __( 'Project', 'doh-theme' ),
-			'menu_name' => __( 'Projects', 'doh-theme' ),
-			'archives' => __( 'Projects', 'doh-theme' ),
+			'menu_name' => __( 'Work', 'doh-theme' ),
+			'archives' => __( 'Work', 'doh-theme' ),
 		],
 		'description' => '',
 		'public' => true,
