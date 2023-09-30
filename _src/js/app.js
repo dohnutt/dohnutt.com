@@ -17,7 +17,7 @@ let currentScheme = getCookie(SCHEME_COOKIE) || defaultScheme;
 window.applyScheme = function (passedScheme) {
 	passedScheme = passedScheme || defaultScheme;
 
-	setCookie(SCHEME_COOKIE, passedScheme, 30);
+	setCookie(SCHEME_COOKIE, passedScheme, 365);
 
 	document.body.removeAttribute('data-scheme');
 	document.body.setAttribute('data-scheme', passedScheme);
