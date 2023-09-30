@@ -145,6 +145,13 @@ body {
 	}
 }
 
+.wp-block-post-featured-image,
+.wp-block-image {
+	img {
+		border-radius: $border-radius;
+	}
+}
+
 
 @include media-breakpoint-up(sm) {
 	header, footer {
