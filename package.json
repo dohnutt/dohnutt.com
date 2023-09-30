@@ -1,7 +1,7 @@
 {
 	"name": "doh-theme",
 	"description": "dohnutt's very own.",
-	"version": "2.0.2",
+	"version": "2.0.3",
 	"scripts": {
 		"dev": "webpack --mode=development",
 		"build": "webpack --mode=production",
