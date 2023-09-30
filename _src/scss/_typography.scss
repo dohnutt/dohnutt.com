@@ -39,3 +39,10 @@ h6 {
     display: inline-block;
     margin: 0 0.3em;
 }
+
+.wp-block-image {
+	figcaption {
+		color: inherit;
+		opacity: 0.7;
+	}
+}
