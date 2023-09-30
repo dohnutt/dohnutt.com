@@ -122,12 +122,21 @@ function doh_add_page_excerpt() {
 }
 
 
-// Adds custom classes to the body class
+// Add custom classes to the body element
 add_filter( 'body_class', 'doh_body_classes' );
 function doh_body_classes( $classes ) {
 	if ( is_home() || is_search() ) {
 		$classes[] = 'archive';
 	}
+
+	return $classes;
+}
+
+// Add custom attrs to the body element
+add_filter( 'body_class', 'doh_body_attrs' );
+function doh_body_attrs( $classes ) {
+	$scheme = $_COOKIE['doh_scheme'] ?? 'pink-light';
+	echo 'data-scheme="' . $scheme . '"'; // hack-ish as hell
 
 	return $classes;
 }
