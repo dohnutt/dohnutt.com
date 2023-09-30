@@ -49,10 +49,16 @@ body {
 	.wp-block-navigation {
 		margin-left: 0 - $nav-link-padding-x;
 		margin-right: 0 - $nav-link-padding-x;
-	
+		
 		ul {
 			margin-left: 0;
 			margin-right: 0;
 		}
-	}	
+	}
+
+	footer {
+		nav {
+			width: 100%;
+		}
+	}
 }
