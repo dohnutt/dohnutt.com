@@ -37,17 +37,17 @@
             "fontSizes": [
 				{
                     "slug": "small",
-                    "size": "28px",
+                    "size": "0.7em",
                     "name": "Small"
                 },
                 {
                     "slug": "normal",
-                    "size": "40px",
+                    "size": "1em",
                     "name": "Normal"
                 },
                 {
                     "slug": "large",
-                    "size": "64px",
+                    "size": "1.6em",
                     "name": "Large"
                 }
             ]
