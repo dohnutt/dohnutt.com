@@ -211,3 +211,10 @@ function doh_upload_mime_types( $mimes ) {
 	$mimes['svg'] = 'image/svg+xml';
 	return $mimes;
 }
+
+
+// Change the feed cache lifetime
+add_filter( 'wp_feed_cache_transient_lifetime' , 'doh_feed_cache_lifetime' );
+function doh_feed_cache_lifetime( $lifetime ) {
+	return 3600; // 1 hour
+}
