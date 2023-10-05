@@ -24,6 +24,7 @@ if ( defined('WPSEO_VERSION') ) {
 		return 'low';
 	}
 
+	// Load custom opengraph
 	add_action( 'wpseo_add_opengraph_images', 'doh_wpseo_add_images' );
 	function doh_wpseo_add_images( $object ) {
 		$scheme = $_COOKIE['doh_scheme'] ?? 'pink-light';
