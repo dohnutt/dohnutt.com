@@ -1,23 +1,19 @@
-/*!
-Theme Name: @dohnutt
-Author: Eric Moss
-Author URI: https://dohnutt.com
-Description: My very own.
-Version: 2.0.3
-Requires at least: 6.0
-Tested up to: 6.2.2
-Text Domain: doh-theme
-*/
+/**
+ * Main stylesheet
+ *
+ * Edit WP stylesheet header in style.css
+ */
 
-
-@import '_variables';
-@import '_mixins';
 
 *,
 *::before,
 *::after {
 	box-sizing: border-box;
 }
+
+
+@import '_variables';
+@import '_mixins';
 
 
 body {
@@ -129,6 +125,14 @@ header {
 		border-radius: $border-radius;
 		opacity: 0.95;
 	}
+}
+
+
+.wp-block-separator {
+	border-width: 0.2em 0 0 0;
+	border-style: dotted;
+	margin: 1.5em 0;
+	opacity: 0.25;
 }
 
 

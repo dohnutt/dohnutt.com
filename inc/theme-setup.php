@@ -26,14 +26,14 @@ if ( ! function_exists( 'doh_theme_assets' ) ) {
 		/*
 		 * CSS
 		 */
-		wp_register_style( 'doh-style',       get_stylesheet_uri(), array(), $ver );
+		wp_register_style( 'doh-style',       get_theme_file_uri( '/app.min.css' ), array(), $ver );
 		wp_register_style( 'doh-fonts',       wptt_get_webfont_url( $fonts_url ), array(), $ver );
 
 		/*
 		 * JavaScript
 		 */
 		wp_register_script( 'doh-head-script', '' );
-		wp_register_script( 'doh-script',    get_theme_file_uri( 'js/app.min.js'), array(), $ver, true );
+		wp_register_script( 'doh-script',    get_theme_file_uri( 'js/app.min.js' ), array(), $ver, true );
 
 	}
 }

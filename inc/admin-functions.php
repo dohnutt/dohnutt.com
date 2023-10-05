@@ -16,32 +16,33 @@ if ( ! defined('ABSPATH') ) {
 if ( ! function_exists('doh_add_editor_scripts') ) {
     add_action( 'enqueue_block_assets', 'doh_add_editor_scripts' );
     function doh_add_editor_scripts() {
-
-		if ( is_admin() ) {
-			$ver = doh_is_dev() ? time() : DOH_THEME_VER;
-			wp_enqueue_style(
-				'doh-editor',
-				get_theme_file_uri('style-editor.css'),
-				array(),
-				$ver
-			);
-
-			wp_enqueue_style( 'doh-fonts' );
+		if ( ! is_admin() ) {
+			return;
 		}
 
-    }
-}
+		$ver = doh_is_dev() ? time() : DOH_THEME_VER;
+		wp_enqueue_style(
+			'doh-editor',
+			get_theme_file_uri( 'editor.min.css' ),
+			array(),
+			$ver
+		);
 
+		wp_enqueue_style( 'doh-fonts' );
 
-/**
- * Override WP gallery so that,
- * even if it links to the attachment page, it will link to the media file.
- */
-if ( ! function_exists('doh_gallery_default_type_set_link') ) {
-    add_filter( 'media_view_settings', 'doh_gallery_default_type_set_link');
-    function doh_gallery_default_type_set_link( $settings ) {
-        $settings['galleryDefaults']['link'] = 'file';
-        return $settings;
+		wp_enqueue_script(
+			'doh-editor',
+			get_theme_file_uri( 'js/editor.min.js' ),
+			array(
+				//'wp-blocks',
+				'wp-dom',
+				//'wp-i18n',
+				//'wp-element',
+				'wp-hooks'
+			),
+			$ver,
+			true
+		);
     }
 }
 
