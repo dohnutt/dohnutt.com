@@ -41,7 +41,7 @@ function doh_register_post_types() {
 		'capability_type' => 'post',
 		'map_meta_cap' => true,
 		'hierarchical' => false,
-		'rewrite' => [ 'slug' => 'portfolio', 'with_front' => true ],
+		'rewrite' => [ 'slug' => 'work', 'with_front' => true ],
 		'query_var' => true,
 		'menu_position' => 20,
 		'menu_icon' => 'dashicons-format-gallery',
