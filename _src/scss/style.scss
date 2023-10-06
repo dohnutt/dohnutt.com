@@ -143,6 +143,21 @@ header {
 	}
 }
 
+.wp-element-button,
+.wp-block-button__link {
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.wp-block-button.is-style-outline {
+	.wp-element-button,
+	.wp-block-button__link {
+		&:hover, &:focus {
+			color: var(--colour-tertiary);
+			background-color: color-mix(in srgb, var(--colour-primary), var(--colour-tertiary) 20%);
+		}
+	}
+}
+
 
 @include media-breakpoint-up(sm) {
 	header, footer {

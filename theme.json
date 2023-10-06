@@ -89,32 +89,20 @@
 				},
 				":hover": {
 					"color": {
-						"background": "color-mix(in srgb, var(--colour-primary), var(--colour-tertiary) 25%)"
+						"text": "var(--colour-tertiary)",
+						"background": "color-mix(in srgb, var(--colour-primary), var(--colour-tertiary) 20%)"
 					}
 				},
 				":focus": {
 					"color": {
-						"background": "color-mix(in srgb, var(--colour-primary), var(--colour-tertiary) 25%)"
+						"text": "var(--colour-tertiary)",
+						"background": "color-mix(in srgb, var(--colour-primary), var(--colour-tertiary) 20%)"
 					}
 				}
 			},
 			"caption": {
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--small)"
-				}
-			}
-		},
-		"blocks": {
-			"core/button": {
-				"variations": {
-					"outline": {
-						"color": {
-							"text": "var(--colour-primary)"
-						},
-						"border": {
-							"color": "var(--colour-primary)"
-						}
-					}
 				}
 			}
 		},
