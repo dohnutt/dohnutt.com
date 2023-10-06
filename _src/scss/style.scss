@@ -135,6 +135,14 @@ header {
 	}
 }
 
+.wp-block-rss__item {
+	line-height: 1.4;
+
+	+ .wp-block-rss__item {
+		margin-top: 0.625em;
+	}
+}
+
 
 @include media-breakpoint-up(sm) {
 	header, footer {
