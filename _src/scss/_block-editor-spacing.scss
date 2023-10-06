@@ -1,0 +1,97 @@
+/*
+ * Block editor spacing
+ * `src/scss/block-editor-spacing.scss`
+ *
+ * Block spacing for the WordPress block editor.
+ *
+ */
+
+.wp-block-column,
+.wp-block-group,
+.wp-block-cover__inner-container,
+.wp-block-media-text__content,
+.wp-block-post-template > .wp-block-post,
+.is-layout-flow {
+
+	// default spacing for all blocks
+	> * {
+		margin-top: var(--wp--preset--spacing--40);
+	}
+
+	> :first-child {
+		// remove top spacing of the first block inside a group
+		margin-top: 0;
+	}
+
+	> :last-child {
+		// remove bottom spacing of the last block inside a group
+		margin-bottom: 0;
+	}
+
+}
+
+.block-content {
+
+	> * {
+		margin-top: var(--wp--preset--spacing--40);
+	}
+
+	// increase top spacing of align wide blocks
+	> .alignwide {
+		margin-top: var(--wp--preset--spacing--60);
+
+		// increase top spacing of blocks following align wide blocks
+		+ * {
+			margin-top: var(--wp--preset--spacing--60);
+		}
+	}
+
+	// increase top spacing of all align full blocks
+	> .alignfull {
+		margin-top: var(--wp--preset--spacing--70);
+
+		// increase top spacing of all blocks following align full blocks
+		+ * {
+			margin-top: var(--wp--preset--spacing--70);
+		}
+
+		// remove spacing between two adjacent align full blocks
+		+ .alignfull {
+			margin-top: 0;
+		}
+	}
+
+	// add extra default spacing for separators
+	> .wp-block-separator {
+		margin-top: var(--wp--preset--spacing--60);
+		margin-bottom: var(--wp--preset--spacing--60);
+	}
+
+	> :first-child {
+		// remove top spacing from the first block on the page if it is alignfull
+		&.alignfull {
+			margin-top: 0;
+		}
+
+	}
+	
+	// add extra spacing for the last block on the page
+	> :last-child {
+		margin-bottom: var(--wp--preset--spacing--70);
+
+		// remove bottom spacing from the last block on the page if it is alignfull
+		&.alignfull {
+			margin-bottom: 0;
+		}
+	}
+
+}
+
+
+@media (max-width: 600px) {
+	.is-stacked-on-mobile {
+		> .wp-block-media-text__content {
+			margin-top: var(--wp--preset--spacing--50);
+		}
+	}
+}

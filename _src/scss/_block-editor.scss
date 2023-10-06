@@ -1,0 +1,36 @@
+/*
+ * Block editor
+ * `src/scss/block-editor.scss`
+ *
+ * Component styles for the WordPress block editor.
+ *
+ */
+
+
+.wp-site-blocks > *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator),
+.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright),
+*[class*=inner-container] > *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright),
+header, footer {
+	max-width: var(--wp--style--global--content-size);
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: $gutter-half;
+	padding-right: $gutter-half;
+}
+
+.alignwide, .wide-max-width {
+	max-width: var(--wp--style--global--wide-size, 1010px);
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: $gutter-half;
+	padding-right: $gutter-half;
+}
+
+.alignfull {
+	max-width: none;
+	padding-left: $gutter-half;
+	padding-right: $gutter-half;
+}
+
+
+@import '_block-editor-spacing';

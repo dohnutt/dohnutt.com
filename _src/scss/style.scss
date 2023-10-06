@@ -64,9 +64,7 @@ body > .skip-link.screen-reader-text {
 }
 
 
-.wp-site-blocks {
-	padding: 0 $gutter-half;
-}
+@import '_block-editor';
 
 
 header, footer {
@@ -103,17 +101,11 @@ header {
         transform: scale3d(1, 1, 1)
     }
 
-    0%,
-    24%,
-    50%,
-    74% {
+    0%, 24%, 50%, 74% {
         transform: rotate3d(0, 0, 1, 7deg)
     }
 
-    25%,
-    49%,
-    75%,
-    99% {
+    25%, 49%, 75%, 99% {
         transform: rotate3d(0, 0, 1, -7deg);
     }
 }
@@ -129,10 +121,18 @@ header {
 
 
 .wp-block-separator {
+	width: calc(var(--wp--style--global--content-size) - $gutter);
+	max-width: calc(100% - $gutter);
 	border-width: 0.2em 0 0 0;
 	border-style: dotted;
-	margin: 1.5em 0;
+	margin: var(--wp--preset--spacing--70) auto;
 	opacity: 0.25;
+}
+
+.wp-block-image {
+	figcaption {
+		text-align: inherit;
+	}
 }
 
 

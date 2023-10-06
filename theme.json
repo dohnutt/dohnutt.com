@@ -58,8 +58,8 @@
             "units": [ "px", "em", "rem", "vh", "vw" ]
         },
         "layout": {
-            "contentSize": "800px",
-            "wideSize": "1010px"
+            "contentSize": "52rem",
+            "wideSize": "65rem"
         }
     },
     "styles": {
