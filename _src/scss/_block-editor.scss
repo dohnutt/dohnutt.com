@@ -7,15 +7,25 @@
  */
 
 
-.wp-site-blocks > *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator),
-.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright),
-*[class*=inner-container] > *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright),
+.wp-site-blocks > *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(ul):not(ol),
+.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(ul):not(ol),
+*[class*=inner-container] > *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(ul):not(ol),
 header, footer {
 	max-width: var(--wp--style--global--content-size);
 	margin-left: auto;
 	margin-right: auto;
 	padding-left: $gutter-half;
 	padding-right: $gutter-half;
+}
+
+.wp-site-blocks {
+	> ul, > ol {
+		max-width: var(--wp--style--global--content-size);
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: calc(1em + $gutter-half);
+		padding-right: $gutter-half;
+	}
 }
 
 .alignwide, .wide-max-width {
