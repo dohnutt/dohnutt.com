@@ -58,11 +58,10 @@ if ( ! function_exists( 'doh_theme_support' ) ) {
 	function doh_theme_support() {
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'post-thumbnails' );
-		add_theme_support( 'html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption') );
+		add_theme_support( 'html5', array( 'gallery', 'caption' ) );
 		add_theme_support( 'responsive-embeds' );
 		add_theme_support( 'automatic-feed-links' );
 		//add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat' ) );
-		add_theme_support( 'yoast-seo-breadcrumbs' );
 
 		//add_image_size( 'tiny', 100, 100, true );
 		//add_image_size( 'gallery', 480, 480, true );
@@ -93,25 +92,6 @@ function doh_enforce_image_size_options() {
 
 	// Set default image link location to 'None'
 	update_option('image_default_link_type', 'none');
-}
-
-
-// Register sidebars.
-if ( ! function_exists( 'doh_sidebars' ) ) {
-	add_action( 'widgets_init', 'doh_sidebars' );
-	function doh_sidebars() {
-
-		register_sidebar(array(
-			'name' => __('Default Sidebar', 'doh'),
-			'id' => 'default-sidebar',
-			'description' => __('Main sidebar area.', 'doh'),
-			'before_title' => '<h4 class="widget-title">',
-			'after_title' => '</h4>',
-			'before_widget' => '<div class="widget %1$s %2$s">',
-			'after_widget' => '</div>'
-		));
-
-	}
 }
 
 
