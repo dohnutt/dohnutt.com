@@ -64,7 +64,7 @@ body > .skip-link.screen-reader-text {
 }
 
 
-@import '_block-editor';
+//@import '_block-editor';
 
 
 header, footer {
@@ -119,27 +119,9 @@ header {
 	}
 }
 
-
-.wp-block-separator {
-	width: calc(var(--wp--style--global--content-size) - $gutter);
-	max-width: calc(100% - $gutter);
-	border-width: 0.2em 0 0 0;
-	border-style: dotted;
-	margin: var(--wp--preset--spacing--70) auto;
-	opacity: 0.25;
-}
-
 .wp-block-image {
 	figcaption {
 		text-align: inherit;
-	}
-}
-
-.wp-block-rss__item {
-	line-height: 1.4;
-
-	+ .wp-block-rss__item {
-		margin-top: 0.625em;
 	}
 }
 
