@@ -132,6 +132,11 @@
 			}
 		},
 		"blocks": {
+			"core/navigation": {
+				"spacing": {
+					"blockGap": "0.5rem 2rem"
+				}
+			},
 			"core/separator": {
 				"spacing": {
 					"margin": {

@@ -68,11 +68,6 @@ if ( ! function_exists( 'doh_theme_support' ) ) {
 		//add_image_size( 'feature', 800, 600, true );
 		add_image_size( 'medium-landscape', 600, 400, true );
 		add_image_size( 'opengraph', 1200, 630, true );
-
-		register_nav_menus( array(
-			'primary' => __('Primary Menu', 'doh'),
-			'footer' => __('Footer Menu', 'doh'),
-		) );
 		
 	}
 }
@@ -119,22 +114,6 @@ function doh_body_attrs( $classes ) {
 	echo 'data-scheme="' . $scheme . '"'; // hack-ish as hell
 
 	return $classes;
-}
-
-
-add_filter( 'nav_menu_link_attributes', 'doh_nav_menu_link_atts', 10, 3 );
-function doh_nav_menu_link_atts( $atts, $item, $args ) {
-	if ( ! isset($atts['class']) )
-		$atts['class'] = '';
-
-	if ( $args->theme_location === 'footer' ) {
-
-	} else {
-		$atts['class'] .= ' menu-item-link';
-
-	}
-
-	return $atts;
 }
 
 
