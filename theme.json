@@ -64,6 +64,18 @@
 			"wideSize": "1040px"
 		}
 	},
+	"templateParts": [
+		{
+			"name": "header",
+			"title": "Header",
+			"area": "header"
+		},
+		{
+			"name": "footer",
+			"title": "Footer",
+			"area": "footer"
+		}
+	],
 	"styles": {
 		"spacing": {
 			"blockGap": "2rem",
