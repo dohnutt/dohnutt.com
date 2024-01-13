@@ -143,16 +143,46 @@ header, footer {
 	}
 }
 
+@include media-breakpoint-down(sm) {
+	.has-small-font-size {
+		font-size: 0.8em !important;
+	}
+}
+
 @include media-breakpoint-down(xs) {
-	header > div {
-		display: flex;
-		justify-content: space-between;
-		align-items: middle;
-		flex-direction: row-reverse;	
+	// Stupid awful CSS overrides
+	header {
+		> div {
+			display: flex;
+			justify-content: space-between;
+			align-items: middle;
+			flex-direction: row-reverse;
+			gap: 1rem;
+		}
+
+		nav {
+			font-size: $font-size * 2;
+		}
+
+		.wp-block-doh-schemer {
+			.schemer-button {
+				padding-left: calc(1em + 2px);
+				padding-right: calc(1em + 2px);
+			}
+		}
 	}
 
-	header nav {
-		font-size: $font-size * 2;
+	body header > .is-layout-constrained {
+		> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+			margin-top: 0;
+			gap: 1rem;
+		}
+		> :where(.is-nowrap.is-content-justification-space-between:not(.alignleft):not(.alignright):not(.alignfull)) {
+			flex-grow: 1;
+		}
+		
 	}
 
 	.wp-block-site-logo {
